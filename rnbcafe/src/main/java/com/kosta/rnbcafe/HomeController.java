@@ -36,7 +36,7 @@ public class HomeController {
 		return "home";
 	}
 	
-	@RequestMapping("login")
+	@RequestMapping("/login")
 	public String signin() {
 		return "login";
 	}
