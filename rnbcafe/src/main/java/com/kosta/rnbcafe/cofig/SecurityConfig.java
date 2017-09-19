@@ -18,12 +18,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 
-/**
- * 
- * @author yookeun.kim
- *
- */
-@ComponentScan("com.seeroo.arserver")
+@ComponentScan("com.kosta.rnbcafe")
 @Configuration
 @EnableWebSecurity  //웹보안 설정 
 @EnableGlobalMethodSecurity(prePostEnabled=true)

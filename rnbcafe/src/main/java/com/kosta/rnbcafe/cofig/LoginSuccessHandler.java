@@ -13,8 +13,6 @@ import org.springframework.stereotype.Component;
 
 /**
  * 로그인 성공후에 작업을 진행하는 클래스 
- * @author yookeun.kim
- *
  */
 @Component
 public class LoginSuccessHandler implements AuthenticationSuccessHandler {
