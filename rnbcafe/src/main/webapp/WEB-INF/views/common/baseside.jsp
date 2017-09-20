@@ -17,9 +17,7 @@ $(document).ready(function() {
 	margin: 2px;
 	font-weight: bold;
 	text-align: left;
-	background-color: #FFB2D9;
-	#
-	F361A6;
+	background-color: #FFB2D9 #F361A6;
 }
 
 .board_name {
