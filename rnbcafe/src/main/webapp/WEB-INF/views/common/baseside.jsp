@@ -9,6 +9,9 @@ $(document).ready(function() {
 });
 </script>
 <style type="text/css">
+body {
+	margin: 10px auto;
+}
 
 .category_name {
 	padding: 5px 10px;
