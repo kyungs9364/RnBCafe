@@ -2,12 +2,12 @@
 	pageEncoding="UTF-8"%>
 
 <!-- 헤더 -->
-<%@ include file="/WEB-INF/views/common/header.jsp"%>
+<%@ include file="/WEB-INF/views/common/baseheader.jsp"%>
 <div class="container" style="margin-top: 70px">
 	<div class="row">
 <!-- 사이드바 -->
 		<div class="col-sm-3 sidenav">
-			<%@ include file="/WEB-INF/views/common/left.jsp"%>
+			<%@ include file="/WEB-INF/views/common/baseside.jsp"%>
 		</div>
 <!-- 여기서부터 게시판 메인 꾸미기 -->
 
