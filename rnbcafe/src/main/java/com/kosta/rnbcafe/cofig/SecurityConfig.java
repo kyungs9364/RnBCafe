@@ -45,8 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	                .loginProcessingUrl("/login").failureUrl("/login?error=true").successHandler(loginSuccessHandler)
 	                .usernameParameter("username").passwordParameter("password").permitAll().and().logout().deleteCookies("remove")
 	                .invalidateHttpSession(true).logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-	                .logoutSuccessUrl("/");
-	                //.and().csrf().disable();
+	                .logoutSuccessUrl("/").and().csrf().disable();
 	    }
 
 	    /**
