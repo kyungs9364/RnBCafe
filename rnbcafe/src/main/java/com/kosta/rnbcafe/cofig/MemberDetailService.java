@@ -27,22 +27,15 @@ public class MemberDetailService implements UserDetailsService {
 		MemberDto memberDto = dao.select(username);
 		LoginUser user = null;
 		if (memberDto == null) {
-			l.info("##################null#######################");
-			//throw new UsernameNotFoundException("UsernameNotFound [" + username + "]");
-			memberDto = new MemberDto();
-			memberDto.setId("admin");
-			memberDto.setRole(4);
-			memberDto.setPwd("$2a$10$awfaVWMXqsSN8Q9BLEoQkea6GSSyo7qRjCGkY7ETgZJJdDJ3BxF1O");
-			user = createUser(memberDto);
-		} else {
-			user = createUser(memberDto);
+			throw new UsernameNotFoundException("UsernameNotFound [" + username + "]");
 		}
+		user = createUser(memberDto);
 		return  user;
 	}
 	
 	private LoginUser createUser(MemberDto memberDto) {
         LoginUser loginUser = new LoginUser(memberDto);
-        l.info("$$$$$$$$$$$$$$$$   "+ loginUser.toString());
+        l.info("LoginUser == "+ loginUser.toString());
         if (loginUser.getRole()== 4) {
             loginUser.setRoles(Arrays.asList("ROLE_ADMIN"));
         } else {
