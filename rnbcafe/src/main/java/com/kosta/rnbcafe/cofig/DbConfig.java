@@ -23,11 +23,11 @@ public class DbConfig {
 	public DataSource dataSource() throws Exception {
 		System.out.println(">>> dataSource call ==> db_url ::: " + dbUrl);
 		HikariDataSource ds = new HikariDataSource();
-		ds.setDriverClassName("oracle.jdbc.driver.OracleDriver");
-		ds.setJdbcUrl(dbUrl+"?useUnicode=true&characterEncoding=utf8");
+		ds.setDriverClassName("oracle.jdbc.OracleDriver");
+		ds.setJdbcUrl(dbUrl);
         ds.setUsername(dbUserName);
         ds.setPassword(dbPassword);
-        ds.setConnectionTestQuery("SELECT 1");
+        //ds.setConnectionTestQuery("SELECT 1");
         ds.setMaximumPoolSize(10);
         return ds;
 	}

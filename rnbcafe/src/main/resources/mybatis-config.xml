@@ -19,5 +19,6 @@
     <!-- Model 객체 Alias  -->
     <typeAliases>
         <!-- <typeAlias alias="userDto" type="com.seeroo.arserver.web.user.dto.UserDto"></typeAlias> -->
+        <typeAlias alias="memberDto" type="com.kosta.rnbcafe.member.dto.MemberDto"></typeAlias>
     </typeAliases>
 </configuration>

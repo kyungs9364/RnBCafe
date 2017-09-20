@@ -43,7 +43,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	    protected void configure(HttpSecurity http) throws  Exception {
 	        http.authorizeRequests().anyRequest().authenticated().and().formLogin().loginPage("/login")
 	                .loginProcessingUrl("/login").failureUrl("/login?error=true").successHandler(loginSuccessHandler)
-	                .usernameParameter("id").passwordParameter("pwd").permitAll().and().logout().deleteCookies("remove")
+	                .usernameParameter("username").passwordParameter("password").permitAll().and().logout().deleteCookies("remove")
 	                .invalidateHttpSession(true).logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
 	                .logoutSuccessUrl("/");
 	                //.and().csrf().disable();
