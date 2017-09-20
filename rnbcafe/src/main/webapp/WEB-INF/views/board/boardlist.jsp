@@ -4,6 +4,12 @@
 <!-- 헤더 -->
 <%@ include file="/WEB-INF/views/common/baseheader.jsp"%>
 
+<script type="text/javascript">
+	function insertBoard(){
+		location.href="${root}/board/insertboard";
+	}
+</script>
+
 <div class="container" style="margin-top: 70px">
 	<div class="col-sm-3 sidenav">
 		<!-- 사이드 -->
@@ -11,19 +17,12 @@
 	</div>
 
 	<div class="col-sm-9 main">
-		<!-- 			<div class="jumbotron" style=""> -->
-		<!-- 				<h3> -->
-		<!-- 					<i class="fa fa-quote-left"></i> &nbsp;자유게시판 <i -->
-		<!-- 						class="   fa fa-quote-right"></i> -->
-		<!-- 				</h3> -->
-		<!-- 			</div> -->
 		<h3>자유게시판</h3>
 
 		<button class="btn btn-default btn-sm" onclick="insertBoard();">
 			<span class="glyphicon glyphicon-pencil"></span> 글쓰기
 		</button>
 		<br> <br>
-		<!-- 			<div class="col-sm-10 col-sm-offset-2"> -->
 		<table class="table">
 			<tr>
 				<th>#</th>
@@ -32,29 +31,25 @@
 				<th>작성일</th>
 				<th>조회</th>
 			</tr>
-			<tr>
-				<th>3</th>
-				<td>행운은 반드시 아침에 찾아온다.</td>
-				<td>류상민</td>
-				<td>17.09.18</td>
-				<td>23</td>
-			</tr>
-			<tr>
-				<th>2</th>
-				<td>친구</td>
-				<td>류상민</td>
-				<td>17.09.13</td>
-				<td>37</td>
-			</tr>
-			<tr>
-				<th>1</th>
-				<td>경청</td>
-				<td>류상민</td>
-				<td>17.08.21</td>
-				<td>34</td>
-			</tr>
+			<c:choose>
+				<c:when test="${!empty list}">
+					<c:forEach items="${list}" var="dto">
+						<tr>
+							<td>${dto.bseq}</td>
+							<td>${dto.title}</td>
+							<td>${dto.id}</td>
+							<td>${dto.regdate}</td>
+							<td>${dto.hit}</td>
+						</tr>
+					</c:forEach>
+				</c:when>
+				<c:otherwise>
+					<tr>
+						<td colspan="5" style="color: red; text-align: center;"><b>작성된 글이 존재 하지 않습니다.</b></td>
+					</tr>
+				</c:otherwise>
+			</c:choose>
 		</table>
-		<!-- 			</div> -->
 	</div>
 </div>
 
