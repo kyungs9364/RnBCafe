@@ -7,6 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<table>
+		<tr>
+			<td>zzzzz</td>
+		</tr>
+	</table>
 </body>
 </html>
