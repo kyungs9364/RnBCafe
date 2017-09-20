@@ -10,6 +10,8 @@ import org.springframework.context.annotation.PropertySource;
 
 import com.zaxxer.hikari.HikariDataSource;
 
+import oracle.jdbc.pool.OracleDataSource;
+
 
 @Configuration
 public class DbConfig {
@@ -22,13 +24,18 @@ public class DbConfig {
 	@Primary
 	public DataSource dataSource() throws Exception {
 		System.out.println(">>> dataSource call ==> db_url ::: " + dbUrl);
-		HikariDataSource ds = new HikariDataSource();
-		ds.setDriverClassName("oracle.jdbc.OracleDriver");
-		ds.setJdbcUrl(dbUrl);
-        ds.setUsername(dbUserName);
-        ds.setPassword(dbPassword);
-        //ds.setConnectionTestQuery("SELECT 1");
-        ds.setMaximumPoolSize(10);
+		OracleDataSource ds = new OracleDataSource();
+		ds.setURL(dbUrl);
+		ds.setUser(dbUserName);
+		ds.setPassword(dbPassword);
+		
+//		HikariDataSource ds = new HikariDataSource();
+//		ds.setDriverClassName("oracle.jdbc.OracleDriver");
+//		ds.setJdbcUrl(dbUrl);
+//        ds.setUsername(dbUserName);
+//        ds.setPassword(dbPassword);
+//        ds.setConnectionTestQuery("SELECT 1 FROM DUAL");
+//        ds.setMaximumPoolSize(10);
         return ds;
 	}
 }
