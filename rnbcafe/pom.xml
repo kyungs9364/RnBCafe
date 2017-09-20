@@ -148,7 +148,14 @@
 		    <groupId>org.apache.commons</groupId>
 		    <artifactId>commons-dbcp2</artifactId>
 		    <version>2.1.1</version>
-		</dependency>	
+		</dependency>
+		
+<!-- 		<dependency>
+		    <groupId>com.oracle</groupId>
+		    <artifactId>ojdbc6</artifactId>
+		    <version>11.1.0.7.0</version>
+		    <scope>test</scope>
+		</dependency> -->
 		
 		<!-- MyBatis  -->
 	    <dependency>
@@ -242,6 +249,15 @@
 	    </dependency>
 		
 	</dependencies>
+	
+<!-- 	<repositories>
+		<repository>
+			<id>oracle</id>
+			<name>ORACLE JDBC Repository</name>
+			<url>https://maven.atlassian.com/3rdparty/</url>
+		</repository>
+	</repositories> -->
+	
     <build>
         <plugins>
             <plugin>
@@ -263,8 +279,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.5.1</version>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                     <compilerArgument>-Xlint:all</compilerArgument>
                     <showWarnings>true</showWarnings>
                     <showDeprecation>true</showDeprecation>
