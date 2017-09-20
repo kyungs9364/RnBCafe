@@ -1,5 +1,12 @@
 package com.kosta.rnbcafe.admin.dto;
 
-public class BoardTypeDto {
+import lombok.Data;
 
+@Data
+public class BoardTypeDto {
+	
+	private int btype;
+	private String name;
+	private int state;
+	
 }
