@@ -8,9 +8,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class BoardController {
 	
 	@RequestMapping(value="boardlist")
-	public String boardlist() {
+	public String boardList() {
 			
 		return "board/boardlist";
+	}
+	
+	@RequestMapping(value="insertboard")
+	public String insertBoard() {
+		
+		return "board/insertboard";
 	}
 
 }
