@@ -1,15 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!-- 헤더 -->
-<%@ include file="/WEB-INF/views/common/header.jsp"%>
-
-<div class="container" style="margin-top: 70px">
-	<div class="row">
-		<!-- 사이드바 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>RNB</title>
+<style type="text/css">
+body {
+	margin: 10px auto;
+}
+</style>
+</head>
+<body>
+	<header>
+		<!-- 헤더 -->
+		<%@ include file="/WEB-INF/views/common/baseheader.jsp"%>
+	</header>
+	<div class="container">
 		<div class="col-sm-3 sidenav">
-			<%@ include file="/WEB-INF/views/common/left.jsp"%>
+		<!-- 사이드 -->
+			<%@ include file="/WEB-INF/views/common/baseside.jsp"%>
 		</div>
-		<!-- 여기서부터 게시판 메인 꾸미기 -->
 
 		<div class="col-sm-9 main">
 			<!-- 			<div class="jumbotron" style=""> -->
@@ -23,8 +34,7 @@
 			<button class="btn btn-default btn-sm">
 				<span class="glyphicon glyphicon-pencil"></span> 글쓰기
 			</button>
-			<br>
-			<br>
+			<br> <br>
 			<!-- 			<div class="col-sm-10 col-sm-offset-2"> -->
 			<table class="table">
 				<tr>
@@ -58,11 +68,7 @@
 			</table>
 			<!-- 			</div> -->
 		</div>
-
-		<!-- 여기까지가 우리가 꾸밀부분 -->
-		<!-- 푸터 -->
-
 	</div>
-</div>
+
 </body>
 </html>

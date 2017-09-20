@@ -5,6 +5,9 @@
 	<title>Home</title>
 </head>
 <body>
-	<jsp:forward page="/board/boardlist"></jsp:forward>
+	<div align="center">
+		<a href="board/boardlist">게시판보기</a>
+	</div>
+	
 </body>
 </html>
