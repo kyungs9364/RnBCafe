@@ -26,4 +26,10 @@ public class BoardServiceImpl implements BoardService {
 		return dao.boardList();
 	}
 
+	@Override
+	public BoardDto boradview(int bseq) {
+		// TODO Auto-generated method stub
+		return dao.boradview(bseq);
+	}
+
 }
