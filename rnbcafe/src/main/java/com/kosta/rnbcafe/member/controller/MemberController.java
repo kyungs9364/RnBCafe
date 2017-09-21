@@ -7,7 +7,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import com.kosta.rnbcafe.cofig.MemberDetailService;
 import com.kosta.rnbcafe.member.dto.MemberDto;
 import com.kosta.rnbcafe.member.service.MemberService;
 import com.kosta.rnbcafe.util.Result;
@@ -17,16 +16,16 @@ import com.kosta.rnbcafe.util.Result;
 public class MemberController {
 	private static final Logger l = LoggerFactory.getLogger(MemberController.class);
 	
-	Result result = new Result();
+	Result result = new Result();	
 	@Autowired
-	protected MemberService service;
+	private MemberService service;
 
-	@RequestMapping(value="join")
+	@RequestMapping("join")
 	public String test() {
 		return "member/join";
 	}
 	
-	@RequestMapping(value="insert")
+	@RequestMapping("insertMember")
 	@ResponseBody
 	public Result insertMember(@ModelAttribute MemberDto memberDto) {
 		BCryptPasswordEncoder bcr = new BCryptPasswordEncoder();

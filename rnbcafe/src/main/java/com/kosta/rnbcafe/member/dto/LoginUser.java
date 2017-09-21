@@ -24,13 +24,23 @@ public class LoginUser implements UserDetails  {
 	
 	private String id;
 	private String pwd;
-	private List<String> roles;
+	private String name;
+	private int gender;
+	private String birth;
+	private String phone;
 	private int role;
+	private String regate;
+	private List<String> roles;
 	
     public LoginUser(MemberDto memberDto){
     	this.id = memberDto.getId();
     	this.pwd = memberDto.getPwd();
+    	this.name = memberDto.getName();
+    	this.gender = memberDto.getGender();
+    	this.birth = memberDto.getBirth();
+    	this.phone = memberDto.getPhone();
     	this.role = memberDto.getRole();
+    	this.regate = memberDto.getRegdate();
     }
 
 	
