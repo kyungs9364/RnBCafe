@@ -7,17 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login</title>
-    <!-- Latest compiled and minified CSS -->
-    <!-- Latest compiled and minified JavaScript -->
-    <!-- <link rel="stylesheet" type="text/css" media="screen" href="resources/lib/bootstrap/3.3.6/dist/css/bootstrap.min.css"/>
-    <script src="resources/lib/jquery/jquery-2.2.4.js"></script>
-    <script src="resources/lib/bootstrap/3.3.6/dist/js/bootstrap.min.js"></script> -->
-    <link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 </head>
 <body>
@@ -79,32 +73,36 @@
 								<div class="form-inline">
 									<label for="id" class="col-xs-2 col-form-label">ID</label>
 									<input class="form-control" type="text" id="id" name="id">
-								</div>
+								</div><br>
 								<div class="form-inline">
 									<label class="col-xs-2 col-form-label">비밀번호</label>
-									<input class="form-control" type="text" id="pwd" name="pwd">
-								</div>
+									<input class="form-control" type="password" id="pwd" name="pwd">
+								</div><br>
 								<div class="form-inline">
-									<label class="col-xs-2 col-form-label">비밀번호 확인</label>
-									<input class="form-control" type="text" id="pwdcheck" name="pwdcheck">
-								</div>
+									<label class="col-xs-2 col-form-label">비밀번호확인</label>
+									<input class="form-control" type="password" id="pwdcheck" name="pwdcheck">
+								</div><br>
 								<div class="form-inline">
 									<label class="col-xs-2 col-form-label">이름</label>
-									<
 									<input class="form-control" type="text" id="name" name="name">
-								</div>
+								</div><br>
 								<div class="form-inline">
 									<label class="col-xs-2 col-form-label">성별</label>
-									<input class="form-control" type="text" id="gender" name="gender">
-								</div>
+									<label class="radio-inline ">
+									  <input type="radio" name="gender" id="gender1" value="1"> 남성
+									</label>
+									<label class="radio-inline ">
+									  <input type="radio" name="gender" id="gender2" value="2"> 여성
+									</label>
+								</div><br>
 								<div class="form-inline">
 									<label class="col-xs-2 col-form-label">생일</label>
 									<input class="form-control" type="text" id="birth" name="birth">
-								</div>
+								</div><br>
 								<div class="form-inline">
 									<label class="col-xs-2 col-form-label">전화번호</label>
 									<input class="form-control" type="text" id="phone" name="phone">
-								</div>
+								</div><br>
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 							</form>
 						</div>
@@ -121,6 +119,9 @@
 </div><!-- /#myModal -->
 
 <script type="text/javascript">
+$(function() {
+	$( "#birth" ).datepicker();
+});
 $('#join').click(function() {
 	$('#myModalLabel').text('회원가입');
 	$('#myModal').appendTo("body").modal('show');
@@ -142,6 +143,11 @@ $('#add').click(function(e) {
 		$('#pwdcheck').focus();
 		return;
 	}
+	if ($.trim($('#pwdcheck').val()) !=  $.trim($('#pwd').val())) {
+		alert('비밀번호가 일치하지않습니다.');
+		$('#pwdcheck').focus();
+		return;
+	}
 	if ($.trim($('#name').val()).length < 1) {
 		alert('이름을 입력해 주세요');
 		$('#name').focus();
@@ -153,24 +159,16 @@ $('#add').click(function(e) {
 		return;
 	}
 	
-	if ($.trim($('#bundle').val()).length < 1) {
-		alert('bundle 파일을 등록해 주세요');
-		$('#bundle').focus();
-		return;
-	}
-	
 	$.ajax({
 		url: "/rnbcafe/member/insertMember",
 		type: "POST",
-		/* headers: headers, */
 		data: new FormData($('#frmMng')[0]),
 		contentType: false,
 	    processData: false,
 		success: function(data) {
-			console.log(data);
 			if (data.success == true) {
         		alert("등록 되었습니다.");
-	        	location.href = "/";
+	        	location.href = "/rnbcafe";
         	} else {
         		alert("등록에 실패 하였습니다.\n" + data);
         	}

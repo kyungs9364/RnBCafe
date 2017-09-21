@@ -49,7 +49,8 @@ body {
 </style>
 
 <div>
-여기에 내정보 넣기
+	${user.name }<br>
+	${user.role }<br>
 </div>
 
 <div class="list-group" id="boardmenu">

@@ -6,12 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>멤버 등록</title>
- <link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>		
 </head>
 <body>
 <div id="page-wrapper">
@@ -42,8 +41,14 @@
 							<input class="form-control" type="text"	id="name" name="name">
 						</div>
 						<div class="form-inline">
-							<label class="col-xs-2 col-form-label">성별</label>
-							<input class="form-control" type="text"	id="gender" name="gender">
+							<label class=" col-xs-2 col-form-label">성별</label>
+							<!-- <input class="form-control" type="text" id="gender" name="gender"> -->
+							<label class="radio-inline form-control">
+							  <input type="radio" name="gender" id="gender1" value="1"> 남성
+							</label>
+							<label class="radio-inline form-control">
+							  <input type="radio" name="gender" id="gender2" value="2"> 여성
+							</label>
 						</div>
 						<div class="form-inline">
 							<label class="col-xs-2 col-form-label">생일</label>
@@ -70,6 +75,12 @@
 	<!-- /.row -->
 	
 	<script>
+	$( function() {
+		$( "#birth" ).datepicker();
+		/* $( "#birth" ).datepicker({
+			  altFormat: "yy.mm.dd"
+		}); */
+	} );
 		$('#add').click(function(e) {
 			/* if ($.trim($('#name').val()).length < 1) {
 				alert('이름을 입력해 주세요');
