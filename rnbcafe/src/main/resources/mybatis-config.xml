@@ -13,6 +13,7 @@
         <setting name="useColumnLabel" value="true" />
         <setting name="safeRowBoundsEnabled" value="false" />
         <setting name="mapUnderscoreToCamelCase" value="true" />
+        <setting name="jdbcTypeForNull" value="NULL"/>
     </settings>
 
 

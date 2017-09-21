@@ -3,14 +3,24 @@
 <mapper namespace="boardMapper">
 
 	<select id="boardList" resultType="boardDto">
-		SELECT *
-		FROM BOARD
-		ORDER BY REGDATE DESC
+		SELECT B.BSEQ, B.BCODE, B.ID, B.TITLE, B.CONTENT
+     		 , B.IMG, B.HIT, B.REGDATE, B.NOTICE, M.NAME
+		FROM BOARD B JOIN MEMBER M
+		ON B.ID = M.ID
+		ORDER BY B.REGDATE DESC
 	</select>
 
 	<insert id="insertBoard" parameterType="boardDto">
 		INSERT INTO BOARD
 		VALUE(BSEQ, BCODE, ID, TITLE, CONTENT, IMG, HIT, REGDATE)
-		VALUES(BOARD_SEQ.NEXTVAL ,2,'admin',#{title},#{content},'img',0, SYSDATE)
+		VALUES(BOARD_SEQ.NEXTVAL ,2,#{id},#{title},#{content},#{img},0, SYSDATE)
 	</insert>
+	
+	<select id="boradview" parameterType="int" resultType="boardDto">
+		SELECT B.BSEQ, B.BCODE, B.ID, B.TITLE, B.CONTENT
+     		 , B.IMG, B.HIT, B.REGDATE, B.NOTICE, M.NAME
+		FROM BOARD B JOIN MEMBER M
+		ON B.ID = M.ID
+		WHERE B.BSEQ = #{bseq}
+	</select>
 </mapper>
