@@ -17,9 +17,19 @@ public class CategoryDao {
 	public List<BoardListDto> boardList() {
 		return sqlSession.selectList("adminMapper.boardList");
 	}
-//	List<CategoryDto> categoryList();
-//	void categoryMake(String cname);
-//	List<BoardTypeDto> boardTypeList();
-//	void boardMake(BoardListDto boardListDto);
+	public List<CategoryDto> categoryList() {
+		return sqlSession.selectList("adminMapper.categoryList");
+	}
+
+	public List<BoardTypeDto> boardTypeList() {
+		return sqlSession.selectList("adminMapper.boardTypeList");
+	}
+	
+	public void categoryMake(String cname) {
+		sqlSession.insert("adminMapper.categoryMake", cname);
+	}
+	public void boardMake(BoardListDto boardListDto) {
+		sqlSession.insert("adminMapper.boardMake", boardListDto);
+	}
 	
 }
