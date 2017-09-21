@@ -23,4 +23,9 @@ public class BoardDao {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList("boardMapper.boardList");
 	}
+	
+	public BoardDto boradview(int bseq) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("boardMapper.boradview", bseq);
+	}
 }
