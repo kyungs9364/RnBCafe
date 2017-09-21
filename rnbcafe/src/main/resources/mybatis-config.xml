@@ -22,6 +22,11 @@
         <!-- <typeAlias alias="userDto" type="com.seeroo.arserver.web.user.dto.UserDto"></typeAlias> -->
         <typeAlias alias="memberDto" type="com.kosta.rnbcafe.member.dto.MemberDto"></typeAlias>
         <typeAlias alias="boardDto" type="com.kosta.rnbcafe.board.dto.BoardDto"></typeAlias>
+        
+        <!-- 지은 -->
         <typeAlias alias="boardListDto" type="com.kosta.rnbcafe.admin.dto.BoardListDto"></typeAlias>
+        <typeAlias alias="boardTypeDto" type="com.kosta.rnbcafe.admin.dto.BoardTypeDto"></typeAlias>
+        <typeAlias alias="categoryDto" type="com.kosta.rnbcafe.admin.dto.CategoryDto"></typeAlias>
+        
     </typeAliases>
 </configuration>

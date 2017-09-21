@@ -2,12 +2,61 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="adminMapper">
 
+<!-- 카테고리 -->
 	<select id="boardList" resultType="boardListDto">
         select bl.bcode, c.name cname, bl.name bname, bl.btype, bl.ccode,
         decode(bl.btype, 0, 'board',
-        'board') control
+        'oneboard') control
         from board_list bl, category c
         where bl.ccode = c.ccode 
+        order by ccode, bcode
     </select>
+    
+    <select id="categoryList" resultType="categoryDto">
+        select ccode, name
+        from category
+        order by ccode
+    </select>
+    
+    <select id="boardTypeList" resultType="boardTypeDto">
+        select btype, name
+        from board_type
+        order by btype
+    </select>
+    
+    <insert id="categoryMake" parameterType="String">
+        insert into category (ccode, name, state)
+        values (category_seq.nextval, #{name}, 1)
+    </insert>
+    
+    <insert id="boardMake" parameterType="boardListDto">
+        insert into board_list (bcode, name, ccode, btype, role, state)
+        values (board_list_seq.nextval, #{bname}, #{ccode}, #{btype}, 0, 1)
+    </insert>
+    
+<!-- 한줄게시판 -->
+    <insert id="writeOne" parameterType="boardDto">
+        insert into board (bseq, bcode, id, title, regdate, notice)
+        values (board_seq.nextval, #{bcode}, #{id}, #{title}, sysdate, 0)
+    </insert>
+    
+    <select id="listOne" parameterType="int" resultType="boardDto">
+        select bseq, bcode, id, title, regdate
+        from board
+        where bcode = #{bcode}
+        order by regdate
+    </select>
+    
+    <update id="modifyOne" parameterType="boardDto">
+        update board
+        set title = #{title}
+        where bseq = #{bseq}
+    </update>
+    
+    <delete id="deleteOne" parameterType="int">
+        delete board
+        where bseq = #{bseq}
+    </delete>
+
     
 </mapper>
