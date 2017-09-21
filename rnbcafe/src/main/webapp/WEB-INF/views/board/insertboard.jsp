@@ -29,6 +29,7 @@ function backList(){
 
 	<div class="col-sm-9 main">
 	<form action="${root}/board/insertboard" method="post">
+		<input type="hidden" name="id" value="${user.id}">
 		<div><input class="form-control" type="text" placeholder="제목을 입력해주세요" name="title"><br></div>
 		<div>
 			<textarea class="form-control summernote" id="content" name="content"></textarea>

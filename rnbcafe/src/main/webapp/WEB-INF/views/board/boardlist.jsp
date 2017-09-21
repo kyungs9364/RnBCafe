@@ -19,7 +19,7 @@
 	<div class="col-sm-9 main">
 		<h3>자유게시판</h3>
 
-		<button class="btn btn-default btn-sm" onclick="insertBoard();">
+		<button class="btn btn-default btn-xs" onclick="insertBoard();">
 			<span class="glyphicon glyphicon-pencil"></span> 글쓰기
 		</button>
 		<br> <br>
@@ -36,8 +36,8 @@
 					<c:forEach items="${list}" var="dto">
 						<tr>
 							<td>${dto.bseq}</td>
-							<td>${dto.title}</td>
-							<td>${dto.id}</td>
+							<td><a href="${root}/board/boardview?bseq=${dto.bseq}">${dto.title}</a></td>
+							<td>${dto.name}</td>
 							<td>${dto.regdate}</td>
 							<td>${dto.hit}</td>
 						</tr>
@@ -49,7 +49,22 @@
 					</tr>
 				</c:otherwise>
 			</c:choose>
-		</table>
+		</table><br>
+			<button class="btn btn-default btn-xs" onclick="insertBoard();">
+				<span class="glyphicon glyphicon-pencil"></span> 글쓰기
+			</button>
+			<div style="text-align: center;">
+				<span>페이징부분</span>
+			</div>
+			<br><br>
+			<div>
+				<select name="key" style="height: 27px;">
+					<option>아이디</option>
+					<option>제목</option>
+				</select>
+				<input type="text" name="word" style="vertical-align: top;"/>
+				<input class="btn btn-primary btn-sm" type="button" name="search" value="검색"/>
+			</div>
 	</div>
 </div>
 
