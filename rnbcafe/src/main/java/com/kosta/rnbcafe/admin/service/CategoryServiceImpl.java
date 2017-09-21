@@ -22,26 +22,22 @@ public class CategoryServiceImpl implements CategoryService {
 
 	@Override
 	public List<CategoryDto> categoryList() {
-		// TODO Auto-generated method stub
-		return null;
+		return categoryDao.categoryList();
 	}
 
 	@Override
 	public void categoryMake(String cname) {
-		// TODO Auto-generated method stub
-		
+		categoryDao.categoryMake(cname);
 	}
 
 	@Override
 	public List<BoardTypeDto> boardTypeList() {
-		// TODO Auto-generated method stub
-		return null;
+		return categoryDao.boardTypeList();
 	}
 
 	@Override
 	public void boardMake(BoardListDto boardListDto) {
-		// TODO Auto-generated method stub
-		
+		categoryDao.boardMake(boardListDto);
 	}
 
 }
