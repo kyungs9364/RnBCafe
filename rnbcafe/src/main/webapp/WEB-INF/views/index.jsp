@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- 헤더 -->
 <%@ include file="/WEB-INF/views/common/baseheader.jsp"%>
 
@@ -13,7 +14,10 @@
 	<div class="col-sm-9 main">
 		<a href="board/boardlist">게시판보기</a>
 	</div>
+	${user.name }<br>
+	${user.id }<br>
 </div>
+
 
 </body>
 </html> 

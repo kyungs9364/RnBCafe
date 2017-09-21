@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>멤버 등록</title>
  <link rel="stylesheet"
 		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script
@@ -53,6 +53,7 @@
 							<label class="col-xs-2 col-form-label">전화번호</label>
 							<input class="form-control" type="text"	id="phone" name="phone">
 						</div>
+						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 					</form>
 				</div>
 				<div class="panel-footer">
@@ -89,13 +90,14 @@
 			} */
 			
 			$.ajax({
-				url: "/rnbcafe/member/add",
+				url: "/rnbcafe/member/insertMember",
 				type: "POST",
-				headers: headers,
+				/* headers: headers, */
 				data: new FormData($('#frmMng')[0]),
 				contentType: false,
 			    processData: false,
 				success: function(data) {
+					console.log(data);
 					if (data.success == true) {
 		        		alert("등록 되었습니다.");
 			        	location.href = "/";
@@ -104,6 +106,7 @@
 		        	}
 				},
 				error: function(request, status, error) {
+					console.log($('#frmMng')[0].value);
 					alert("등록에 실패 하였습니다.\n" + request.status +"\n" +error);
 				}
 			});
