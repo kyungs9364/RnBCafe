@@ -16,5 +16,6 @@ public class BoardDto {
 	private int hit;
 	private Date regdate;
 	private int notice;
+	private String name;
 
 }
