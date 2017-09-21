@@ -66,8 +66,13 @@ body {
          <div class="board_name">
       </c:if>
       <c:if test="${boardListDto.btype == 0}">
-         <a href="${root}/${boardListDto.control}/boardlist?bcode=${boardListDto.bcode}&pg=1&key=&word=">
+         <a href="${root}/${boardListDto.control}/boardset?bcode=${boardListDto.bcode}&pg=1&key=&word=">
             <span class="glyphicon glyphicon-comment"> ${boardListDto.bname}</span>
+         </a>
+      </c:if>
+      <c:if test="${boardListDto.btype == 1}">
+         <a href="${root}/${boardListDto.control}/list?bcode=${boardListDto.bcode}&pg=1&key=&word=">
+            <span class="glyphicon glyphicon-pencil"> ${boardListDto.bname}</span>
          </a>
       </c:if>
       <c:if test="${i.index < boardmenu.size() -1 }">
@@ -78,3 +83,4 @@ body {
 	</c:forEach>
 </div>
 </div>
+
