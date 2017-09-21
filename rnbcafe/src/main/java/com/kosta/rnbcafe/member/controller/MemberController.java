@@ -16,7 +16,6 @@ import com.kosta.rnbcafe.util.Result;
 public class MemberController {
 	private static final Logger l = LoggerFactory.getLogger(MemberController.class);
 	
-	Result result = new Result();	
 	@Autowired
 	private MemberService service;
 
@@ -28,15 +27,16 @@ public class MemberController {
 	@RequestMapping("insertMember")
 	@ResponseBody
 	public Result insertMember(@ModelAttribute MemberDto memberDto) {
+		Result result = new Result();
+		l.info("####### insertMember  ==  "+memberDto.toString());
 		BCryptPasswordEncoder bcr = new BCryptPasswordEncoder();
 		memberDto.setPwd(bcr.encode(memberDto.getPwd()));
 		int cnt = service.insertMember(memberDto);
-		if (cnt != 1) {
+		if (cnt == 1) {
 			result.setSuccess(true);
 		} else {
 			result.setSuccess(false);
 		}
-		
 		return result;
 	}
 	
