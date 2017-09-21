@@ -1,5 +1,7 @@
 package com.kosta.rnbcafe;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
@@ -23,11 +25,11 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView home(Authentication authentication, Model md) {
+	public ModelAndView home(Authentication authentication, HttpSession session) {
 		ModelAndView mv = new ModelAndView("index");
 		LoginUser user = (LoginUser) authentication.getPrincipal();
 		l.info(user.toString());
-		md.addAttribute("user", user);
+		session.setAttribute("user", user);
 		return mv;
 	}
 	
