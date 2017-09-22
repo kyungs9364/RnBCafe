@@ -42,7 +42,7 @@
 		WHERE BSEQ = #{bseq}
 	</update>
 	
-	<insert id="insertMemo" parameterType="MemoDto">
+	<insert id="insertMemo" parameterType="memoDto">
 		INSERT INTO MEMO
 		VALUES(MEMO_SEQ.NEXTVAL, #{bseq}, #{id}, #{content}, SYSDATE)
 	</insert>
@@ -53,5 +53,15 @@
 		ON ME.ID = M.ID
 		WHERE ME.BSEQ = #{bseq}
 		ORDER BY ME.REGDATE DESC
+	</select>
+	
+	<select id="topMemo" parameterType="int" resultType="memoDto">
+		SELECT *
+		FROM (SELECT ME.MSEQ, ME.BSEQ, ME.ID, ME.CONTENT, ME.REGDATE, M.NAME
+     	FROM MEMO ME JOIN MEMBER M
+     	ON ME.ID = M.ID
+    	WHERE ME.BSEQ = #{bseq}
+    	ORDER BY ME.REGDATE DESC)
+		WHERE ROWNUM = 1
 	</select>
 </mapper>

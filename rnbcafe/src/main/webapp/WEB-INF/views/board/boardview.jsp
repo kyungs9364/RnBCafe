@@ -18,7 +18,24 @@
 				$("#memoDiv").fadeOut(300);
 				$("#memospan").attr('class','glyphicon glyphicon-chevron-down');
 			}
-
+		});
+		
+		$("#btn").click(function(){
+			var formdata = new FormData($('#frm')[0]);
+			
+			$.ajax({
+	 			type: "POST",
+	 			url: "${root}/board/insertmemo",
+	 			data: formdata,
+	 			async:false,
+	 			contentType: false,
+	 	        processData: false,
+	 			success:function(data){
+	 				if(data.success == true) {
+	 					commentLoad(data.object);
+	 				}
+	 			}
+	 		});
 		});
 	});
 
@@ -35,6 +52,39 @@
 	function backBoard(){
 		location.href = "${root}/board/boardlist";
 	}
+	
+	function updateMemo() {
+		alert(1);
+	}
+	function deleteMemo() {
+		alert(2);
+	}
+	
+	function commentLoad(dto){
+		
+// 		$("#content").text = "";
+		
+		$("#memotable").prepend(
+				"<tr>"
+				+"<td style='border-top: none; font-size: 8pt; font-weight: bold;'>"+dto.name +"</td>"
+				+"<td style='border-top: none; font-size: 8pt; font-weight: bold; color: yellow;'>"
+				+"New!"
+				+"</td>"
+				+"<td style='border-top: none; font-size: 8pt; font-weight: bold; text-align: right;'>"
+				+"<a href='javascript:updateMemo("+dto.mseq+");'>수정</a> / <a href='javascript:deleteMemo("+dto.mseq+");'>삭제</a>"
+				+"</td>"
+				+"</tr>"
+				+"<tr>"
+				+"<td colspan='3'><div id='comment'>"+dto.content+"</div></td>"
+				+"</tr>"
+				+"<tr>"
+				+"<td height='20px;'></td>"
+				+"</tr>"
+			);
+	
+	}
+
+	
 </script>
 
 <div class="container" style="margin-top: 70px">
@@ -72,19 +122,19 @@
 		<span id="memo" style="cursor: pointer;">
 			<b>댓글 작성&nbsp;</b> <span id="memospan" class="glyphicon glyphicon-chevron-down"></span>
 		</span><br><br>
-		<form action="${root}/board/insertmemo">
+		<form id="frm" name="frm" method="post">
 			<input type="hidden" name="bseq" value="${dto.bseq}">
 			<input type="hidden" name="id" value="${user.id}">
 			<div id="memoDiv">
-				<span style="color:purple; font-size: 8pt"><b>작성자 : ${dto.name}</b></span><br>
-				<textarea rows="5" cols="95" name="content" placeholder="인터넷은 우리가 함께 만들어가는 소중한 공간입니다.
-댓글 작성 시 타인에 대한 배려와  책임을 담아주세요."></textarea>
-				<input class="btn btn-default btn" type="submit" value="등록" style="vertical-align: top; margin-top: 72px; margin-left: 5px;">
+				<span style="color:purple; font-size: 8pt"><b>작성자 : ${user.name}</b></span><br>
+				<textarea rows="5" cols="95" id="content" name="content" placeholder="인터넷은 우리가 함께 만들어가는 소중한 공간입니다.
+댓글 작성 시 타인에 대한 배려와  책임을 담아주세요." maxlength="500"></textarea>
+				<input id="btn" class="btn btn-default btn" type="button" value="등록" style="vertical-align: top; margin-top: 72px; margin-left: 5px;">
 			</div>
 		</form><br>
 		
 		<div>
-			<table class="table">
+			<table class="table" id="memotable">
 			<c:if test="${!empty mlist}">
 				<c:forEach items="${mlist}" var="dto">
 					<tr>
@@ -93,11 +143,11 @@
 						<fmt:formatDate value="${dto.regdate}" pattern="yy.MM.dd hh:mm"/>
 						</td>
 						<td style="border-top: none; font-size: 8pt; font-weight: bold; text-align: right;">
-						<a>수정</a> / <a>삭제</a>
+						<a href="javascript:updateMemo(${dto.mseq});">수정</a> / <a href="javascript:deleteMemo(${dto.mseq});">삭제</a>
 						</td>
 					</tr>
 					<tr>
-						<td colspan="4"><div id="comment">${dto.content}</div></td>
+						<td colspan="3"><div id="comment">${dto.content}</div></td>
 					</tr>
 					<tr>
 						<td height="20px;"></td>

@@ -26,4 +26,10 @@ public class MemoServiceImpl implements MemoService {
 		return dao.memoList(bseq);
 	}
 
+	@Override
+	public MemoDto topMemo(int bseq) {
+		// TODO Auto-generated method stub
+		return dao.topMemo(bseq);
+	}
+
 }

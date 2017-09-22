@@ -7,8 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import com.kosta.rnbcafe.board.BoardSet;
 import com.kosta.rnbcafe.board.dto.BoardDto;
@@ -16,6 +15,7 @@ import com.kosta.rnbcafe.board.dto.MemoDto;
 import com.kosta.rnbcafe.board.service.BoardServiceImpl;
 import com.kosta.rnbcafe.board.service.MemoServiceImpl;
 import com.kosta.rnbcafe.member.dto.MemberDto;
+import com.kosta.rnbcafe.util.Result;
 
 @Controller
 @RequestMapping(value="/board/")
@@ -97,14 +97,23 @@ public class BoardController {
 		return "redirect:/board/boardlist";
 	}
 	
+	@ResponseBody
 	@RequestMapping(value="insertmemo")
-	public String insertMemo(MemoDto dto) {
-		int cnt = mservice.insertMemo(dto);
-		if(cnt == 0) {
-			return "common/err";
+	public Result insertMemo(MemoDto dto) {
+		
+		Result result = new Result();
+		try {
+			int cnt = mservice.insertMemo(dto);
+			if (cnt !=0) {
+				MemoDto topDto = mservice.topMemo(dto.getBseq());
+				result.setSuccess(true);
+				result.setObject(topDto);				
+			} 
+		} catch (Exception e) {
+			result.setSuccess(false);
 		}
 		
-		return "redirect:/board/boardview?bseq="+dto.getBseq();
+		return result;
 	}
 	
 }
