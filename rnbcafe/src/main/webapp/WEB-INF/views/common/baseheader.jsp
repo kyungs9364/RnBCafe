@@ -17,7 +17,7 @@
 		#memoDiv {
 			width: 825px;
 			height: 200px;
-			padding-top: 50px;
+			padding-top: 35px;
 			padding-left: 33px;
 			background-color: #F7F7F7;
 			border: 1px solid #E5E5E5;
