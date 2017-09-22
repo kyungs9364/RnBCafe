@@ -41,4 +41,17 @@
 		SET TITLE = #{title}, CONTENT = #{content}, REGDATE = SYSDATE
 		WHERE BSEQ = #{bseq}
 	</update>
+	
+	<insert id="insertMemo" parameterType="MemoDto">
+		INSERT INTO MEMO
+		VALUES(MEMO_SEQ.NEXTVAL, #{bseq}, #{id}, #{content}, SYSDATE)
+	</insert>
+	
+	<select id="memoList" parameterType="int" resultType="memoDto">
+		SELECT ME.MSEQ, ME.BSEQ, ME.ID, ME.CONTENT, ME.REGDATE, M.NAME
+		FROM MEMO ME JOIN MEMBER M
+		ON ME.ID = M.ID
+		WHERE ME.BSEQ = #{bseq}
+		ORDER BY ME.REGDATE DESC
+	</select>
 </mapper>

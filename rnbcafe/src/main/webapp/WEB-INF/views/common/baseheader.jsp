@@ -22,6 +22,13 @@
 			background-color: #F7F7F7;
 			border: 1px solid #E5E5E5;
 		}
+		
+		#comment {
+			width: 825px;
+			padding:20px;
+			background-color: #F7F7F7;
+			border: 1px solid #E5E5E5;
+		}
 	</style>
 </head>
 

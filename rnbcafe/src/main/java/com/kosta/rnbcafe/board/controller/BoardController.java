@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.kosta.rnbcafe.board.BoardSet;
 import com.kosta.rnbcafe.board.dto.BoardDto;
+import com.kosta.rnbcafe.board.dto.MemoDto;
 import com.kosta.rnbcafe.board.service.BoardServiceImpl;
 import com.kosta.rnbcafe.board.service.MemoServiceImpl;
 import com.kosta.rnbcafe.member.dto.MemberDto;
@@ -61,8 +62,10 @@ public class BoardController {
 	@RequestMapping(value="boardview")
 	public String boradview(Model model, int bseq) {
 		service.hit(bseq);
+		List<MemoDto> mlist =  mservice.memoList(bseq);
 		BoardDto dto = service.boradView(bseq);
 		model.addAttribute("dto", dto);
+		model.addAttribute("mlist", mlist);
 		
 		return "board/boardview";
 	}
@@ -93,4 +96,15 @@ public class BoardController {
 		}
 		return "redirect:/board/boardlist";
 	}
+	
+	@RequestMapping(value="insertmemo")
+	public String insertMemo(MemoDto dto) {
+		int cnt = mservice.insertMemo(dto);
+		if(cnt == 0) {
+			return "common/err";
+		}
+		
+		return "redirect:/board/boardview?bseq="+dto.getBseq();
+	}
+	
 }

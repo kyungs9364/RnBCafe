@@ -6,6 +6,22 @@
 <%@ include file="/WEB-INF/views/common/baseheader.jsp"%>
 
 <script type="text/javascript">
+	$(function(){
+		$("#memoDiv").hide();
+		
+		$("#memo").click(function(){
+			if($("#memospan").hasClass("glyphicon glyphicon-chevron-down")){
+				$("#memoDiv").fadeIn(300);
+				$("#memospan").attr('class','glyphicon glyphicon-chevron-up');
+			
+			} else {
+				$("#memoDiv").fadeOut(300);
+				$("#memospan").attr('class','glyphicon glyphicon-chevron-down');
+			}
+
+		});
+	});
+
 	function updateBoard(bseq){
 		location.href = "${root}/board/updateboard?bseq="+bseq;
 	}
@@ -53,6 +69,43 @@
 				<td></td>
 			</tr>
 		</table>
+		<span id="memo" style="cursor: pointer;">
+			<b>댓글 작성&nbsp;</b> <span id="memospan" class="glyphicon glyphicon-chevron-down"></span>
+		</span><br><br>
+		<form action="${root}/board/insertmemo">
+			<input type="hidden" name="bseq" value="${dto.bseq}">
+			<input type="hidden" name="id" value="${user.id}">
+			<div id="memoDiv">
+				<span style="color:purple; font-size: 8pt"><b>작성자 : ${dto.name}</b></span><br>
+				<textarea rows="5" cols="95" name="content" placeholder="인터넷은 우리가 함께 만들어가는 소중한 공간입니다.
+댓글 작성 시 타인에 대한 배려와  책임을 담아주세요."></textarea>
+				<input class="btn btn-default btn" type="submit" value="등록" style="vertical-align: top; margin-top: 72px; margin-left: 5px;">
+			</div>
+		</form><br>
+		
+		<div>
+			<table class="table">
+			<c:if test="${!empty mlist}">
+				<c:forEach items="${mlist}" var="dto">
+					<tr>
+						<td style="border-top: none; font-size: 8pt; font-weight: bold;">${dto.name}</td>
+						<td style="border-top: none; font-size: 8pt; font-weight: bold;">
+						<fmt:formatDate value="${dto.regdate}" pattern="yy.MM.dd hh:mm"/>
+						</td>
+						<td style="border-top: none; font-size: 8pt; font-weight: bold; text-align: right;">
+						<a>수정</a> / <a>삭제</a>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="4"><div id="comment">${dto.content}</div></td>
+					</tr>
+					<tr>
+						<td height="20px;"></td>
+					</tr>
+				</c:forEach>
+			</c:if>
+			</table>
+		</div>
 	</div>
 </div>
 
