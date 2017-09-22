@@ -21,13 +21,19 @@ public class OneController {
 	
 	@Autowired
 	private OneBoardService oneBoardService;
+	Result result = new Result();
+	
+	@RequestMapping("getoneboard")
+	private ModelAndView getOneBoard(String bcode) {
+		ModelAndView mv = new ModelAndView("admin/oneboard");
+		mv.addObject("bcode", bcode);
+		return mv;
+	}
 	
 	@RequestMapping("makeList")
 	@ResponseBody
 	private Result makeList(int bcode) {
-		Result result = new Result();
 		List<BoardDto> list = oneBoardService.listOne(bcode);
-		System.out.println(list.size());
 		result.setItems(list);
 //		JSONObject json = new JSONObject();
 //		JSONArray jarr = new JSONArray();
@@ -44,43 +50,60 @@ public class OneController {
 		return result;
 	}
 
-//	@RequestMapping(value="/write", method=RequestMethod.POST)
-//	public @ResponseBody String write(BoardDto boardDto, HttpSession session) {
-//		MemberDto memberDto = (MemberDto) session.getAttribute("user");
-//		boardDto.setUserId(usersDto.getUserId());
-//		boardDto.setName(usersDto.getName());
-//		memoService.writeMemo(memoDto);
-//      
-//		JSONObject json = makeList(memoDto.getSeq());
-//      
-//		return json.toJSONString();
-//   }
-//   
-//	@RequestMapping(value="/modify", method=RequestMethod.POST)
-//	public @ResponseBody String modify(BoardDto boardDto, HttpSession session) {
-//		UsersDto usersDto = (UsersDto) session.getAttribute("user");
-//
-//		memoService.modifyMemo(memoDto);
-//      
-//		JSONObject json = makeList(memoDto.getSeq());
-//      
-//		return json.toJSONString();
-//	}
-//   
-//	@RequestMapping(value="/list", method=RequestMethod.GET)
-//	public @ResponseBody String list(@RequestParam("seq") int seq) {
-//      
-//		JSONObject json = makeList(seq);
-//      
-//		return json.toJSONString();
-//	}
-//   
-//	@RequestMapping(value="/delete", method=RequestMethod.GET)
-//	public @ResponseBody String delete(@RequestParam("seq") int seq, @RequestParam("mseq") int mseq)  {
-//		memoService.deleteMemo(mseq);
-//		JSONObject json = makeList(seq);
-//      
-//		return json.toJSONString();
-//	}
+	@RequestMapping(value="/write", method=RequestMethod.POST)
+	public @ResponseBody Result write(BoardDto boardDto, HttpSession session) {
+		MemberDto memberDto = (MemberDto) session.getAttribute("member");
+		boardDto.setId(memberDto.getId());
+		try {
+			oneBoardService.writeOne(boardDto);
+			result.setSuccess(true);
+			result.setObject(makeList(boardDto.getBcode()));
+		} catch (Exception e) {
+			result.setSuccess(false);
+		}
+//		JSONObject json = makeList(boardDto.getBcode());
+      
+		return result;
+   }
+   
+	@RequestMapping(value="/modify", method=RequestMethod.POST)
+	public @ResponseBody Result modify(BoardDto boardDto, HttpSession session) {
+		MemberDto memberDto = (MemberDto) session.getAttribute("user");
+		try {
+			oneBoardService.modifyOne(boardDto);
+			result.setSuccess(true);
+			result.setObject(makeList(boardDto.getBcode()));
+		} catch (Exception e) {
+			result.setSuccess(false);
+		}
+      
+//		JSONObject json = makeList(boardDto.getBcode());
+      
+		return result;
+	}
+   
+	@RequestMapping(value="/list", method=RequestMethod.GET)
+	public @ResponseBody Result list(@RequestParam("bcode") int bcode) {
+      
+		result.setObject(makeList(bcode));
+//		JSONObject json = makeList(bcode);
+      
+		return result;
+	}
+   
+	@RequestMapping(value="/delete", method=RequestMethod.GET)
+	public @ResponseBody Result delete(@RequestParam("bcode") int bcode, @RequestParam("bseq") int bseq)  {
+		try {
+			oneBoardService.deleteOne(bseq);
+			result.setSuccess(true);
+			result.setObject(makeList(bcode));
+		} catch (Exception e) {
+			result.setSuccess(false);
+		}
+		
+//		JSONObject json = makeList(bcode);
+      
+		return result;
+	}
 
 }
