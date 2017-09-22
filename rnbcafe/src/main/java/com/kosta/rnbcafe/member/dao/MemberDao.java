@@ -13,9 +13,21 @@ public class MemberDao {
 	
 	public MemberDto select(String id) {
 		return sqlSession.selectOne("memberMapper.select", id);
-	};
+	}
 	
 	public int insertMember(MemberDto memberDto) {
 		return sqlSession.insert("memberMapper.insertMember", memberDto);
+	}
+	
+	public int selectBoardCnt(String id) {
+		return sqlSession.selectOne("memberMapper.selectBoardCnt", id); 
+	}
+	
+	public int selectMemoCnt(String id) {
+		return sqlSession.selectOne("memberMapper.selectMemoCnt", id);
+	}
+	
+	public int updateMember(MemberDto memberDto) {
+		return sqlSession.update("memberMapper.updateMember", memberDto);
 	}
 }

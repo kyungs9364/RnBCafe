@@ -14,4 +14,7 @@ public class MemberDto {
 	private int role;
 	private String regdate;
 	private int state;
+	
+	private int boardCnt;
+	private int memoCnt;
 }
