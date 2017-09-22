@@ -13,6 +13,16 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<style type="text/css">
+		#memoDiv {
+			width: 825px;
+			height: 200px;
+			padding-top: 50px;
+			padding-left: 33px;
+			background-color: #F7F7F7;
+			border: 1px solid #E5E5E5;
+		}
+	</style>
 </head>
 
 <body>
