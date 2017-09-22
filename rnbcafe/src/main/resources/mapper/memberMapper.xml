@@ -11,4 +11,28 @@
 		INSERT INTO member(id, pwd, name, gender, birth, phone, role, regdate, state)
 		VALUES(#{id},#{pwd},#{name},#{gender},#{birth},#{phone},1,sysdate,1)
 	</insert>
+	
+	<select id="selectBoardCnt" parameterType="String" resultType="int">
+		SELECT NVL(count(BSEQ),0) cnt 
+		FROM board 
+		WHERE id=#{id}
+	</select>
+	
+	<select id="selectMemoCnt" parameterType="String" resultType="int">
+		SELECT NVL(count(MSEQ),0) cnt 
+		FROM memo 
+		WHERE id=#{id}
+	</select>
+	
+	<update id="updateMember" parameterType="memberDto">
+		UPDATE member
+		SET id = #{id}
+			, pwd = #{pwd}
+			, name = #{name}
+			, gender = #{gender}
+			, birth = #{birth}
+			, phone = #{phone}
+		WHERE id = #{id}
+	</update>
+	
 </mapper>
