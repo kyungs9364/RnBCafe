@@ -21,7 +21,10 @@
     <typeAliases>
         <!-- <typeAlias alias="userDto" type="com.seeroo.arserver.web.user.dto.UserDto"></typeAlias> -->
         <typeAlias alias="memberDto" type="com.kosta.rnbcafe.member.dto.MemberDto"></typeAlias>
+        
+        <!-- 경석 -->
         <typeAlias alias="boardDto" type="com.kosta.rnbcafe.board.dto.BoardDto"></typeAlias>
+        <typeAlias alias="MemoDto" type="com.kosta.rnbcafe.board.dto.MemoDto"></typeAlias>
         
         <!-- 지은 -->
         <typeAlias alias="boardListDto" type="com.kosta.rnbcafe.admin.dto.BoardListDto"></typeAlias>
