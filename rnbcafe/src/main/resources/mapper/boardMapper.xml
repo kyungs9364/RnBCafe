@@ -2,18 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="boardMapper">
 
-	<select id="boardList" resultType="boardDto">
+	<select id="boardList" resultType="boardDto" parameterType="int">
 		SELECT B.BSEQ, B.BCODE, B.ID, B.TITLE, B.CONTENT
      		 , B.IMG, B.HIT, B.REGDATE, B.NOTICE, M.NAME
 		FROM BOARD B JOIN MEMBER M
 		ON B.ID = M.ID
+		WHERE B.BCODE = #{bcode}
 		ORDER BY B.REGDATE DESC
 	</select>
 
 	<insert id="insertBoard" parameterType="boardDto">
 		INSERT INTO BOARD
 		VALUE(BSEQ, BCODE, ID, TITLE, CONTENT, IMG, HIT, REGDATE)
-		VALUES(BOARD_SEQ.NEXTVAL ,2,#{id},#{title},#{content},#{img},0, SYSDATE)
+		VALUES(BOARD_SEQ.NEXTVAL ,#{bcode},#{id},#{title},#{content},#{img},0, SYSDATE)
 	</insert>
 	
 	<select id="boradview" parameterType="int" resultType="boardDto">
@@ -23,4 +24,21 @@
 		ON B.ID = M.ID
 		WHERE B.BSEQ = #{bseq}
 	</select>
+	
+	<update id="hit" parameterType="int">
+		UPDATE BOARD
+		SET HIT = HIT +1
+		WHERE BSEQ = #{bseq}
+	</update>
+	
+	<delete id="deleteBoard" parameterType="int">
+		DELETE FROM BOARD
+		WHERE BSEQ = #{bseq}
+	</delete>
+	
+	<update id="updateBoard" parameterType="boardDto">
+		UPDATE BOARD
+		SET TITLE = #{title}, CONTENT = #{content}, REGDATE = SYSDATE
+		WHERE BSEQ = #{bseq}
+	</update>
 </mapper>

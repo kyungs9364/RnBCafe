@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!-- 헤더 -->
 <%@ include file="/WEB-INF/views/common/baseheader.jsp"%>
 
@@ -38,7 +39,7 @@
 							<td>${dto.bseq}</td>
 							<td><a href="${root}/board/boardview?bseq=${dto.bseq}">${dto.title}</a></td>
 							<td>${dto.name}</td>
-							<td>${dto.regdate}</td>
+							<td><fmt:formatDate value="${dto.regdate}" pattern="yyyy.MM.dd"/></td>
 							<td>${dto.hit}</td>
 						</tr>
 					</c:forEach>

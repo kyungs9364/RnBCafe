@@ -19,13 +19,29 @@ public class BoardDao {
 		return sqlSession.insert("boardMapper.insertBoard", dto);
 	}
 	
-	public List<BoardDto> boardList() {
+	public List<BoardDto> boardList(int bcode) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList("boardMapper.boardList");
+		return sqlSession.selectList("boardMapper.boardList", bcode);
 	}
 	
-	public BoardDto boradview(int bseq) {
+	public BoardDto boradView(int bseq) {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne("boardMapper.boradview", bseq);
 	}
+	
+	public void hit(int bseq) {
+		// TODO Auto-generated method stub
+		sqlSession.update("boardMapper.hit",bseq);
+	}
+	
+	public int deleteBoard(int bseq) {
+		// TODO Auto-generated method stub
+		return sqlSession.delete("boardMapper.deleteBoard", bseq);
+	}
+	
+	public int updateBoard(BoardDto dto) {
+		// TODO Auto-generated method stub
+		return sqlSession.update("boardMapper.updateBoard", dto);
+	}
+
 }

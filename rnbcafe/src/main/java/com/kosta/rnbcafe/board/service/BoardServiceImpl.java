@@ -21,15 +21,33 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<BoardDto> boardList() {
+	public List<BoardDto> boardList(int bcode) {
 		// TODO Auto-generated method stub
-		return dao.boardList();
+		return dao.boardList(bcode);
 	}
 
 	@Override
-	public BoardDto boradview(int bseq) {
+	public BoardDto boradView(int bseq) {
 		// TODO Auto-generated method stub
-		return dao.boradview(bseq);
+		return dao.boradView(bseq);
+	}
+
+	@Override
+	public void hit(int bseq) {
+		// TODO Auto-generated method stub
+		dao.hit(bseq);
+	}
+
+	@Override
+	public int deleteBoard(int bseq) {
+		// TODO Auto-generated method stub
+		return dao.deleteBoard(bseq);
+	}
+
+	@Override
+	public int updateBoard(BoardDto dto) {
+		// TODO Auto-generated method stub
+		return dao.updateBoard(dto);
 	}
 
 }
