@@ -75,20 +75,22 @@ public class MemberController {
 		Result result = new Result();
 		l.info("####### updateMember  ==  "+memberDto.toString());
 		MemberDto member = service.select(memberDto.getId());
-		l.info("####### updateMember 객체  ==  "+member.toString());
-		if (memberDto.getPwd() != null || "".equals(memberDto.getPwd())) {
+		l.info("####### updateMember 객체 BEFORE  ==  "+member.toString());
+		if (memberDto.getPwd() != null || !"".equals(memberDto.getPwd())) {
 			BCryptPasswordEncoder bcr = new BCryptPasswordEncoder();
 			member.setPwd(bcr.encode(memberDto.getPwd()));
 		}
-		if (memberDto.getName() != null || "".equals(memberDto.getName())) {
+		if (memberDto.getName() != null || !"".equals(memberDto.getName())) {
 			member.setName(memberDto.getName());
 		}
-		if (memberDto.getPhone() != null || "".equals(memberDto.getPhone())) {
+		if (memberDto.getPhone() != null || !"".equals(memberDto.getPhone())) {
 			member.setPhone(memberDto.getPhone());
 		}
 		int cnt = service.updateMember(member);
 		if (cnt == 1) {
 			result.setSuccess(true);
+			l.info("####### updateMember 객체 AFTER  ==  "+member.toString());
+			session.setAttribute("user", member);
 		} else {
 			result.setSuccess(false);
 		}

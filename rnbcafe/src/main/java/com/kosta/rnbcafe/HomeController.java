@@ -33,7 +33,7 @@ public class HomeController {
 	public ModelAndView home(Authentication authentication, HttpSession session) {
 		ModelAndView mv = new ModelAndView("index");
 		LoginUser user = (LoginUser) authentication.getPrincipal();
-		l.info(user.toString());
+		l.info("########## Session user == "+user.toString());
 		session.setAttribute("user", user);
 		
 		List<BoardListDto> list = categoryService.boardList();

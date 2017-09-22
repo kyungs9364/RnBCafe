@@ -29,7 +29,7 @@ public class LoginUser implements UserDetails  {
 	private String birth;
 	private String phone;
 	private int role;
-	private String regate;
+	private String regdate;
 	private List<String> roles;
 	
     public LoginUser(MemberDto memberDto){
@@ -40,7 +40,7 @@ public class LoginUser implements UserDetails  {
     	this.birth = memberDto.getBirth();
     	this.phone = memberDto.getPhone();
     	this.role = memberDto.getRole();
-    	this.regate = memberDto.getRegdate();
+    	this.regdate = memberDto.getRegdate();
     }
 
 	
