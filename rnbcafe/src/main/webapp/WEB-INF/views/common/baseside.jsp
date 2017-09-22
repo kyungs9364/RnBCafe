@@ -89,7 +89,7 @@ body {
          </a>
       </c:if>
       <c:if test="${boardListDto.btype == 1}">
-         <a href="${root}/${boardListDto.control}/list?bcode=${boardListDto.bcode}&pg=1&key=&word=">
+         <a href="${root}/${boardListDto.control}/getoneboard?bcode=${boardListDto.bcode}&pg=1&key=&word=">
             <span class="glyphicon glyphicon-pencil"> ${boardListDto.bname}</span>
          </a>
       </c:if>
