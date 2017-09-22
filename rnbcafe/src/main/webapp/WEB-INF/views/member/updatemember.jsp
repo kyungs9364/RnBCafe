@@ -67,6 +67,16 @@
 </div>
 <script type="text/javascript">
 $('#add').click(function(e) {
+	if ($.trim($('#pwd').val()).length < 1) {
+		alert('비밀번호를 입력해 주세요');
+		$('#pwd').focus();
+		return;
+	}
+	if ($.trim($('#pwdcheck').val()).length < 1) {
+		alert('비밀번호 확인을 입력해 주세요');
+		$('#pwdcheck').focus();
+		return;
+	}
 	if ($.trim($('#pwdcheck').val()) !=  $.trim($('#pwd').val())) {
 		alert('비밀번호가 일치하지않습니다.');
 		$('#pwdcheck').focus();
