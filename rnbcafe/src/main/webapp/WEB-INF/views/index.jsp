@@ -12,10 +12,8 @@
 	</div>
 
 	<div class="col-sm-9 main">
-		<a href="board/boardlist">게시판보기</a>
+		<img src="${root}/resources/rnblogo.PNG">
 	</div>
-	${user.name }<br>
-	${user.id }<br>
 </div>
 
 

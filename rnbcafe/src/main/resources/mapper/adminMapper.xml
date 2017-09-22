@@ -57,6 +57,12 @@
         delete board
         where bseq = #{bseq}
     </delete>
-
+    
+<!-- 회원리스트 -->
+	<select id="memberList" resultType="memberDto">
+        select id, name, gender, birth, phone, role, regdate, state
+        from member
+        order by regdate
+    </select>
     
 </mapper>
