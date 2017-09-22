@@ -23,7 +23,7 @@
 				<a class="navbar-brand" href="#">RnB Cafe</a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">★</a></li>
+				<li class="active"><a href="${root}">★</a></li>
 				<li><a href="${root}/admin/categoryadmin">회원관리</a></li>
 				<li><a href="${root}/admin/categoryadmin">카테고리관리</a></li>
 			</ul>
