@@ -1,11 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
-
 <script type="text/javascript">
 $(document).ready(function() {
-   $("#boardmenu a.category_name").click(function(){
-      $(this).next("div.board_name").slideDown(500).siblings("div.board_name").slideUp("slow");
-   });
+	$("#boardmenu a.category_name").click(function(){
+	   $(this).next("div.board_name").slideDown(500).siblings("div.board_name").slideUp("slow");
+	});
+	 
+	$.ajax({
+	url: "/rnbcafe/member/myinfo",
+	type: "GET",
+	data: {'id': $('#userId').val()},
+	success: function(data) {
+		if (data.success == true) {
+			$('#boardCnt').append(data.object.boardCnt);
+			$('#memoCnt').append(data.object.memoCnt);
+      	}
+	}
+});
 });
 </script>
 <style type="text/css">
@@ -48,9 +59,16 @@ body {
     
 </style>
 
-<div>
-	${user.name }<br>
-	${user.role }<br>
+<div class="panel panel-info">
+	<input type="hidden" id="userId" value="${user.id }">
+	<div class="panel-heading"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>  ${user.name } 님 정보</div>
+	<div class="panel-body">
+    <span class="glyphicon glyphicon-star" aria-hidden="true"></span> 등급 : ${user.role } <br>
+    <span class="glyphicon glyphicon-star" aria-hidden="true"></span> 작성 글 수 : <span id="boardCnt"></span><br>
+    <span class="glyphicon glyphicon-star" aria-hidden="true"></span> 작성 댓글 수 : <span id="memoCnt"></span><br>
+    <span class="glyphicon glyphicon-star" aria-hidden="true"></span> 가입일 : <br>
+    <p class="navbar-text navbar-center"><a href="${root }/member/update" class="navbar-link">정보 수정</a></p>
+  	</div>
 </div>
 
 <div class="list-group" id="boardmenu">

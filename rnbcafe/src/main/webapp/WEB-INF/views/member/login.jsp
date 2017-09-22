@@ -153,9 +153,14 @@ $('#add').click(function(e) {
 		$('#name').focus();
 		return;
 	}
-	if ($.trim($('#id').val()).length < 1) {
-		alert('ID을 입력해 주세요');
-		$('#id').focus();
+	if ($.trim($('#birth').val()).length < 1) {
+		alert('생일을 입력해 주세요');
+		$('#birth').focus();
+		return;
+	}
+	if ($.trim($('#phone').val()).length < 1) {
+		alert('전화번호를 입력해 주세요');
+		$('#phone').focus();
 		return;
 	}
 	
