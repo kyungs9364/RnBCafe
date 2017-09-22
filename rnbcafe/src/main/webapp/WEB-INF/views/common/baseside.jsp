@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <script type="text/javascript">
 $(document).ready(function() {
 	$("#boardmenu a.category_name").click(function(){
@@ -66,7 +67,7 @@ body {
     <span class="glyphicon glyphicon-star" aria-hidden="true"></span> 등급 : ${user.role } <br>
     <span class="glyphicon glyphicon-star" aria-hidden="true"></span> 작성 글 수 : <span id="boardCnt"></span><br>
     <span class="glyphicon glyphicon-star" aria-hidden="true"></span> 작성 댓글 수 : <span id="memoCnt"></span><br>
-    <span class="glyphicon glyphicon-star" aria-hidden="true"></span> 가입일 : <br>
+    <span class="glyphicon glyphicon-star" aria-hidden="true"></span> 가입일 : ${fn:substring(user.regdate,0,10) }<br>
     <p class="navbar-text navbar-center"><a href="${root }/member/update" class="navbar-link">정보 수정</a></p>
   	</div>
 </div>
