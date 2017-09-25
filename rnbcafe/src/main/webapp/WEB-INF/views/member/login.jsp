@@ -9,9 +9,15 @@
     <title>Login</title>
    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="/rnbcafe/resources/js/moment.min.js"></script>
+	<script src="/rnbcafe/resources/js/moment.js"></script>
+	<script src="/rnbcafe/resources/js/transition.js"></script>
+	<script src="/rnbcafe/resources/js/collapse.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="/rnbcafe/resources/js/bootstrap-datetimepicker.js"></script>
 
 </head>
 <body>
@@ -25,22 +31,15 @@
           			</div>
            			<form class="form-signin" method="POST" action="login">
           			<div class="panel-body">
-              				<fieldset>
-                				<div class="form-group">
-                  					<input type="text" name="username" class="form-control" placeholder="Username" required="required" autofocus="autofocus" />
-                				</div>
-                				
-                				<div class="form-group">
-                  					<input type="password" name="password" class="form-control" placeholder="Password" value="" required="required" />
-                				</div>
-                				
-                 				<!-- <div class="checkbox">
-                   					<label><input type="checkbox" value="remember-me" /> Remember me</label>
-                 				</div> -->
-                				
-              				</fieldset>
-              				
-              				 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+          				<fieldset>
+            				<div class="form-group">
+              					<input type="text" name="username" class="form-control" placeholder="Username" required="required" autofocus="autofocus" />
+            				</div>
+            				<div class="form-group">
+              					<input type="password" name="password" class="form-control" placeholder="Password" value="" required="required" />
+            				</div>
+          				</fieldset>
+      					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
           			</div>
           			<div class="panel-footer">
 						<div align="right">
@@ -96,13 +95,17 @@
 									</label>
 								</div><br>
 								<div class="form-inline">
-									<label class="col-xs-2 col-form-label">생일</label>
-									<input class="form-control" type="text" id="birth" name="birth">
-								</div><br>
-								<div class="form-inline">
 									<label class="col-xs-2 col-form-label">전화번호</label>
 									<input class="form-control" type="text" id="phone" name="phone">
 								</div><br>
+								 <div class="form-group">
+					                <div class='input-group date' id='datetimepicker'>
+					                    <span class="input-group-addon">
+					                        <span class="glyphicon glyphicon-calendar">생일</span>
+					                    </span>
+					                    <input type='text' class="form-control" id="birth" name="birth"/>
+					                </div>
+					            </div>
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 							</form>
 						</div>
@@ -120,8 +123,14 @@
 
 <script type="text/javascript">
 $(function() {
-	$( "#birth" ).datepicker();
+	moment().format("dddd, MMMM Do YYYY");
+	$('#datetimepicker').datetimepicker({
+		locale: 'ko',
+		format: "YYYY-MM-DD"
+	});
+
 });
+
 $('#join').click(function() {
 	$('#myModalLabel').text('회원가입');
 	$('#myModal').appendTo("body").modal('show');
