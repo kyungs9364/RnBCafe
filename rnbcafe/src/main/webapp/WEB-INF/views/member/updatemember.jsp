@@ -19,7 +19,7 @@
 						<form id="frmMng" name="frmMng" method="POST" enctype="multipart/form-data">
 							<div class="form-inline">
 								<label for="id" class="col-xs-2 col-form-label">ID</label>
-								<input class="form-control" type="text" id="id" name="id" value="${user.id }" readonly="readonly">
+								<input class="form-control" type="text" id="id" name="id" value="${member.id }" readonly="readonly">
 							</div><br>
 							<div class="form-inline">
 								<label class="col-xs-2 col-form-label">비밀번호</label>
@@ -31,7 +31,7 @@
 							</div><br>
 							<div class="form-inline">
 								<label class="col-xs-2 col-form-label">이름</label>
-								<input class="form-control" type="text" id="name" name="name" value="${user.name }">
+								<input class="form-control" type="text" id="name" name="name" value="${member.name }">
 							</div><br>
 							<%-- <div class="form-inline">
 								<label class="col-xs-2 col-form-label">성별</label>
@@ -48,7 +48,7 @@
 							</div><br> --%>
 							<div class="form-inline">
 								<label class="col-xs-2 col-form-label">전화번호</label>
-								<input class="form-control" type="text" id="phone" name="phone" value="${user.phone }">
+								<input class="form-control" type="text" id="phone" name="phone" value="${member.phone }">
 							</div><br>
 							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 						</form>
@@ -56,8 +56,9 @@
 					<div class="panel-footer">
 					<div align="right">
 						<!-- button -->
-						<button id="list" class="btn btn-default">취소</button>
+						<button id="del" class="btn btn-danger">탈퇴</button>
 						<button id="add" class="btn btn-success">변경</button>
+						<button id="list" class="btn btn-default">취소</button>
 					</div>
 				</div>
 				</div>
@@ -102,16 +103,41 @@ $('#add').click(function(e) {
 		success: function(data) {
 			if (data.success == true) {
         		alert("변경 되었습니다.");
+        		getMyinfo();
 	        	location.href = "/rnbcafe";
         	} else {
-        		alert("변경에 실패 하였습니다.\n" + data);
+        		alert("변경 실패 하였습니다.\n" + data);
         	}
 		},
 		error: function(request, status, error) {
 			console.log($('#frmMng')[0].value);
-			alert("변경에 실패 하였습니다.\n" + request.status +"\n" +error);
+			alert("변경 실패 하였습니다.\n" + request.status +"\n" +error);
 		}
 	});
+});
+
+$('#del').click(function() {
+	if (confirm("정말 탈퇴하시겠습니까?")) {
+		$.ajax({
+			url: "/rnbcafe/member/deleteMember",
+			type: "POST",
+			data: new FormData($('#frmMng')[0]),
+			contentType: false,
+		    processData: false,
+			success: function(data) {
+				if (data.success == true) {
+	        		alert("탈퇴 되었습니다.");
+		        	location.href = "/rnbcafe/logout";
+	        	} else {
+	        		alert("탈퇴 실패 하였습니다.\n" + data);
+	        	}
+			},
+			error: function(request, status, error) {
+				console.log($('#frmMng')[0].value);
+				alert("탈퇴 실패 하였습니다.\n" + request.status +"\n" +error);
+			}
+		});
+	}
 });
 
 $('#list').click(function() {

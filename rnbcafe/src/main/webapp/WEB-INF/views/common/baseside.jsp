@@ -6,19 +6,39 @@ $(document).ready(function() {
 	$("#boardmenu a.category_name").click(function(){
 	   $(this).next("div.board_name").slideDown(500).siblings("div.board_name").slideUp("slow");
 	});
-	 
+	getMyinfo();
+	
+});
+
+function getMyinfo() {
 	$.ajax({
-	url: "/rnbcafe/member/myinfo",
-	type: "GET",
-	data: {'id': $('#userId').val()},
-	success: function(data) {
-		if (data.success == true) {
-			$('#boardCnt').append(data.object.boardCnt);
-			$('#memoCnt').append(data.object.memoCnt);
-      	}
+		url: "/rnbcafe/member/myinfo",
+		type: "GET",
+		data: {'id': $('#userId').val()},
+		success: function(data) {
+			if (data.success == true) {
+				$('#userName').append(data.object.name+" 님 정보");
+				$('#userRole').append("등급 : "+roleName(data.object.role));
+				$('#boardCnt').append(data.object.boardCnt);
+				$('#memoCnt').append(data.object.memoCnt);
+	      	}
+		}
+	});
+}
+
+function roleName(role) {
+	var name;
+	if (role == 1) {
+		name = '새내기';
+	} else if (role == 2) {
+		name = '일반';
+	} else if (role == 3) {
+		name = '우수';
+	} else if (role == 4) {
+		name = '관리자';
 	}
-});
-});
+	return name;
+}
 </script>
 <style type="text/css">
 body {
@@ -62,13 +82,13 @@ body {
 
 <div class="panel panel-info">
 	<input type="hidden" id="userId" value="${user.id }">
-	<div class="panel-heading"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>  ${user.name } 님 정보</div>
+	<div class="panel-heading"><span class="glyphicon glyphicon-user" aria-hidden="true">&nbsp;</span><span id="userName"></span></div>
 	<div class="panel-body">
-    <span class="glyphicon glyphicon-star" aria-hidden="true"></span> 등급 : ${user.role } <br>
+    <span class="glyphicon glyphicon-star" aria-hidden="true"></span> <span id="userRole"></span><br>
     <span class="glyphicon glyphicon-star" aria-hidden="true"></span> 작성 글 수 : <span id="boardCnt"></span><br>
     <span class="glyphicon glyphicon-star" aria-hidden="true"></span> 작성 댓글 수 : <span id="memoCnt"></span><br>
     <span class="glyphicon glyphicon-star" aria-hidden="true"></span> 가입일 : ${fn:substring(user.regdate,0,10) }<br>
-    <p class="navbar-text navbar-center"><a href="${root }/member/update" class="navbar-link">정보 수정</a></p>
+    <p class="navbar-text navbar-center"><a href="${root }/member/update?id=${user.id}" class="navbar-link">정보 수정</a></p>
   	</div>
 </div>
 
