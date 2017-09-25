@@ -29,8 +29,9 @@ public class BoardController {
 	BoardSet bset = new BoardSet();
 	
 	@RequestMapping(value = "boardset")
-	public String boardSet(int bcode) {
+	public String boardSet(int bcode, String bname) {
 		bset.setBcode(bcode);
+		bset.setBname(bname);
 		bset.setPageNum(1);
 		bset.setSearchPageNum(1);
 		bset.setKey("");
@@ -49,6 +50,7 @@ public class BoardController {
 		int pageCnt = service.allBoardCnt(bset.getBcode());
 		model.addAttribute("list",list);
 		model.addAttribute("pageCnt",pageCnt);
+		model.addAttribute("bname", bset.getBname());
 		
 		return "board/boardlist";
 	}

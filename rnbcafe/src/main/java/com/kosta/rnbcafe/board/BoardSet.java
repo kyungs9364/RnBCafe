@@ -6,6 +6,7 @@ import lombok.Data;
 public class BoardSet {
 
 	private int bcode;
+	private String bname;
 	private int pageNum;
 	private int searchPageNum;
 	private String key;

@@ -29,9 +29,10 @@ public class OneController {
 	Result result = new Result();
 	
 	@RequestMapping("getoneboard")
-	private ModelAndView getOneBoard(String bcode) {
+	private ModelAndView getOneBoard(String bcode, String bname) {
 		ModelAndView mv = new ModelAndView("admin/oneboard");
 		mv.addObject("bcode", bcode);
+		mv.addObject("bname", bname);
 		return mv;
 	}
 	

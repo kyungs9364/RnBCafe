@@ -159,7 +159,7 @@ function appendOneList(data) {
 	<div class="col-sm-9 main">
 		
 		<div class="alert alert-info">
-		  <strong><h3>등업게시판</h3></strong>
+		  <strong><h3>${bname}</h3></strong>
 		</div>
 		
 		<div class="well well-lg">

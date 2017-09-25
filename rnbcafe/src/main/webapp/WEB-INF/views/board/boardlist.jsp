@@ -18,7 +18,7 @@
 	</div>
 
 	<div class="col-sm-9 main">
-		<h3>자유게시판</h3>
+		<h3>${bname}</h3><br>
 
 		<button class="btn btn-default btn-xs" onclick="insertBoard();">
 			<span class="glyphicon glyphicon-pencil"></span> 글쓰기
