@@ -62,8 +62,18 @@
 				<fmt:formatNumber value="${searchPage}" type="number" var="searchPageNum"/>
 				
 				<br>
-				<c:forEach begin="1" end="${pageNum}" step="1" var="cnt">
+				<c:set var="doneLoop" value="false"/> 
+				<c:forEach begin="${startNum}" end="${pageNum}" step="1" var="cnt">
+				<c:if test="${cnt gt startNum+9}">
+					<a href="${root}/board/startpageset">...</a>
+				<c:set var="doneLoop" value="true"/>
+				</c:if>
+				<c:if test="${not doneLoop}">
+					<c:if test="${cnt gt 10}">
+						<a href="${root}/board/prevpage">...</a>
+					</c:if>
 					<a href="${root}/board/pageset?pageNum=${cnt}">${cnt}</a>&nbsp;
+				</c:if>
 				</c:forEach>
 				
 				<c:forEach begin="1" end="${searchPageNum}" step="1" var="cnt">

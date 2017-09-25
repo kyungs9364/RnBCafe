@@ -36,6 +36,7 @@ public class BoardController {
 		bset.setSearchPageNum(1);
 		bset.setKey("");
 		bset.setWord("");
+		bset.setStartNum(1);
 		
 		return "redirect:/board/boardlist";
 	}
@@ -46,11 +47,14 @@ public class BoardController {
 		map.put("bcode", bset.getBcode());
 		map.put("pageNum", bset.getPageNum());
 		
+		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"+bset.getStartNum());
+		
 		List<BoardDto> list = service.boardList(map);
 		int pageCnt = service.allBoardCnt(bset.getBcode());
 		model.addAttribute("list",list);
 		model.addAttribute("pageCnt",pageCnt);
 		model.addAttribute("bname", bset.getBname());
+		model.addAttribute("startNum", bset.getStartNum());
 		
 		return "board/boardlist";
 	}
@@ -181,5 +185,22 @@ public class BoardController {
 		return "redirect:/board/searchboardlist";
 	}
 	
+	@RequestMapping(value="startpageset")
+	public String startPageSet() {
+		int num = bset.getStartNum();
+		bset.setStartNum(num+10);
+		bset.setPageNum(num+10);
+		
+		return "redirect:/board/boardlist";
+	}
+	
+	@RequestMapping(value="prevpage")
+	public String prevPage() {
+		int num = bset.getStartNum();
+		bset.setStartNum(num-10);
+		bset.setPageNum(num-10);
+		
+		return "redirect:/board/boardlist";
+	}
 	
 }

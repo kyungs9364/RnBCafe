@@ -11,4 +11,5 @@ public class BoardSet {
 	private int searchPageNum;
 	private String key;
 	private String word;
+	private int startNum;
 }
