@@ -15,7 +15,7 @@
       	<h2>회원 LIST</h2>
 		</div>
 		
-		<table class="table table-striped">
+		<table class="table table-hover">
 			<thead>
 			  <tr>
 			    <th>아이디</th>
@@ -29,24 +29,36 @@
 			</thead>
 			<tbody>
 			<c:forEach var="mlist" items="${mlist}">
-				<tr>
-				  <td>${mlist.id}</td>
-				  <td>${mlist.name}</td>
-				  <td>${mlist.gender}</td>
-				  <td>${mlist.birth}</td>
-				  <td>${mlist.phone}</td>
-				  <td>${mlist.role}</td>
-				  <td>${mlist.regdate}</td>
+				<tr class="trhover" onclick="javascript:showModal('${mlist.id}');">
+					<input type="hidden" id="id" value="${mlist.id}">
+					<td id="id${mlist.id}">${mlist.id}</td>
+					<td id="name${mlist.id}">${mlist.name}</td>
+					<td id="gender${mlist.id}">${mlist.gender}</td>
+					<td id="birth${mlist.id}">${mlist.birth}</td>
+					<td id="phone${mlist.id}">${mlist.phone}</td>
+					<td id="role${mlist.id}">${mlist.role}</td>
+					<td id="regdate${mlist.id}">${mlist.regdate}</td>
 				</tr>
 			</c:forEach>
 			</tbody>
 		</table>
       
    </div>
-		
-
-	</div>
 </div>
+<%@ include file="/WEB-INF/views/admin/modal_memberdetail.jsp" %>
+<script type="text/javascript">
+function showModal(id) {	
+	getlvmemberinfo(id);
+	$("#modalid").html($("#id"+id).text());  
+	$("#modalname").html($("#name"+id).text());  
+	$("#modalgender").html($("#gender"+id).text());  
+	$("#modalbirth").html($("#birth"+id).text());  
+	$("#modalphone").html($("#phone"+id).text());  
+	$("#modalrole").html($("#role"+id).text());  
+	$("#modalregdate").html($("#regdate"+id).text());  
+	$('#modal_memberdetail').modal({show:true}); 
+}
+</script>
 
 </body>
 </html> 

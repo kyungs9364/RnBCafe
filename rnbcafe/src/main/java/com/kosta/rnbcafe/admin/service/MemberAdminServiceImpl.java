@@ -19,4 +19,9 @@ public class MemberAdminServiceImpl implements MemberAdminService {
 		return memberAdminDao.memberList();
 	}
 
+	@Override
+	public void levelUp(String lvid) {
+		memberAdminDao.levelUp(lvid);
+	}
+
 }

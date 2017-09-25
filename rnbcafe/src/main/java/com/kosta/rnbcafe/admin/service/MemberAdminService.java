@@ -7,5 +7,6 @@ import com.kosta.rnbcafe.member.dto.MemberDto;
 public interface MemberAdminService {
 
 	List<MemberDto> memberList();
+	void levelUp(String lvid);
 
 }

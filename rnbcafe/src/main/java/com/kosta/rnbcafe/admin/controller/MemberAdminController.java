@@ -30,6 +30,12 @@ public class MemberAdminController {
 		return mav;
 	}
 	
+	@RequestMapping(value="levelup")
+	public String levelUp(String lvid) {
+		memberAdminService.levelUp(lvid);
+		return "redirect:/memberadmin/list";
+	}
+	
 //	@RequestMapping(value="makecategory", method=RequestMethod.GET)
 //	public String makeCategory(@RequestParam("name") String name) {
 //		categoryService.categoryMake(name);

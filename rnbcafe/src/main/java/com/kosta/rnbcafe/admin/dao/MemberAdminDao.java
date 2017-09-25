@@ -17,5 +17,9 @@ public class MemberAdminDao {
 	public List<MemberDto> memberList() {
 		return sqlSession.selectList("adminMapper.memberList");
 	}
+
+	public void levelUp(String lvid) {
+		sqlSession.update("adminMapper.levelUp", lvid);
+	}
 	
 }

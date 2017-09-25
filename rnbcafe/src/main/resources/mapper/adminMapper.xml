@@ -65,4 +65,10 @@
         order by regdate
     </select>
     
+    <update id="levelUp" parameterType="string">
+    	update member
+    	set role = role + 1
+    	where id = #{lvid}
+    </update>
+    
 </mapper>
