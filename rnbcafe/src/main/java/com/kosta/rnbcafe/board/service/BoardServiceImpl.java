@@ -1,6 +1,7 @@
 package com.kosta.rnbcafe.board.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -48,6 +49,12 @@ public class BoardServiceImpl implements BoardService {
 	public int updateBoard(BoardDto dto) {
 		// TODO Auto-generated method stub
 		return dao.updateBoard(dto);
+	}
+
+	@Override
+	public List<BoardDto> searchBoardList(Map<String, String> map) {
+		// TODO Auto-generated method stub
+		return dao.searchBoardList(map);
 	}
 
 }

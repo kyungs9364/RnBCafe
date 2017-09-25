@@ -64,4 +64,27 @@
     	ORDER BY ME.REGDATE DESC)
 		WHERE ROWNUM = 1
 	</select>
+	
+	<delete id="deleteMemo" parameterType="int">
+		DELETE FROM MEMO
+		WHERE MSEQ = #{mseq}
+	</delete>
+	
+	<select id="searchBoardList" resultType="boardDto" parameterType="java.util.Map">
+		SELECT B.BSEQ, B.BCODE, B.ID, B.TITLE, B.CONTENT
+     		 , B.IMG, B.HIT, B.REGDATE, B.NOTICE, M.NAME
+		FROM BOARD B JOIN MEMBER M
+		ON B.ID = M.ID
+		WHERE B.BCODE = #{bcode}
+		<choose>
+			<when test="key eq 'NAME'">
+				AND M.NAME = #{word}
+			</when>
+			<otherwise>
+				AND B.TITLE LIKE '%'||#{word}||'%'
+			</otherwise>
+		</choose>
+		ORDER BY B.REGDATE DESC
+	</select>
+
 </mapper>

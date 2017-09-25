@@ -1,6 +1,6 @@
 package com.kosta.rnbcafe.board.controller;
 
-import java.util.List;
+import java.util.*;
 
 import javax.servlet.http.HttpSession;
 
@@ -114,6 +114,35 @@ public class BoardController {
 		}
 		
 		return result;
+	}
+	
+	@RequestMapping(value="deletememo")
+	public String deleteMemo(int mseq, int bseq) {
+		
+		int cnt = mservice.deleteMemo(mseq);
+		if(cnt == 0) {
+			return "common/err";
+		}
+		
+		return "redirect:/board/boardview?bseq="+bseq;
+	}
+	
+	@RequestMapping(value="searchboardlist")
+	public String searchBoardList(String key, String word, Model model) {
+		
+		Map<String, String> map = new HashMap<>();
+		map.put("key", key);
+		map.put("word", word);
+		map.put("bcode", String.valueOf(bset.getBcode()));
+		
+//		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$4" + map.get("key"));
+//		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$4" + map.get("word"));
+
+		List<BoardDto> list = service.searchBoardList(map);
+		model.addAttribute("list", list);
+		
+		return "board/boardlist";
+		
 	}
 	
 }

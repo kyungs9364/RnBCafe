@@ -55,16 +55,18 @@
 				<span class="glyphicon glyphicon-pencil"></span> 글쓰기
 			</button>
 			<div style="text-align: center;">
-				<span>페이징부분</span>
+				
 			</div>
 			<br><br>
 			<div>
-				<select name="key" style="height: 27px;">
-					<option>아이디</option>
-					<option>제목</option>
-				</select>
-				<input type="text" name="word" style="vertical-align: top;"/>
-				<input class="btn btn-primary btn-sm" type="button" name="search" value="검색"/>
+				<form action="${root}/board/searchboardlist" method="get">
+					<select name="key" style="height: 27px;">
+						<option value="TITLE">제목</option>
+						<option value="NAME">이름</option>
+					</select>
+					<input type="text" name="word" style="vertical-align: top;"/>
+					<input class="btn btn-primary btn-sm" type="submit" value="검색"/>
+				</form>
 			</div>
 	</div>
 </div>

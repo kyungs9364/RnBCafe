@@ -28,4 +28,9 @@ public class MemoDao {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne("boardMapper.topMemo", bseq);
 	}
+	
+	public int deleteMemo(int mseq) {
+		// TODO Auto-generated method stub
+		return sqlSession.delete("boardMapper.deleteMemo", mseq);
+	}
 }

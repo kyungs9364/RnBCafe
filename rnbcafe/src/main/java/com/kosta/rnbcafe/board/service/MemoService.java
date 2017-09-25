@@ -9,4 +9,5 @@ public interface MemoService {
 	List<MemoDto> memoList(int bseq);
 	int insertMemo(MemoDto dto);
 	MemoDto topMemo(int bseq);
+	int deleteMemo(int mseq);
 }

@@ -1,6 +1,7 @@
 package com.kosta.rnbcafe.board.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,11 @@ public class BoardDao {
 	public int updateBoard(BoardDto dto) {
 		// TODO Auto-generated method stub
 		return sqlSession.update("boardMapper.updateBoard", dto);
+	}
+	
+	public List<BoardDto> searchBoardList(Map<String, String> map) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("boardMapper.searchBoardList", map);
 	}
 
 }
