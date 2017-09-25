@@ -22,9 +22,9 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<BoardDto> boardList(int bcode) {
+	public List<BoardDto> boardList(Map<String, Integer> map) {
 		// TODO Auto-generated method stub
-		return dao.boardList(bcode);
+		return dao.boardList(map);
 	}
 
 	@Override
@@ -55,6 +55,18 @@ public class BoardServiceImpl implements BoardService {
 	public List<BoardDto> searchBoardList(Map<String, String> map) {
 		// TODO Auto-generated method stub
 		return dao.searchBoardList(map);
+	}
+
+	@Override
+	public int allBoardCnt(int bcode) {
+		// TODO Auto-generated method stub
+		return dao.allBoardCnt(bcode);
+	}
+
+	@Override
+	public int searchListCnt(Map<String, String> map) {
+		// TODO Auto-generated method stub
+		return dao.searchListCnt(map);
 	}
 
 }

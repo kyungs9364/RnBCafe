@@ -2,13 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="boardMapper">
 
-	<select id="boardList" resultType="boardDto" parameterType="int">
-		SELECT B.BSEQ, B.BCODE, B.ID, B.TITLE, B.CONTENT
-     		 , B.IMG, B.HIT, B.REGDATE, B.NOTICE, M.NAME
-		FROM BOARD B JOIN MEMBER M
-		ON B.ID = M.ID
-		WHERE B.BCODE = #{bcode}
-		ORDER BY B.REGDATE DESC
+	<select id="boardList" resultType="boardDto" parameterType="java.util.Map">
+		SELECT *
+		FROM (SELECT ROWNUM RNUM, S.*
+      		  FROM (SELECT B.BSEQ, B.BCODE, B.ID, B.TITLE, B.CONTENT
+            		, B.IMG, B.HIT, B.REGDATE, B.NOTICE, M.NAME
+            		FROM BOARD B JOIN MEMBER M
+            		ON B.ID = M.ID
+            		WHERE B.BCODE = #{bcode}
+            		ORDER BY B.REGDATE DESC) S) B
+		WHERE B.RNUM BETWEEN #{pageNum}*10-9 AND #{pageNum}*10
 	</select>
 
 	<insert id="insertBoard" parameterType="boardDto">
@@ -70,8 +73,31 @@
 		WHERE MSEQ = #{mseq}
 	</delete>
 	
-	<select id="searchBoardList" resultType="boardDto" parameterType="java.util.Map">
-		SELECT B.BSEQ, B.BCODE, B.ID, B.TITLE, B.CONTENT
+	<select id="searchBoardList" resultType="boardDto" parameterType="java.util.Map">	
+		SELECT *
+		FROM(SELECT ROWNUM RNUM, S.*
+     		FROM (SELECT B.BSEQ, B.BCODE, B.ID, B.TITLE, B.CONTENT
+            	  , B.IMG, B.HIT, B.REGDATE, B.NOTICE, M.NAME
+           		  FROM BOARD B JOIN MEMBER M
+           		  ON B.ID = M.ID
+           		  WHERE B.BCODE = #{bcode}
+           		  <choose>
+					<when test="key eq 'NAME'">
+						AND M.NAME = #{word}
+					</when>
+					<otherwise>
+						AND B.TITLE LIKE '%'||#{word}||'%'
+					</otherwise>
+				  </choose>
+           		  ORDER BY B.REGDATE DESC) S) B
+		WHERE B.RNUM BETWEEN #{searchPageNum}*10-9 AND #{searchPageNum}*10
+	</select>
+	
+	<select id="searchListCnt" resultType="int" parameterType="java.util.Map">
+		
+		SELECT COUNT(*)
+		FROM
+		(SELECT B.BSEQ, B.BCODE, B.ID, B.TITLE, B.CONTENT
      		 , B.IMG, B.HIT, B.REGDATE, B.NOTICE, M.NAME
 		FROM BOARD B JOIN MEMBER M
 		ON B.ID = M.ID
@@ -84,7 +110,14 @@
 				AND B.TITLE LIKE '%'||#{word}||'%'
 			</otherwise>
 		</choose>
-		ORDER BY B.REGDATE DESC
+		ORDER BY B.REGDATE DESC)
+		
+	</select>
+	
+	<select id="allBoardCnt" parameterType="int" resultType="int">
+		SELECT COUNT(*)
+		FROM BOARD
+		WHERE BCODE = #{bcode}
 	</select>
 
 </mapper>

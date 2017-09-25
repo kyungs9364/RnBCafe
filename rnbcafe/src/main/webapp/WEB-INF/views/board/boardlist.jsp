@@ -55,11 +55,24 @@
 				<span class="glyphicon glyphicon-pencil"></span> 글쓰기
 			</button>
 			<div style="text-align: center;">
+				<c:set var="page" value="${(pageCnt/10)+(1-((pageCnt/10)%1))%1}"/>
+				<fmt:formatNumber value="${page}" type="number" var="pageNum"/>
 				
+				<c:set var="searchPage" value="${(searchPageCnt/10)+(1-((searchPageCnt/10)%1))%1}"/>
+				<fmt:formatNumber value="${searchPage}" type="number" var="searchPageNum"/>
+				
+				<br>
+				<c:forEach begin="1" end="${pageNum}" step="1" var="cnt">
+					<a href="${root}/board/pageset?pageNum=${cnt}">${cnt}</a>&nbsp;
+				</c:forEach>
+				
+				<c:forEach begin="1" end="${searchPageNum}" step="1" var="cnt">
+					<a href="${root}/board/searchpageset?searchpagenum=${cnt}">${cnt}</a>&nbsp;
+				</c:forEach>
 			</div>
 			<br><br>
 			<div>
-				<form action="${root}/board/searchboardlist" method="get">
+				<form action="${root}/board/searchset" method="get">
 					<select name="key" style="height: 27px;">
 						<option value="TITLE">제목</option>
 						<option value="NAME">이름</option>

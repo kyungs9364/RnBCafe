@@ -31,14 +31,24 @@ public class BoardController {
 	@RequestMapping(value = "boardset")
 	public String boardSet(int bcode) {
 		bset.setBcode(bcode);
+		bset.setPageNum(1);
+		bset.setSearchPageNum(1);
+		bset.setKey("");
+		bset.setWord("");
 		
 		return "redirect:/board/boardlist";
 	}
 	
 	@RequestMapping(value="boardlist")
 	public String boardList(Model model) {
-		List<BoardDto> list = service.boardList(bset.getBcode());
+		Map<String, Integer> map = new HashMap<>();
+		map.put("bcode", bset.getBcode());
+		map.put("pageNum", bset.getPageNum());
+		
+		List<BoardDto> list = service.boardList(map);
+		int pageCnt = service.allBoardCnt(bset.getBcode());
 		model.addAttribute("list",list);
+		model.addAttribute("pageCnt",pageCnt);
 		
 		return "board/boardlist";
 	}
@@ -127,22 +137,47 @@ public class BoardController {
 		return "redirect:/board/boardview?bseq="+bseq;
 	}
 	
+	@RequestMapping(value="searchset")
+	public String searchSet(String key, String word) {
+		bset.setKey(key);
+		bset.setWord(word);
+		
+		return "redirect:/board/searchboardlist";
+	}
+	
 	@RequestMapping(value="searchboardlist")
-	public String searchBoardList(String key, String word, Model model) {
+	public String searchBoardList(Model model) {
 		
 		Map<String, String> map = new HashMap<>();
-		map.put("key", key);
-		map.put("word", word);
+		map.put("key", bset.getKey());
+		map.put("word", bset.getWord());
 		map.put("bcode", String.valueOf(bset.getBcode()));
-		
-//		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$4" + map.get("key"));
-//		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$4" + map.get("word"));
+		map.put("searchPageNum", String.valueOf(bset.getSearchPageNum()));
 
 		List<BoardDto> list = service.searchBoardList(map);
+		int searchPageCnt = service.searchListCnt(map);
+
 		model.addAttribute("list", list);
+		model.addAttribute("searchPageCnt",searchPageCnt);
 		
 		return "board/boardlist";
 		
 	}
+	
+	@RequestMapping(value="pageset")
+	public String pageSet(int pageNum) {
+		bset.setPageNum(pageNum);
+		
+		return "redirect:/board/boardlist";
+		
+	}
+	
+	@RequestMapping(value="searchpageset")
+	public String searchPageSet(int searchpagenum) {
+		bset.setSearchPageNum(searchpagenum);
+		
+		return "redirect:/board/searchboardlist";
+	}
+	
 	
 }

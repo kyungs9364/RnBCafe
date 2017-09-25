@@ -6,4 +6,8 @@ import lombok.Data;
 public class BoardSet {
 
 	private int bcode;
+	private int pageNum;
+	private int searchPageNum;
+	private String key;
+	private String word;
 }

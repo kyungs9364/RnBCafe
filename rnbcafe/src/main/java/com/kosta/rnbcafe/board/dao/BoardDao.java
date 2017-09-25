@@ -20,9 +20,9 @@ public class BoardDao {
 		return sqlSession.insert("boardMapper.insertBoard", dto);
 	}
 	
-	public List<BoardDto> boardList(int bcode) {
+	public List<BoardDto> boardList(Map<String, Integer> map) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList("boardMapper.boardList", bcode);
+		return sqlSession.selectList("boardMapper.boardList", map);
 	}
 	
 	public BoardDto boradView(int bseq) {
@@ -48,6 +48,16 @@ public class BoardDao {
 	public List<BoardDto> searchBoardList(Map<String, String> map) {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList("boardMapper.searchBoardList", map);
+	}
+	
+	public int allBoardCnt(int bcode) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("boardMapper.allBoardCnt", bcode);
+	}
+
+	public int searchListCnt(Map<String, String> map) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("boardMapper.searchListCnt", map);
 	}
 
 }
