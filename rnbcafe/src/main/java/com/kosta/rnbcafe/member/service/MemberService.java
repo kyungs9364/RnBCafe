@@ -9,4 +9,5 @@ public interface MemberService {
 	int selectBoardCnt(String id);
 	int selectMemoCnt(String id);
 	int updateMember(MemberDto memberDto);
+	int deleteMember(String id);
 }

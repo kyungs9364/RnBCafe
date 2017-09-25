@@ -2,6 +2,7 @@ package com.kosta.rnbcafe.member.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.kosta.rnbcafe.member.dao.MemberDao;
 import com.kosta.rnbcafe.member.dto.MemberDto;
@@ -35,6 +36,11 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int updateMember(MemberDto memberDto) {
 		return dao.updateMember(memberDto);
+	}
+
+	@Override
+	public int deleteMember(String id) {
+		return dao.deleteMember(id);
 	}
 
 }

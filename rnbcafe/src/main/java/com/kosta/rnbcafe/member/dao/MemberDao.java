@@ -30,4 +30,9 @@ public class MemberDao {
 	public int updateMember(MemberDto memberDto) {
 		return sqlSession.update("memberMapper.updateMember", memberDto);
 	}
+	
+	public int deleteMember(String id) {
+		System.out.println("################################delete");
+		return sqlSession.delete("memberMapper.deleteMember", id);
+	}
 }

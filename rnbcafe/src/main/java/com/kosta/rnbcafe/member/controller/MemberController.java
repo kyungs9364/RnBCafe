@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.kosta.rnbcafe.cofig.MemberDetailService;
 import com.kosta.rnbcafe.member.dto.MemberDto;
@@ -28,8 +29,10 @@ public class MemberController {
 	}
 	
 	@RequestMapping("update")
-	public String updateMember(String id) {
-		return "member/updatemember";
+	public ModelAndView updateMember(String id) {
+		ModelAndView mv = new ModelAndView("member/updatemember");
+		mv.addObject("member", service.select(id));
+		return mv;
 	}
 	
 	@RequestMapping("insertMember")
@@ -55,8 +58,8 @@ public class MemberController {
 		l.info("############# cntB===" + service.selectBoardCnt(id));
 		l.info("############# cntM===" + service.selectMemoCnt(id));
 		Result result = new Result();
-		MemberDto memberDto = new MemberDto();
 		try {
+			MemberDto memberDto = service.select(id);
 			memberDto.setBoardCnt(service.selectBoardCnt(id));
 			memberDto.setMemoCnt(service.selectMemoCnt(id));
 			l.info("############# cnt==== "+memberDto.toString());
@@ -91,6 +94,20 @@ public class MemberController {
 			result.setSuccess(true);
 			l.info("####### updateMember 객체 AFTER  ==  "+member.toString());
 			session.setAttribute("user", member);
+		} else {
+			result.setSuccess(false);
+		}
+		return result;
+	}
+	
+	@RequestMapping("deleteMember")
+	@ResponseBody
+	public Result deleteMember(String id) {
+		l.info("####### deleteMember ID  ==  "+id);
+		Result result = new Result();
+		int cnt = service.deleteMember(id);
+		if (cnt == 1) {
+			result.setSuccess(true);
 		} else {
 			result.setSuccess(false);
 		}
