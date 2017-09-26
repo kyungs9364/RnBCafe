@@ -128,14 +128,14 @@
 	
 	<select id="imgBoardList" resultType="boardDto" parameterType="java.util.Map" >
 		SELECT *
-		FROM (SELECT ROWNUM RNUM, S.*
+		FROM (SELECT ROWNUM RNUM, S.*, BL.NAME BLNAME
       		  FROM (SELECT B.BSEQ, B.BCODE, B.ID, B.TITLE, B.CONTENT
             		, B.IMG, B.HIT, B.REGDATE, B.NOTICE, M.NAME
             		FROM BOARD B JOIN MEMBER M
             		ON B.ID = M.ID
-            		WHERE B.BCODE = #{bcode}
-             		AND B.IMG IS NOT NULL
-            		ORDER BY B.REGDATE DESC) S) B
+            		WHERE B.IMG IS NOT NULL
+            		ORDER BY B.REGDATE DESC) S JOIN BOARD_LIST BL
+     		  ON S.BCODE = BL.BCODE) B
 		WHERE B.RNUM BETWEEN #{pageNum}*10-9 AND #{pageNum}*10
 	</select>
 

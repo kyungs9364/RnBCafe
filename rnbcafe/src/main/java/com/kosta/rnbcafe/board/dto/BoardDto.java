@@ -17,5 +17,6 @@ public class BoardDto {
 	private Date regdate;
 	private int notice;
 	private String name;
+	private String blname;
 
 }

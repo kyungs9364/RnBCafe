@@ -39,7 +39,7 @@ public class BoardController {
 		bset.setStartNum(pg);
 		
 		if("img".equals(type))
-			return "board/imgboardlist";
+			return "redirect:/board/imgboardlist";
 		
 		return "redirect:/board/boardlist";
 	}
@@ -58,6 +58,18 @@ public class BoardController {
 		model.addAttribute("startNum", bset.getStartNum());
 		
 		return "board/boardlist";
+	}
+	
+	@RequestMapping(value="imgboardlist")
+	public String imgBoardList(Model model) {
+		Map<String, Integer> map = new HashMap<>();
+		map.put("bcode", bset.getBcode());
+		map.put("pageNum", bset.getPageNum());
+
+		model.addAttribute("bname", bset.getBname());
+		model.addAttribute("startNum", bset.getStartNum());
+		
+		return "board/imgboardlist";
 	}
 	
 	@RequestMapping(value="insertboard")

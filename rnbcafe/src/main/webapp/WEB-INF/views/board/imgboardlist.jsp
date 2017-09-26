@@ -19,7 +19,7 @@
 	</div>
 
 	<div class="col-sm-9 main">
-
+			<h3>&nbsp;&nbsp;${bname}</h3><br>
 <%-- 		<c:choose> --%>
 <%-- 			<c:when test="${!empty list}"> --%>
 <%-- 				<c:forEach items="${list}" var="dto"> --%>
