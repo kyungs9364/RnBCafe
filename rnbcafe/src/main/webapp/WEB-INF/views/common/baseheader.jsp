@@ -29,6 +29,17 @@
 			background-color: #F7F7F7;
 			border: 1px solid #E5E5E5;
 		}
+		
+		#imgboard {
+			width: 150px;
+			height: 100px;
+			cursor: pointer;
+		}
+		
+		.thumbnail b {
+			font-size: 8pt;
+		}
+		
 	</style>
 </head>
 

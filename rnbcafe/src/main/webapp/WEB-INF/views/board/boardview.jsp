@@ -53,13 +53,6 @@
 		location.href = "${root}/board/boardlist";
 	}
 	
-	function updateMemo() {
-// 		this.append(
-// 		"<textarea rows='5' cols='95' id='content' name='content' maxlength='500'></textarea>"+
-// 		"<input id='btn' class='btn btn-default btn' type='button' value='등록' style='vertical-align: top; margin-top: 72px; margin-left: 5px;'>"		
-// 		);
-	}
-	
 	function deleteMemo(mseq, bseq) {
 		if(confirm("정말 삭제하시겠습니까?")) {
 			location.href = "${root}/board/deletememo?mseq="+mseq+"&bseq="+bseq;
@@ -147,7 +140,6 @@
 						<fmt:formatDate value="${dto.regdate}" pattern="yy.MM.dd hh:mm"/>
 						</td>
 						<td style="border-top: none; font-size: 8pt; font-weight: bold; text-align: right;">
-<%-- 						<a href="javascript:updateMemo(${dto.mseq},${dto.bseq});">수정</a> /  --%>
 						<a href="javascript:deleteMemo(${dto.mseq},${dto.bseq});">삭제</a>
 						</td>
 					</tr>

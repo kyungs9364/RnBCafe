@@ -105,7 +105,7 @@ body {
          <div class="board_name">
       </c:if>
       <c:if test="${boardListDto.btype == 0}">
-         <a href="${root}/board/boardset?bcode=${boardListDto.bcode}&bname=${boardListDto.bname}&pg=1&key=&word=">
+         <a href="${root}/board/boardset?bcode=${boardListDto.bcode}&bname=${boardListDto.bname}&type=board&pg=1&key=&word=">
             <span class="glyphicon glyphicon-comment"> ${boardListDto.bname}</span>
          </a>
       </c:if>
@@ -115,7 +115,7 @@ body {
          </a>
       </c:if>
       <c:if test="${boardListDto.btype == 2}">
-         <a href="${root}/imgboard/boardset?bcode=${boardListDto.bcode}&bname=${boardListDto.bname}&pg=1&key=&word=">
+         <a href="${root}/board/boardset?bcode=${boardListDto.bcode}&bname=${boardListDto.bname}&type=img&pg=1&key=&word=">
             <span class="glyphicon glyphicon-picture"> ${boardListDto.bname}</span>
          </a>
       </c:if>

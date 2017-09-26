@@ -38,4 +38,10 @@ public class MemoServiceImpl implements MemoService {
 		return dao.deleteMemo(mseq);
 	}
 
+	@Override
+	public int boardMemoCnt(int bseq) {
+		// TODO Auto-generated method stub
+		return dao.boardMemoCnt(bseq);
+	}
+
 }

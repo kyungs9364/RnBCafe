@@ -29,14 +29,17 @@ public class BoardController {
 	BoardSet bset = new BoardSet();
 	
 	@RequestMapping(value = "boardset")
-	public String boardSet(int bcode, String bname) {
+	public String boardSet(int bcode, String bname, String type, int pg) {
 		bset.setBcode(bcode);
 		bset.setBname(bname);
-		bset.setPageNum(1);
-		bset.setSearchPageNum(1);
+		bset.setPageNum(pg);
+		bset.setSearchPageNum(pg);
 		bset.setKey("");
 		bset.setWord("");
-		bset.setStartNum(1);
+		bset.setStartNum(pg);
+		
+		if("img".equals(type))
+			return "board/imgboardlist";
 		
 		return "redirect:/board/boardlist";
 	}
@@ -46,8 +49,6 @@ public class BoardController {
 		Map<String, Integer> map = new HashMap<>();
 		map.put("bcode", bset.getBcode());
 		map.put("pageNum", bset.getPageNum());
-		
-		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"+bset.getStartNum());
 		
 		List<BoardDto> list = service.boardList(map);
 		int pageCnt = service.allBoardCnt(bset.getBcode());

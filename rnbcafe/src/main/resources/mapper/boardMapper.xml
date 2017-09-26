@@ -119,5 +119,24 @@
 		FROM BOARD
 		WHERE BCODE = #{bcode}
 	</select>
+	
+	<select id="boardMemoCnt" parameterType="int">
+		SELECT COUNT(*)
+		FROM MEMO
+		WHERE BSEQ = #{bseq};
+	</select>
+	
+	<select id="imgBoardList" resultType="boardDto" parameterType="java.util.Map" >
+		SELECT *
+		FROM (SELECT ROWNUM RNUM, S.*
+      		  FROM (SELECT B.BSEQ, B.BCODE, B.ID, B.TITLE, B.CONTENT
+            		, B.IMG, B.HIT, B.REGDATE, B.NOTICE, M.NAME
+            		FROM BOARD B JOIN MEMBER M
+            		ON B.ID = M.ID
+            		WHERE B.BCODE = #{bcode}
+             		AND B.IMG IS NOT NULL
+            		ORDER BY B.REGDATE DESC) S) B
+		WHERE B.RNUM BETWEEN #{pageNum}*10-9 AND #{pageNum}*10
+	</select>
 
 </mapper>

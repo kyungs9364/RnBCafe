@@ -59,5 +59,10 @@ public class BoardDao {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne("boardMapper.searchListCnt", map);
 	}
+	
+	public List<BoardDto> imgBoardList(Map<String, Integer> map) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("boardMapper.imgBoardList", map);
+	}
 
 }

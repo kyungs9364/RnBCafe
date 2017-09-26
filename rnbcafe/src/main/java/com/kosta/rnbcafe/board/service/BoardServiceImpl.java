@@ -69,4 +69,10 @@ public class BoardServiceImpl implements BoardService {
 		return dao.searchListCnt(map);
 	}
 
+	@Override
+	public List<BoardDto> imgBoardList(Map<String, Integer> map) {
+		// TODO Auto-generated method stub
+		return dao.imgBoardList(map);
+	}
+
 }
