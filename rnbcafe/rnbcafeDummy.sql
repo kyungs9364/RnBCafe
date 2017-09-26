@@ -1,6 +1,12 @@
 insert into board_type(btype, name, state)
 values (0, '일반게시판', 1);
 
+insert into board_type(btype, name, state)
+values (1, '한줄게시판', 1);
+
+insert into board_type(btype, name, state)
+values (2, '이미지게시판', 1);
+
 insert into category(ccode, name, state)
 values (category_seq.nextval, 'RNB 사우회', 1);
 

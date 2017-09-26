@@ -2,6 +2,12 @@
 	pageEncoding="UTF-8"%>
 <script type="text/javascript">
 function levelup(){
+	var level = document.getElementById("modalrole").childNodes[0].nodeValue;
+	if(level.trim() == "관리자") { 
+		alert("더 이상 등업할 수 없습니다.");
+		return;
+	}
+	
 	var lvid = document.getElementById("modalid").childNodes[0].nodeValue;
 	location.href = "${root}/memberadmin/levelup?lvid="+lvid;
 }

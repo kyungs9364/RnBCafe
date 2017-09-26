@@ -105,13 +105,18 @@ body {
          <div class="board_name">
       </c:if>
       <c:if test="${boardListDto.btype == 0}">
-         <a href="${root}/${boardListDto.control}/boardset?bcode=${boardListDto.bcode}&bname=${boardListDto.bname}&pg=1&key=&word=">
+         <a href="${root}/board/boardset?bcode=${boardListDto.bcode}&bname=${boardListDto.bname}&pg=1&key=&word=">
             <span class="glyphicon glyphicon-comment"> ${boardListDto.bname}</span>
          </a>
       </c:if>
       <c:if test="${boardListDto.btype == 1}">
-         <a href="${root}/${boardListDto.control}/getoneboard?bcode=${boardListDto.bcode}&bname=${boardListDto.bname}&pg=1&key=&word=">
+         <a href="${root}/oneboard/getoneboard?bcode=${boardListDto.bcode}&bname=${boardListDto.bname}&pg=1&key=&word=">
             <span class="glyphicon glyphicon-pencil"> ${boardListDto.bname}</span>
+         </a>
+      </c:if>
+      <c:if test="${boardListDto.btype == 2}">
+         <a href="${root}/imgboard/boardset?bcode=${boardListDto.bcode}&bname=${boardListDto.bname}&pg=1&key=&word=">
+            <span class="glyphicon glyphicon-picture"> ${boardListDto.bname}</span>
          </a>
       </c:if>
       <c:if test="${i.index < boardmenu.size() -1 }">

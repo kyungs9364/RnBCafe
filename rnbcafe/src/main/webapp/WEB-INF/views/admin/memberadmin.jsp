@@ -31,6 +31,7 @@
 			<c:forEach var="mlist" items="${mlist}">
 				<tr class="trhover" onclick="javascript:showModal('${mlist.id}');">
 					<input type="hidden" id="id" value="${mlist.id}">
+					<input type="hidden" id="role" value="${mlist.role}">
 					<td id="id${mlist.id}">${mlist.id}</td>
 					<td id="name${mlist.id}">${mlist.name}</td>
 					<td id="gender${mlist.id}">${mlist.gender}</td>

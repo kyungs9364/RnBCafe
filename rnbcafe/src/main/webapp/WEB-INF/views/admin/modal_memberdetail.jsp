@@ -44,7 +44,7 @@
 				<td id="modalgender"></td>
 				<td id="modalbirth"></td>
 				<td id="modalphone"></td>
-				<td id="modalrole"></td>
+				<td id="modalrole" value=""></td>
 				<td id="modalregdate"></td>
 			</tr>
 		</tbody>
