@@ -36,7 +36,10 @@
 					<td id="gender${mlist.id}">${mlist.gender}</td>
 					<td id="birth${mlist.id}">${mlist.birth}</td>
 					<td id="phone${mlist.id}">${mlist.phone}</td>
-					<td id="role${mlist.id}">${mlist.role}</td>
+					<td id="role${mlist.id}">${mlist.role==1?"새내기":""}
+											 ${mlist.role==2?"일반회원":""}
+											 ${mlist.role==3?"우수회원":""}
+											 ${mlist.role==4?"관리자":""}</td>
 					<td id="regdate${mlist.id}">${mlist.regdate}</td>
 				</tr>
 			</c:forEach>
