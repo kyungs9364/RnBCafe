@@ -17,4 +17,5 @@ public interface BoardService {
 	int allBoardCnt(int bcode);
 	int searchListCnt(Map<String, String> map);
 	List<BoardDto> imgBoardList(Map<String, Integer> map);
+	int imgBoardCnt();
 }

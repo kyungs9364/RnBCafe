@@ -22,19 +22,19 @@ import com.kosta.rnbcafe.board.service.MemoServiceImpl;
 import com.kosta.rnbcafe.util.Result;
 
 @Controller
-@RequestMapping(value="/board/")
+@RequestMapping(value = "/board/")
 public class BoardController {
 	private static final Logger l = LoggerFactory.getLogger(BoardController.class);
-	
+
 	@Autowired
 	private BoardServiceImpl service;
 	@Autowired
 	private MemoServiceImpl mservice;
 	@Autowired
 	private ServletContext servletContext;
-	
+
 	BoardSet bset = new BoardSet();
-	
+
 	@RequestMapping(value = "boardset")
 	public String boardSet(int bcode, String bname, String type, int pg) {
 		bset.setBcode(bcode);
@@ -44,92 +44,97 @@ public class BoardController {
 		bset.setKey("");
 		bset.setWord("");
 		bset.setStartNum(pg);
-		
-		if("img".equals(type))
+
+		if ("img".equals(type))
 			return "redirect:/board/imgboardlist";
-		
+
 		return "redirect:/board/boardlist";
 	}
-	
-	@RequestMapping(value="boardlist")
+
+	@RequestMapping(value = "boardlist")
 	public String boardList(Model model) {
 		Map<String, Integer> map = new HashMap<>();
 		map.put("bcode", bset.getBcode());
 		map.put("pageNum", bset.getPageNum());
-		
+
 		List<BoardDto> list = service.boardList(map);
 		int pageCnt = service.allBoardCnt(bset.getBcode());
-		model.addAttribute("list",list);
-		model.addAttribute("pageCnt",pageCnt);
+		model.addAttribute("list", list);
+		model.addAttribute("pageCnt", pageCnt);
 		model.addAttribute("bname", bset.getBname());
 		model.addAttribute("startNum", bset.getStartNum());
-		
+
 		return "board/boardlist";
 	}
-	
-	@RequestMapping(value="imgboardlist")
+
+	@RequestMapping(value = "imgboardlist")
 	public String imgBoardList(Model model) {
 		Map<String, Integer> map = new HashMap<>();
 		map.put("bcode", bset.getBcode());
 		map.put("pageNum", bset.getPageNum());
 
+		List<BoardDto> list = service.imgBoardList(map);
+		int pageCnt = service.imgBoardCnt();
+
+		model.addAttribute("list", list);
+		model.addAttribute("pageCnt", pageCnt);
 		model.addAttribute("bname", bset.getBname());
 		model.addAttribute("startNum", bset.getStartNum());
-		
+
 		return "board/imgboardlist";
 	}
-	
-	@RequestMapping(value="insertboard")
+
+	@RequestMapping(value = "insertboard")
 	public String insertform() {
-		
+
 		return "board/insertboard";
 	}
-	
-	@RequestMapping(value="insertboard", method=RequestMethod.POST)
+
+	@RequestMapping(value = "insertboard", method = RequestMethod.POST)
 	public String insertBoard(BoardDto dto) {
 		dto.setBcode(bset.getBcode());
 		int cnt = service.insertBoard(dto);
-		if(cnt == 0) {
+		if (cnt == 0) {
 			return "common/err";
 		}
 		return "redirect:/board/boardlist";
 	}
-	
-	@RequestMapping(value="insertnotice")
+
+	@RequestMapping(value = "insertnotice")
 	public String insertNform() {
-		
+
 		return "board/insertnotice";
 	}
-	
-	@RequestMapping(value="insertnotice", method=RequestMethod.POST)
+
+	@RequestMapping(value = "insertnotice", method = RequestMethod.POST)
 	public String insertnotice(BoardDto dto) {
 		dto.setBcode(bset.getBcode());
 		int cnt = service.insertNotice(dto);
-		if(cnt == 0) {
+		if (cnt == 0) {
 			return "common/err";
 		}
 		return "redirect:/board/boardlist";
 	}
-	
+
 	/*
 	 * @author 명재환
 	 */
-	@RequestMapping(value="insertimage", method=RequestMethod.POST)
+	@RequestMapping(value = "insertimage", method = RequestMethod.POST)
 	@ResponseBody
 	public ResponseEntity<?> insertImage(MultipartFile file) {
 		if (file.isEmpty()) {
 			l.info("############# File null ############");
 		}
-		l.info("########## File name = "+file.getOriginalFilename());
-		String realPath = servletContext.getRealPath("/WEB-INF/resources/tmp/" );
+		l.info("########## File name = " + file.getOriginalFilename());
+		String realPath = servletContext.getRealPath("/WEB-INF/resources/tmp/");
 		BufferedOutputStream stream = null;
-		String filename = System.currentTimeMillis()+file.getOriginalFilename();
-		File serverFile = new File(realPath+filename);
+		String filename = System.currentTimeMillis() + file.getOriginalFilename();
+		File serverFile = new File(realPath + filename);
 		try {
-			byte[] bytes = file.getBytes();			
-		    stream = new BufferedOutputStream(new FileOutputStream(serverFile));
+			byte[] bytes = file.getBytes();
+			stream = new BufferedOutputStream(new FileOutputStream(serverFile));
 			stream.write(bytes);
-		} catch (IllegalStateException | IOException e) {		
+		} catch (IllegalStateException | IOException e) {
 			e.printStackTrace();
 		} finally {
 			try {
@@ -138,88 +143,88 @@ public class BoardController {
 				e.printStackTrace();
 			}
 		}
-		return ResponseEntity.ok().body("/rnbcafe/resources/tmp/"+filename);
+		return ResponseEntity.ok().body("/rnbcafe/resources/tmp/" + filename);
 	}
-	
-	@RequestMapping(value="boardview")
+
+	@RequestMapping(value = "boardview")
 	public String boradview(Model model, int bseq) {
 		service.hit(bseq);
-		List<MemoDto> mlist =  mservice.memoList(bseq);
+		List<MemoDto> mlist = mservice.memoList(bseq);
 		BoardDto dto = service.boradView(bseq);
 		model.addAttribute("dto", dto);
 		model.addAttribute("mlist", mlist);
-		
+
 		return "board/boardview";
 	}
-	
-	@RequestMapping(value="updateboard")
+
+	@RequestMapping(value = "updateboard")
 	public String updateForm(Model model, int bseq) {
 		BoardDto dto = service.boradView(bseq);
 		model.addAttribute("dto", dto);
 		return "board/updateboard";
 	}
-	
-	@RequestMapping(value="updateboard", method=RequestMethod.POST)
+
+	@RequestMapping(value = "updateboard", method = RequestMethod.POST)
 	public String updateBoard(Model model, BoardDto dto) {
-		
+
 		int cnt = service.updateBoard(dto);
-		if(cnt == 0) {
+		if (cnt == 0) {
 			return "common/err";
 		}
-		
-		return "redirect:/board/boardview?bseq="+dto.getBseq();
+
+		return "redirect:/board/boardview?bseq=" + dto.getBseq();
 	}
-	
-	@RequestMapping(value="deleteboard")
+
+	@RequestMapping(value = "deleteboard")
 	public String deleteBoard(int bseq) {
 		int cnt = service.deleteBoard(bseq);
-		if(cnt == 0) {
+		if (cnt == 0) {
 			return "common/err";
 		}
 		return "redirect:/board/boardlist";
 	}
-	
+
 	@ResponseBody
-	@RequestMapping(value="insertmemo")
+	@RequestMapping(value = "insertmemo")
 	public Result insertMemo(MemoDto dto) {
-		
+
 		Result result = new Result();
 		try {
 			int cnt = mservice.insertMemo(dto);
-			if (cnt !=0) {
+			if (cnt != 0) {
 				MemoDto topDto = mservice.topMemo(dto.getBseq());
 				result.setSuccess(true);
-				result.setObject(topDto);				
-			} 
+				result.setObject(topDto);
+			}
 		} catch (Exception e) {
 			result.setSuccess(false);
 		}
-		
+
 		return result;
 	}
-	
-	@RequestMapping(value="deletememo")
+
+	@RequestMapping(value = "deletememo")
 	public String deleteMemo(int mseq, int bseq) {
-		
+
 		int cnt = mservice.deleteMemo(mseq);
-		if(cnt == 0) {
+		if (cnt == 0) {
 			return "common/err";
 		}
-		
-		return "redirect:/board/boardview?bseq="+bseq;
+
+		return "redirect:/board/boardview?bseq=" + bseq;
 	}
-	
-	@RequestMapping(value="searchset")
+
+	@RequestMapping(value = "searchset")
 	public String searchSet(String key, String word) {
 		bset.setKey(key);
 		bset.setWord(word);
-		
+
 		return "redirect:/board/searchboardlist";
 	}
-	
-	@RequestMapping(value="searchboardlist")
+
+	@RequestMapping(value = "searchboardlist")
 	public String searchBoardList(Model model) {
-		
+
 		Map<String, String> map = new HashMap<>();
 		map.put("key", bset.getKey());
 		map.put("word", bset.getWord());
@@ -230,43 +235,51 @@ public class BoardController {
 		int searchPageCnt = service.searchListCnt(map);
 
 		model.addAttribute("list", list);
-		model.addAttribute("searchPageCnt",searchPageCnt);
-		
+		model.addAttribute("searchPageCnt", searchPageCnt);
+
 		return "board/boardlist";
-		
+
 	}
-	
-	@RequestMapping(value="pageset")
+
+	@RequestMapping(value = "pageset")
 	public String pageSet(int pageNum) {
 		bset.setPageNum(pageNum);
-		
+
 		return "redirect:/board/boardlist";
-		
+
 	}
-	
-	@RequestMapping(value="searchpageset")
+
+	@RequestMapping(value = "imgpageset")
+	public String imgPageSet(int pageNum) {
+		bset.setPageNum(pageNum);
+
+		return "redirect:/board/imgboardlist";
+
+	}
+
+	@RequestMapping(value = "searchpageset")
 	public String searchPageSet(int searchpagenum) {
 		bset.setSearchPageNum(searchpagenum);
-		
+
 		return "redirect:/board/searchboardlist";
 	}
-	
-	@RequestMapping(value="startpageset")
+
+	@RequestMapping(value = "startpageset")
 	public String startPageSet() {
 		int num = bset.getStartNum();
-		bset.setStartNum(num+10);
-		bset.setPageNum(num+10);
-		
+		bset.setStartNum(num + 10);
+		bset.setPageNum(num + 10);
+
 		return "redirect:/board/boardlist";
 	}
-	
-	@RequestMapping(value="prevpage")
+
+	@RequestMapping(value = "prevpage")
 	public String prevPage() {
 		int num = bset.getStartNum();
-		bset.setStartNum(num-10);
-		bset.setPageNum(num-10);
-		
+		bset.setStartNum(num - 10);
+		bset.setPageNum(num - 10);
+
 		return "redirect:/board/boardlist";
 	}
-	
+
 }

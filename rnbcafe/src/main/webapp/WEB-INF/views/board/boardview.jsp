@@ -49,9 +49,9 @@
 		}
 	}
 	
-	function backBoard(){
-		location.href = "${root}/board/boardlist";
-	}
+// 	function backBoard(){
+// 		location.href = "${root}/board/boardlist";
+// 	}
 	
 	function deleteMemo(mseq, bseq) {
 		if(confirm("정말 삭제하시겠습니까?")) {
@@ -109,7 +109,7 @@
 					<span class="glyphicon glyphicon-plus"></span> 수정</button>
 					<button class="btn btn-danger btn-sm" onclick="deleteBoard('${dto.bseq}');">
 					<span class="glyphicon glyphicon-minus"></span> 삭제</button>
-					<button class="btn btn-default btn-sm" onclick="backBoard();">돌아가기</button>
+					<button class="btn btn-default btn-sm" onclick="history.back(-1);">돌아가기</button>
 				</td>
 			</tr>
 			<tr>

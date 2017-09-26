@@ -7,7 +7,7 @@
 <%@ include file="/WEB-INF/views/common/baseheader.jsp"%>
 
 <script>
-	function boardView(){
+	function boardView() {
 		alert("boardView !!");
 	}
 </script>
@@ -19,45 +19,70 @@
 	</div>
 
 	<div class="col-sm-9 main">
-			<h3>&nbsp;&nbsp;${bname}</h3><br>
-<%-- 		<c:choose> --%>
-<%-- 			<c:when test="${!empty list}"> --%>
-<%-- 				<c:forEach items="${list}" var="dto"> --%>
-				<c:forEach begin="1" end="4" step="1" var="dto">
-					<div class="col-sm-4">
-						<div>
-							<div class="thumbnail">
-							<div></div>
-							<div class="caption">
-								<h5 class="pull-right">
-									<b>조회수 &nbsp;&nbsp;3</b>
-									<%-- ${dto.hit} --%>
-								</h5>
-								<h5>
-									<img onclick="boardView();" id="imgboard" alt="photo" src="http://3.bp.blogspot.com/-IXJPvhRaLys/VN28jKXSEqI/AAAAAAAACeo/JE4ohwF49HY/s1600/valentines-day-2015-5081660856991744.5-hp.gif">
-								</h5><br>
-								<h5>
-									<b>작성자 : &nbsp;&nbsp;양경석</b>
-									<%-- ${dto.name} --%>
-								</h5>
-								<h5>
-									<b>날짜 : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2017.09.26</b>
-									<%-- <fmt:formatDate value="${dto.regdate}" pattern="yyyy.MM.dd" /> --%>
-								</h5>
+		<h3>&nbsp;&nbsp;${bname}</h3>
+		<br>
+		<div class="row">
+			<c:choose>
+				<c:when test="${!empty list}">
+					<c:forEach items="${list}" var="dto">
+						<div class="col-sm-4">
+							<div>
+								<div style="font-size: 9pt">[ ${dto.blname} ]</div>
+								<div class="thumbnail">
+									<div></div>
+									<div class="caption">
+										<h5 class="pull-right">
+											<b>조회수 &nbsp;&nbsp;${dto.hit}</b>
+										</h5>
+										<h5>
+											<img onclick="${root}/board/boardview?bseq=${dto.bseq}" id="imgboard" alt="photo"
+												src="${dto.img}">
+										</h5>
+										<br>
+										<h5>
+											<b>작성자 : &nbsp;&nbsp;${dto.name}</b>
+										</h5>
+										<h5>
+											<b>날짜 : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <fmt:formatDate
+													value="${dto.regdate}" pattern="yyyy.MM.dd" /></b>
+										</h5>
+									</div>
+								</div>
+								<div style="font-weight: bold; text-align: center;">
+									<a href="${root}/board/boardview?bseq=${dto.bseq}">${dto.title}</a>
+								</div>
+								<br> <br>
 							</div>
-						</div>
-							<div style="font-weight: bold; text-align: center;">
-								<a href="javascript:boardView();">타이틀 부분입니다.<%-- ${dto.title} --%></a>
-							</div><br><br>
-						</div>
 
-					</div>
+						</div>
+					</c:forEach>
+				</c:when>
+				<c:otherwise>
+					<b>작성된 글이 존재 하지 않습니다.</b>
+				</c:otherwise>
+			</c:choose>
+			<c:set var="page" value="${(pageCnt/6)+(1-((pageCnt/6)%1))%1}" />
+			<fmt:formatNumber value="${page}" type="number" var="pageNum" />
+		</div>
+		<br>
+		<div class="row">
+			<div align="center">
+
+				<c:set var="doneLoop" value="false" />
+				<c:forEach begin="${startNum}" end="${pageNum}" step="1" var="cnt">
+					<c:if test="${cnt gt startNum+9}">
+						<a href="${root}/board/startpageset">...</a>
+						<c:set var="doneLoop" value="true" />
+					</c:if>
+					<c:if test="${not doneLoop}">
+						<c:if test="${cnt gt 10}">
+							<a href="${root}/board/prevpage">...</a>
+						</c:if>
+						<a href="${root}/board/imgpageset?pageNum=${cnt}">${cnt}</a>&nbsp;
+				</c:if>
 				</c:forEach>
-<%-- 			</c:when> --%>
-<%-- 			<c:otherwise> --%>
-<!-- 				<b>작성된 글이 존재 하지 않습니다.</b> -->
-<%-- 			</c:otherwise> --%>
-<%-- 		</c:choose> --%>
+			</div>
+		</div>
 	</div>
 </div>
 

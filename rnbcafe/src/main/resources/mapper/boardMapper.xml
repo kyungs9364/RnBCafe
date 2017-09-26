@@ -142,7 +142,13 @@
             		WHERE B.IMG IS NOT NULL
             		ORDER BY B.REGDATE DESC) S JOIN BOARD_LIST BL
      		  ON S.BCODE = BL.BCODE) B
-		WHERE B.RNUM BETWEEN #{pageNum}*10-9 AND #{pageNum}*10
+		WHERE B.RNUM BETWEEN #{pageNum}*6-5 AND #{pageNum}*6
+	</select>
+	
+	<select id="imgBoardCnt" resultType="int">
+		SELECT COUNT(*)
+		FROM BOARD
+		WHERE IMG IS NOT NULL
 	</select>
 
 </mapper>
