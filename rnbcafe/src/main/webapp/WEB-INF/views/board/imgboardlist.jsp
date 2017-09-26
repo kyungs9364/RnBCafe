@@ -7,9 +7,12 @@
 <%@ include file="/WEB-INF/views/common/baseheader.jsp"%>
 
 <script>
-	function boardView() {
-		alert("boardView !!");
-	}
+
+	$(function(){
+		$(".img").click(function(){
+			location.href="${root}/board/boardview?bseq="+$(this).attr("value");
+		})
+	});
 </script>
 
 <div class="container" style="margin-top: 70px">
@@ -35,8 +38,8 @@
 											<b>조회수 &nbsp;&nbsp;${dto.hit}</b>
 										</h5>
 										<h5>
-											<img onclick="${root}/board/boardview?bseq=${dto.bseq}" id="imgboard" alt="photo"
-												src="${dto.img}">
+											<img class="img" value="${dto.bseq}" id="imgboard" alt="photo"
+												src="${dto.img}"/>
 										</h5>
 										<br>
 										<h5>

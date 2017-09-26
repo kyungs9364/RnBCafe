@@ -126,12 +126,6 @@
 		WHERE BCODE = #{bcode}
 	</select>
 	
-	<select id="boardMemoCnt" parameterType="int">
-		SELECT COUNT(*)
-		FROM MEMO
-		WHERE BSEQ = #{bseq};
-	</select>
-	
 	<select id="imgBoardList" resultType="boardDto" parameterType="java.util.Map" >
 		SELECT *
 		FROM (SELECT ROWNUM RNUM, S.*, BL.NAME BLNAME

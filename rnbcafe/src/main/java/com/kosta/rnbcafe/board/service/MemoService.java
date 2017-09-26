@@ -10,5 +10,4 @@ public interface MemoService {
 	int insertMemo(MemoDto dto);
 	MemoDto topMemo(int bseq);
 	int deleteMemo(int mseq);
-	int boardMemoCnt(int bseq);
 }

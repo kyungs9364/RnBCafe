@@ -8,6 +8,8 @@
 <script type="text/javascript">
 	$(function(){
 		$("#memoDiv").hide();
+		$("#updatebtn").hide();
+		$("#delbtn").hide();
 		
 		$("#memo").click(function(){
 			if($("#memospan").hasClass("glyphicon glyphicon-chevron-down")){
@@ -37,6 +39,11 @@
 	 			}
 	 		});
 		});
+		
+		if(${user.id eq dto.id} || ${user.role == 4}) {
+			$("#updatebtn").show();
+			$("#delbtn").show();
+		}
 	});
 
 	function updateBoard(bseq){
@@ -49,10 +56,6 @@
 		}
 	}
 	
-// 	function backBoard(){
-// 		location.href = "${root}/board/boardlist";
-// 	}
-	
 	function deleteMemo(mseq, bseq) {
 		if(confirm("정말 삭제하시겠습니까?")) {
 			location.href = "${root}/board/deletememo?mseq="+mseq+"&bseq="+bseq;
@@ -61,23 +64,27 @@
 	
 	function commentLoad(dto){
 		
-		$("#memotable").prepend(
-				"<tr>"
-				+"<td style='border-top: none; font-size: 8pt; font-weight: bold;'>"+dto.name +"</td>"
-				+"<td style='border-top: none; font-size: 8pt; font-weight: bold; color: yellow;'>"
-				+"New!"
-				+"</td>"
-				+"<td style='border-top: none; font-size: 8pt; font-weight: bold; text-align: right;'>"
-				+"<a href='javascript:updateMemo("+dto.mseq+");'>수정</a> / <a href='javascript:deleteMemo("+dto.mseq+");'>삭제</a>"
-				+"</td>"
-				+"</tr>"
-				+"<tr>"
-				+"<td colspan='3'><div id='comment'>"+dto.content+"</div></td>"
-				+"</tr>"
-				+"<tr>"
-				+"<td height='20px;'></td>"
-				+"</tr>"
-			);
+		var output = '';
+		
+		output += "<tr>";
+		output += "<td style='border-top: none; font-size: 8pt; font-weight: bold;'>"+dto.name +"</td>";
+		output += "<td style='border-top: none; font-size: 8pt; font-weight: bold; color: yellow;'>";
+		output += "New!";
+		output += "</td>";
+		output += "<td style='border-top: none; font-size: 8pt; font-weight: bold; text-align: right;'>";
+		if('${user.id}' == dto.id) {
+			output += "<a href='javascript:deleteMemo("+dto.mseq+");'>삭제</a>";	
+		}
+		output += "</td>";
+		output += "</tr>";
+		output += "<tr>";
+		output += "<td colspan='3'><div id='comment'>"+dto.content+"</div></td>";
+		output += "</tr>";
+		output += "<tr>";
+		output += "<td height='20px;'></td>";
+		output += "</tr>";
+		
+		$("#memotable").prepend(output);
 	
 	}
 
@@ -105,9 +112,9 @@
 			</tr>
 			<tr>
 				<td colspan="3" align="right">
-					<button class="btn btn-warning btn-sm" onclick="updateBoard('${dto.bseq}');">
+					<button id="updatebtn" class="btn btn-warning btn-sm" onclick="updateBoard('${dto.bseq}');">
 					<span class="glyphicon glyphicon-plus"></span> 수정</button>
-					<button class="btn btn-danger btn-sm" onclick="deleteBoard('${dto.bseq}');">
+					<button id="delbtn" class="btn btn-danger btn-sm" onclick="deleteBoard('${dto.bseq}');">
 					<span class="glyphicon glyphicon-minus"></span> 삭제</button>
 					<button class="btn btn-default btn-sm" onclick="history.back(-1);">돌아가기</button>
 				</td>
@@ -140,7 +147,9 @@
 						<fmt:formatDate value="${dto.regdate}" pattern="yy.MM.dd hh:mm"/>
 						</td>
 						<td style="border-top: none; font-size: 8pt; font-weight: bold; text-align: right;">
-						<a href="javascript:deleteMemo(${dto.mseq},${dto.bseq});">삭제</a>
+						<c:if test="${user.id eq dto.id || user.role == 4}">
+							<a class="delmemo" href="javascript:deleteMemo(${dto.mseq},${dto.bseq});">삭제</a>					
+						</c:if>
 						</td>
 					</tr>
 					<tr>
