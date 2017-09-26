@@ -1,30 +1,37 @@
 package com.kosta.rnbcafe.board.controller;
 
+import java.io.*;
 import java.util.*;
 
-import javax.servlet.http.HttpSession;
+import javax.servlet.ServletContext;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.kosta.rnbcafe.board.BoardSet;
 import com.kosta.rnbcafe.board.dto.BoardDto;
 import com.kosta.rnbcafe.board.dto.MemoDto;
 import com.kosta.rnbcafe.board.service.BoardServiceImpl;
 import com.kosta.rnbcafe.board.service.MemoServiceImpl;
-import com.kosta.rnbcafe.member.dto.MemberDto;
 import com.kosta.rnbcafe.util.Result;
 
 @Controller
 @RequestMapping(value="/board/")
 public class BoardController {
+	private static final Logger l = LoggerFactory.getLogger(BoardController.class);
 	
 	@Autowired
 	private BoardServiceImpl service;
 	@Autowired
 	private MemoServiceImpl mservice;
+	@Autowired
+	private ServletContext servletContext;
 	
 	BoardSet bset = new BoardSet();
 	
@@ -86,6 +93,36 @@ public class BoardController {
 			return "common/err";
 		}
 		return "redirect:/board/boardlist";
+	}
+	
+	/*
+	 * @author 명재환
+	 */
+	@RequestMapping(value="insertimage", method=RequestMethod.POST)
+	@ResponseBody
+	public ResponseEntity<?> insertImage(MultipartFile file) {
+		if (file.isEmpty()) {
+			l.info("############# File null ############");
+		}
+		l.info("########## File name = "+file.getOriginalFilename());
+		String realPath = servletContext.getRealPath("/WEB-INF/resources/tmp/" );
+		BufferedOutputStream stream = null;
+		String filename = System.currentTimeMillis()+file.getOriginalFilename();
+		File serverFile = new File(realPath+filename);
+		try {
+			byte[] bytes = file.getBytes();			
+		    stream = new BufferedOutputStream(new FileOutputStream(serverFile));
+			stream.write(bytes);
+		} catch (IllegalStateException | IOException e) {		
+			e.printStackTrace();
+		} finally {
+			try {
+				stream.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		return ResponseEntity.ok().body("/rnbcafe/resources/tmp/"+filename);
 	}
 	
 	@RequestMapping(value="boardview")
