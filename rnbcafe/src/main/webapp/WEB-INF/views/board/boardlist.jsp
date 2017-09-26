@@ -96,7 +96,9 @@
 					<c:if test="${cnt gt 10}">
 						<a href="${root}/board/prevpage">...</a>
 					</c:if>
-					<a href="${root}/board/pageset?pageNum=${cnt}">${cnt}</a>&nbsp;
+					<c:if test="${cnt ne 0}">
+						<a href="${root}/board/pageset?pageNum=${cnt}">${cnt}</a>&nbsp;
+					</c:if>
 				</c:if>
 				</c:forEach>
 				
