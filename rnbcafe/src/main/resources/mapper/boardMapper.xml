@@ -10,7 +10,7 @@
             		FROM BOARD B JOIN MEMBER M
             		ON B.ID = M.ID
             		WHERE B.BCODE = #{bcode}
-            		ORDER BY B.REGDATE DESC) S) B
+            		ORDER BY NOTICE DESC, B.REGDATE DESC) S) B
 		WHERE B.RNUM BETWEEN #{pageNum}*10-9 AND #{pageNum}*10
 	</select>
 
@@ -18,6 +18,12 @@
 		INSERT INTO BOARD
 		VALUE(BSEQ, BCODE, ID, TITLE, CONTENT, IMG, HIT, REGDATE)
 		VALUES(BOARD_SEQ.NEXTVAL ,#{bcode},#{id},#{title},#{content},#{img},0, SYSDATE)
+	</insert>
+
+	<insert id="insertNotice" parameterType="boardDto">
+		INSERT INTO BOARD
+		VALUE(BSEQ, BCODE, ID, TITLE, CONTENT, IMG, HIT, REGDATE, NOTICE)
+		VALUES(BOARD_SEQ.NEXTVAL ,#{bcode},#{id},#{title},#{content},#{img},0, SYSDATE, 1)
 	</insert>
 	
 	<select id="boradview" parameterType="int" resultType="boardDto">

@@ -9,6 +9,9 @@
 	function insertBoard(){
 		location.href="${root}/board/insertboard";
 	}
+	function insertNotice(){
+		location.href="${root}/board/insertnotice";
+	}
 </script>
 
 <div class="container" style="margin-top: 70px">
@@ -20,9 +23,14 @@
 	<div class="col-sm-9 main">
 		<h3>${bname}</h3><br>
 
-		<button class="btn btn-default btn-xs" onclick="insertBoard();">
+		<button class="btn btn-primary btn-xs" onclick="insertBoard();">
 			<span class="glyphicon glyphicon-pencil"></span> 글쓰기
 		</button>
+		<sec:authorize access="hasRole('ROLE_ADMIN')">
+			<button class="btn btn-info btn-xs" onclick="insertNotice();">
+				<span class="glyphicon glyphicon-ok-sign"></span> 공지사항
+			</button>
+		</sec:authorize>
 		<br> <br>
 		<table class="table">
 			<tr>
@@ -35,13 +43,24 @@
 			<c:choose>
 				<c:when test="${!empty list}">
 					<c:forEach items="${list}" var="dto">
-						<tr>
-							<td>${dto.bseq}</td>
-							<td><a href="${root}/board/boardview?bseq=${dto.bseq}">${dto.title}</a></td>
-							<td>${dto.name}</td>
-							<td><fmt:formatDate value="${dto.regdate}" pattern="yyyy.MM.dd"/></td>
-							<td>${dto.hit}</td>
-						</tr>
+						<c:if test="${dto.notice==1}">
+							<tr class="active">
+								<td>${dto.bseq}</td>
+								<td><a href="${root}/board/boardview?bseq=${dto.bseq}"><font color="black"><b>${dto.title}</b></font></a></td>
+								<td>${dto.name}</td>
+								<td><fmt:formatDate value="${dto.regdate}" pattern="yyyy.MM.dd"/></td>
+								<td>${dto.hit}</td>
+							</tr>
+						</c:if>
+						<c:if test="${dto.notice==0}">
+							<tr>
+								<td>${dto.bseq}</td>
+								<td><a href="${root}/board/boardview?bseq=${dto.bseq}">${dto.title}</a></td>
+								<td>${dto.name}</td>
+								<td><fmt:formatDate value="${dto.regdate}" pattern="yyyy.MM.dd"/></td>
+								<td>${dto.hit}</td>
+							</tr>
+						</c:if>
 					</c:forEach>
 				</c:when>
 				<c:otherwise>
@@ -51,9 +70,14 @@
 				</c:otherwise>
 			</c:choose>
 		</table><br>
-			<button class="btn btn-default btn-xs" onclick="insertBoard();">
+			<button class="btn btn-primary btn-xs" onclick="insertBoard();">
 				<span class="glyphicon glyphicon-pencil"></span> 글쓰기
 			</button>
+			<sec:authorize access="hasRole('ROLE_ADMIN')">
+				<button class="btn btn-info btn-xs" onclick="insertNotice();">
+					<span class="glyphicon glyphicon-ok-sign"></span> 공지사항
+				</button>
+			</sec:authorize>
 			<div style="text-align: center;">
 				<c:set var="page" value="${(pageCnt/10)+(1-((pageCnt/10)%1))%1}"/>
 				<fmt:formatNumber value="${page}" type="number" var="pageNum"/>

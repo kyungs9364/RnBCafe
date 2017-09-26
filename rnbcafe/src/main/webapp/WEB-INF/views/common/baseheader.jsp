@@ -52,8 +52,10 @@
 			</div>
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="${root}">★</a></li>
-				<li><a href="${root}/memberadmin/list">회원관리</a></li>
-				<li><a href="${root}/admin/categoryadmin">카테고리관리</a></li>
+				<sec:authorize access="hasRole('ROLE_ADMIN')">
+					<li><a href="${root}/memberadmin/list">회원관리</a></li>
+					<li><a href="${root}/admin/categoryadmin">카테고리관리</a></li>
+				</sec:authorize>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#"><span class="glyphicon glyphicon-user"></span>

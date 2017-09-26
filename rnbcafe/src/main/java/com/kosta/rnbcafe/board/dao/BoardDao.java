@@ -20,6 +20,11 @@ public class BoardDao {
 		return sqlSession.insert("boardMapper.insertBoard", dto);
 	}
 	
+	public int insertNotice(BoardDto dto) {
+		// TODO Auto-generated method stub
+		return sqlSession.insert("boardMapper.insertNotice", dto);
+	}
+	
 	public List<BoardDto> boardList(Map<String, Integer> map) {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList("boardMapper.boardList", map);

@@ -95,6 +95,22 @@ public class BoardController {
 		return "redirect:/board/boardlist";
 	}
 	
+	@RequestMapping(value="insertnotice")
+	public String insertNform() {
+		
+		return "board/insertnotice";
+	}
+	
+	@RequestMapping(value="insertnotice", method=RequestMethod.POST)
+	public String insertnotice(BoardDto dto) {
+		dto.setBcode(bset.getBcode());
+		int cnt = service.insertNotice(dto);
+		if(cnt == 0) {
+			return "common/err";
+		}
+		return "redirect:/board/boardlist";
+	}
+	
 	/*
 	 * @author 명재환
 	 */

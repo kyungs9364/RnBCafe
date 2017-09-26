@@ -7,6 +7,7 @@ import com.kosta.rnbcafe.board.dto.BoardDto;
 
 public interface BoardService {
 	int insertBoard(BoardDto dto);
+	int insertNotice(BoardDto dto);
 	List<BoardDto> boardList(Map<String, Integer> map);
 	BoardDto boradView(int bseq);
 	void hit(int bseq);

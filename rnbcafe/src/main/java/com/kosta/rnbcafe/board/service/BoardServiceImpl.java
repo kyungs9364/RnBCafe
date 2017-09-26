@@ -20,6 +20,12 @@ public class BoardServiceImpl implements BoardService {
 		// TODO Auto-generated method stub
 		return dao.insertBoard(dto);
 	}
+	
+	@Override
+	public int insertNotice(BoardDto dto) {
+		// TODO Auto-generated method stub
+		return dao.insertNotice(dto);
+	}
 
 	@Override
 	public List<BoardDto> boardList(Map<String, Integer> map) {
