@@ -130,11 +130,12 @@
 		<br>
 		<div>
 			<form action="${root}/board/searchset" method="get">
-				<select name="key" style="height: 27px;">
+				<select class="form-control" name="key" style="height: 34px; width: 80px; display: inline;">
 					<option value="TITLE">제목</option>
 					<option value="NAME">이름</option>
-				</select> <input type="text" name="word" style="vertical-align: top;" /> <input
-					class="btn btn-primary btn-sm" type="submit" value="검색" />
+				</select> 
+				<input class="form-control" type="text" name="word" style="vertical-align: top; width: 300px; display: inline;" /> 
+				<input class="btn btn-primary btn-m" type="submit" style="vertical-align: top;" value="검색" />
 			</form>
 		</div>
 	</div>

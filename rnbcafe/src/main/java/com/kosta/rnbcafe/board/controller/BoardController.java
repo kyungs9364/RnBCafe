@@ -235,6 +235,7 @@ public class BoardController {
 		int searchPageCnt = service.searchListCnt(map);
 
 		model.addAttribute("list", list);
+		model.addAttribute("bname", bset.getBname());
 		model.addAttribute("searchPageCnt", searchPageCnt);
 
 		return "board/boardlist";
