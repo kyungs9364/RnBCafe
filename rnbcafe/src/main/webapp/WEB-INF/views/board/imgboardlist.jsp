@@ -22,8 +22,8 @@
 	</div>
 
 	<div class="col-sm-9 main">
-		<h3>&nbsp;&nbsp;${bname}</h3>
-		<br>
+		<b style="font-size: 20px; ">${bname} </b>
+		<br><br><br>
 		<div class="row">
 			<c:choose>
 				<c:when test="${!empty list}">

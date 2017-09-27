@@ -22,8 +22,8 @@
 	</div>
 
 	<div class="col-sm-9 main">
-		<h3>${bname}</h3>
-		<br>
+		<b style="font-size: 20px;">${bname} </b>
+		<br><br>
 
 		<button class="btn btn-primary btn-xs" onclick="insertBoard();">
 			<span class="glyphicon glyphicon-pencil"></span> 글쓰기
@@ -35,32 +35,32 @@
 		</sec:authorize>
 		<br> <br>
 		<table class="table">
-			<tr>
-				<th>#</th>
-				<th>제목</th>
-				<th>글쓴이</th>
-				<th>작성일</th>
-				<th>조회</th>
+			<tr align="center">
+				<td width="80px;">#</td>
+				<td width="430px;">제목</td>
+				<td>글쓴이</td>
+				<td>작성일</td>
+				<td>조회</td>
 			</tr>
 			<c:choose>
 				<c:when test="${!empty list}">
 					<c:forEach items="${list}" var="dto">
 						<c:if test="${dto.notice==1}">
 							<tr class="active">
-								<td>${dto.bseq}</td>
-								<td><a href="${root}/board/boardview?bseq=${dto.bseq}"><font
+								<td align="center">${dto.bseq}</td>
+								<td>&nbsp;&nbsp;<a href="${root}/board/boardview?bseq=${dto.bseq}"><font
 										color="black"><b>${dto.title}</b></font></a></td>
-								<td>${dto.name}</td>
-								<td><fmt:formatDate value="${dto.regdate}"
+								<td align="center">${dto.name}</td>
+								<td align="center"><fmt:formatDate value="${dto.regdate}"
 										pattern="yyyy.MM.dd" /></td>
-								<td>${dto.hit}</td>
+								<td align="center">${dto.hit}</td>
 							</tr>
 						</c:if>
 						<c:if test="${dto.notice==0}">
 							<tr>
-								<td>${dto.bseq}</td>
+								<td align="center">${dto.bseq}</td>
 								<td>
-									<a href="${root}/board/boardview?bseq=${dto.bseq}">${dto.title}</a>
+									&nbsp;&nbsp;<a href="${root}/board/boardview?bseq=${dto.bseq}">${dto.title}</a>
 									<c:if test="${dto.mcnt ne 0}">
 										&nbsp;<span style="color: red">[${dto.mcnt}]</span>
 									</c:if>
@@ -69,10 +69,10 @@
 									</c:if>
 								
 								</td>
-								<td>${dto.name}</td>
-								<td><fmt:formatDate value="${dto.regdate}"
+								<td align="center">${dto.name}</td>
+								<td align="center"><fmt:formatDate value="${dto.regdate}"
 										pattern="yyyy.MM.dd" /></td>
-								<td>${dto.hit}</td>
+								<td align="center">${dto.hit}</td>
 							</tr>
 						</c:if>
 					</c:forEach>
@@ -135,9 +135,8 @@
 				<a href="${root}/board/searchpageset?searchpagenum=${cnt}">${cnt}</a>&nbsp;
 			</c:forEach>
 		</div>
-		<br>
-		<br>
-		<div>
+		<br><br>
+		<div align="center">
 			<form action="${root}/board/searchset" method="get">
 				<select class="form-control" name="key" style="height: 34px; width: 80px; display: inline;">
 					<option value="TITLE">제목</option>
@@ -147,6 +146,7 @@
 				<input class="btn btn-primary btn-m" type="submit" style="vertical-align: top;" value="검색" />
 			</form>
 		</div>
+		<br><br>
 	</div>
 </div>
 
