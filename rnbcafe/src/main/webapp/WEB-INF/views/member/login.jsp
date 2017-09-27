@@ -11,6 +11,8 @@
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
+	<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/SplitText.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="/rnbcafe/resources/js/moment.min.js"></script>
 	<script src="/rnbcafe/resources/js/moment.js"></script>
@@ -21,17 +23,11 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela+Round">
 	<link rel="stylesheet" href="/rnbcafe/resources/css/index_highfive.css">
 	<link rel="stylesheet" href="/rnbcafe/resources/css/loginform.css">
+	
 
 </head>
 <body>
 <div id="page-wrapper">
-	<h1>RNB CAFE</h1>
-	<div class='arm'>
-	  <div class='thumb'></div>
-	</div>
-	<div class='arm'>
-	  <div class='thumb'></div>
-	</div>
     <div class="container" style="margin-top: 100px;">
     	<div class="row">
       		<div class="col-md-4 col-md-offset-4">
@@ -44,8 +40,8 @@
 							<p><label for="password">Password</label></p>
 							<p><input type="password" id="password" name="password" placeholder="password"></p>
 							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">	
-							<p><input type="button" id="join" value="Sign Up"></p>
 							<p><input type="submit" value="Sign In"></p>
+							<p><input type="button" id="join" value="Sign Up"></p>
 						</fieldset>
 					</form>
 				</div>
@@ -54,6 +50,13 @@
       		</div>
     	</div>
   	</div>
+</div>
+<h1>RNB CAFE</h1>
+<div class='arm'>
+  <div class='thumb'></div>
+</div>
+<div class='arm'>
+  <div class='thumb'></div>
 </div>
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -127,9 +130,10 @@ $(function() {
 	moment().format("dddd, MMMM Do YYYY");
 	$('#datetimepicker').datetimepicker({
 		locale: 'ko',
-		format: "YYYY-MM-DD"
+		format: "YY.MM.DD"
 	});
-
+	mySplitText = new SplitText("h1", {type:"words,chars"}), 
+    chars = mySplitText.chars; //an array of all the divs that wrap each character
 });
 
 $('#join').click(function() {
@@ -194,8 +198,7 @@ $('#add').click(function(e) {
 		}
 	});
 });
-mySplitText = new SplitText("h1", {type:"words,chars"}), 
-chars = mySplitText.chars; //an array of all the divs that wrap each character
+
 </script>
 </body>
 </html>

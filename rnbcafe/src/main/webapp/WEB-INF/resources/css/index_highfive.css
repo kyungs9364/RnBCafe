@@ -4,7 +4,7 @@ body {
   min-height: 800px;
 }
 body:before {
-  content: '';
+  content: "";
   position: absolute;
   width: 50vw;
   height: 50vw;
@@ -55,19 +55,19 @@ body .arm:nth-of-type(2) {
   right: -0.25vmin;
 }
 body .arm:before {
-  content: '';
+  content: "";
   position: absolute;
   width: 10vmin;
   height: 10vmin;
   background: -webkit-linear-gradient(top, #2432fa, #3d49fb);
   background: linear-gradient(to bottom, #2432fa, #3d49fb);
-  z-index: -9;
+  z-index: 1;
   border-radius: 100vmin 100vmin 30vmin 0;
   right: -10vmin;
   top: -15vmin;
 }
 body .arm:after {
-  content: '';
+  content: "";
   position: absolute;
   width: 2vmin;
   height: 15vmin;
@@ -87,10 +87,10 @@ body .arm .thumb {
   -webkit-transform: rotate(-15deg);
           transform: rotate(-15deg);
   border-radius: 0 20vmin 0 0;
-  z-index: -7;
+  z-index: 3;
 }
 body .arm .thumb:before {
-  content: '';
+  content: "";
   position: absolute;
   width: 6vmin;
   height: 7vmin;
@@ -100,7 +100,7 @@ body .arm .thumb:before {
 }
 
 h1 {
-  z-index: -1;
+  z-index: 9;
   font-family: "Rajdhani";
   line-height: 1;
   color: #e3dfff;
@@ -118,7 +118,7 @@ h1 {
           animation: shadow 3s ease-in-out infinite alternate;
 }
 h1 div {
-  max-width: 60vmin;
+  max-width: 63vmin;
 }
 h1 div div:nth-of-type(1) {
   position: absolute;
@@ -129,27 +129,27 @@ h1 div div:nth-of-type(1) {
   padding: 0 2vmin;
   -webkit-animation: floating1 5s linear infinite alternate;
           animation: floating1 5s linear infinite alternate;
-  -webkit-animation-delay: -4s;
-          animation-delay: -4s;
+  -webkit-animation-delay: -4.8s;
+          animation-delay: -4.8s;
 }
 @-webkit-keyframes floating1 {
   0% {
-    -webkit-transform: rotate(-6deg) translateY(-3vmin);
-            transform: rotate(-6deg) translateY(-3vmin);
+    -webkit-transform: rotate(-5deg) translateY(-3vmin);
+            transform: rotate(-5deg) translateY(-3vmin);
   }
   100% {
-    -webkit-transform: rotate(-8deg) translateY(3vmin);
-            transform: rotate(-8deg) translateY(3vmin);
+    -webkit-transform: rotate(-5deg) translateY(3vmin);
+            transform: rotate(-5deg) translateY(3vmin);
   }
 }
 @keyframes floating1 {
   0% {
-    -webkit-transform: rotate(-6deg) translateY(-3vmin);
-            transform: rotate(-6deg) translateY(-3vmin);
+    -webkit-transform: rotate(-5deg) translateY(-3vmin);
+            transform: rotate(-5deg) translateY(-3vmin);
   }
   100% {
-    -webkit-transform: rotate(-8deg) translateY(3vmin);
-            transform: rotate(-8deg) translateY(3vmin);
+    -webkit-transform: rotate(-5deg) translateY(3vmin);
+            transform: rotate(-5deg) translateY(3vmin);
   }
 }
 h1 div div:nth-of-type(2) {
@@ -161,27 +161,27 @@ h1 div div:nth-of-type(2) {
   padding: 0 2vmin;
   -webkit-animation: floating2 5s linear infinite alternate;
           animation: floating2 5s linear infinite alternate;
-  -webkit-animation-delay: -4.6s;
-          animation-delay: -4.6s;
+  -webkit-animation-delay: -4.5s;
+          animation-delay: -4.5s;
 }
 @-webkit-keyframes floating2 {
   0% {
-    -webkit-transform: rotate(-2deg) translateY(-3vmin);
-            transform: rotate(-2deg) translateY(-3vmin);
+    -webkit-transform: rotate(-8deg) translateY(-3vmin);
+            transform: rotate(-8deg) translateY(-3vmin);
   }
   100% {
-    -webkit-transform: rotate(-4deg) translateY(3vmin);
-            transform: rotate(-4deg) translateY(3vmin);
+    -webkit-transform: rotate(0deg) translateY(3vmin);
+            transform: rotate(0deg) translateY(3vmin);
   }
 }
 @keyframes floating2 {
   0% {
-    -webkit-transform: rotate(-2deg) translateY(-3vmin);
-            transform: rotate(-2deg) translateY(-3vmin);
+    -webkit-transform: rotate(-8deg) translateY(-3vmin);
+            transform: rotate(-8deg) translateY(-3vmin);
   }
   100% {
-    -webkit-transform: rotate(-4deg) translateY(3vmin);
-            transform: rotate(-4deg) translateY(3vmin);
+    -webkit-transform: rotate(0deg) translateY(3vmin);
+            transform: rotate(0deg) translateY(3vmin);
   }
 }
 h1 div div:nth-of-type(3) {
@@ -193,27 +193,27 @@ h1 div div:nth-of-type(3) {
   padding: 0 2vmin;
   -webkit-animation: floating3 5s linear infinite alternate;
           animation: floating3 5s linear infinite alternate;
-  -webkit-animation-delay: -4.66667s;
-          animation-delay: -4.66667s;
+  -webkit-animation-delay: -4.7s;
+          animation-delay: -4.7s;
 }
 @-webkit-keyframes floating3 {
   0% {
-    -webkit-transform: rotate(2deg) translateY(-3vmin);
-            transform: rotate(2deg) translateY(-3vmin);
+    -webkit-transform: rotate(-7deg) translateY(-3vmin);
+            transform: rotate(-7deg) translateY(-3vmin);
   }
   100% {
-    -webkit-transform: rotate(5deg) translateY(3vmin);
-            transform: rotate(5deg) translateY(3vmin);
+    -webkit-transform: rotate(-4deg) translateY(3vmin);
+            transform: rotate(-4deg) translateY(3vmin);
   }
 }
 @keyframes floating3 {
   0% {
-    -webkit-transform: rotate(2deg) translateY(-3vmin);
-            transform: rotate(2deg) translateY(-3vmin);
+    -webkit-transform: rotate(-7deg) translateY(-3vmin);
+            transform: rotate(-7deg) translateY(-3vmin);
   }
   100% {
-    -webkit-transform: rotate(5deg) translateY(3vmin);
-            transform: rotate(5deg) translateY(3vmin);
+    -webkit-transform: rotate(-4deg) translateY(3vmin);
+            transform: rotate(-4deg) translateY(3vmin);
   }
 }
 h1 div div:nth-of-type(4) {
@@ -225,13 +225,13 @@ h1 div div:nth-of-type(4) {
   padding: 0 2vmin;
   -webkit-animation: floating4 5s linear infinite alternate;
           animation: floating4 5s linear infinite alternate;
-  -webkit-animation-delay: -4.42857s;
-          animation-delay: -4.42857s;
+  -webkit-animation-delay: -4.5s;
+          animation-delay: -4.5s;
 }
 @-webkit-keyframes floating4 {
   0% {
-    -webkit-transform: rotate(10deg) translateY(-3vmin);
-            transform: rotate(10deg) translateY(-3vmin);
+    -webkit-transform: rotate(6deg) translateY(-3vmin);
+            transform: rotate(6deg) translateY(-3vmin);
   }
   100% {
     -webkit-transform: rotate(2deg) translateY(3vmin);
@@ -240,8 +240,8 @@ h1 div div:nth-of-type(4) {
 }
 @keyframes floating4 {
   0% {
-    -webkit-transform: rotate(10deg) translateY(-3vmin);
-            transform: rotate(10deg) translateY(-3vmin);
+    -webkit-transform: rotate(6deg) translateY(-3vmin);
+            transform: rotate(6deg) translateY(-3vmin);
   }
   100% {
     -webkit-transform: rotate(2deg) translateY(3vmin);
@@ -257,8 +257,8 @@ h1 div div:nth-of-type(5) {
   padding: 0 2vmin;
   -webkit-animation: floating5 5s linear infinite alternate;
           animation: floating5 5s linear infinite alternate;
-  -webkit-animation-delay: -4.375s;
-          animation-delay: -4.375s;
+  -webkit-animation-delay: -3.33333s;
+          animation-delay: -3.33333s;
 }
 @-webkit-keyframes floating5 {
   0% {
@@ -289,27 +289,27 @@ h1 div div:nth-of-type(6) {
   padding: 0 2vmin;
   -webkit-animation: floating6 5s linear infinite alternate;
           animation: floating6 5s linear infinite alternate;
-  -webkit-animation-delay: -2s;
-          animation-delay: -2s;
+  -webkit-animation-delay: -4.4s;
+          animation-delay: -4.4s;
 }
 @-webkit-keyframes floating6 {
   0% {
-    -webkit-transform: rotate(8deg) translateY(-3vmin);
-            transform: rotate(8deg) translateY(-3vmin);
+    -webkit-transform: rotate(2deg) translateY(-3vmin);
+            transform: rotate(2deg) translateY(-3vmin);
   }
   100% {
-    -webkit-transform: rotate(14deg) translateY(3vmin);
-            transform: rotate(14deg) translateY(3vmin);
+    -webkit-transform: rotate(-4deg) translateY(3vmin);
+            transform: rotate(-4deg) translateY(3vmin);
   }
 }
 @keyframes floating6 {
   0% {
-    -webkit-transform: rotate(8deg) translateY(-3vmin);
-            transform: rotate(8deg) translateY(-3vmin);
+    -webkit-transform: rotate(2deg) translateY(-3vmin);
+            transform: rotate(2deg) translateY(-3vmin);
   }
   100% {
-    -webkit-transform: rotate(14deg) translateY(3vmin);
-            transform: rotate(14deg) translateY(3vmin);
+    -webkit-transform: rotate(-4deg) translateY(3vmin);
+            transform: rotate(-4deg) translateY(3vmin);
   }
 }
 h1 div div:nth-of-type(7) {
@@ -321,27 +321,27 @@ h1 div div:nth-of-type(7) {
   padding: 0 2vmin;
   -webkit-animation: floating7 5s linear infinite alternate;
           animation: floating7 5s linear infinite alternate;
-  -webkit-animation-delay: 2s;
-          animation-delay: 2s;
+  -webkit-animation-delay: -1.5s;
+          animation-delay: -1.5s;
 }
 @-webkit-keyframes floating7 {
   0% {
-    -webkit-transform: rotate(18deg) translateY(-3vmin);
-            transform: rotate(18deg) translateY(-3vmin);
+    -webkit-transform: rotate(-3deg) translateY(-3vmin);
+            transform: rotate(-3deg) translateY(-3vmin);
   }
   100% {
-    -webkit-transform: rotate(-3deg) translateY(3vmin);
-            transform: rotate(-3deg) translateY(3vmin);
+    -webkit-transform: rotate(18deg) translateY(3vmin);
+            transform: rotate(18deg) translateY(3vmin);
   }
 }
 @keyframes floating7 {
   0% {
-    -webkit-transform: rotate(18deg) translateY(-3vmin);
-            transform: rotate(18deg) translateY(-3vmin);
+    -webkit-transform: rotate(-3deg) translateY(-3vmin);
+            transform: rotate(-3deg) translateY(-3vmin);
   }
   100% {
-    -webkit-transform: rotate(-3deg) translateY(3vmin);
-            transform: rotate(-3deg) translateY(3vmin);
+    -webkit-transform: rotate(18deg) translateY(3vmin);
+            transform: rotate(18deg) translateY(3vmin);
   }
 }
 h1 div div:nth-of-type(8) {
@@ -353,27 +353,27 @@ h1 div div:nth-of-type(8) {
   padding: 0 2vmin;
   -webkit-animation: floating8 5s linear infinite alternate;
           animation: floating8 5s linear infinite alternate;
-  -webkit-animation-delay: -3s;
-          animation-delay: -3s;
+  -webkit-animation-delay: -4s;
+          animation-delay: -4s;
 }
 @-webkit-keyframes floating8 {
   0% {
-    -webkit-transform: rotate(22deg) translateY(-3vmin);
-            transform: rotate(22deg) translateY(-3vmin);
+    -webkit-transform: rotate(30deg) translateY(-3vmin);
+            transform: rotate(30deg) translateY(-3vmin);
   }
   100% {
-    -webkit-transform: rotate(22deg) translateY(3vmin);
-            transform: rotate(22deg) translateY(3vmin);
+    -webkit-transform: rotate(6deg) translateY(3vmin);
+            transform: rotate(6deg) translateY(3vmin);
   }
 }
 @keyframes floating8 {
   0% {
-    -webkit-transform: rotate(22deg) translateY(-3vmin);
-            transform: rotate(22deg) translateY(-3vmin);
+    -webkit-transform: rotate(30deg) translateY(-3vmin);
+            transform: rotate(30deg) translateY(-3vmin);
   }
   100% {
-    -webkit-transform: rotate(22deg) translateY(3vmin);
-            transform: rotate(22deg) translateY(3vmin);
+    -webkit-transform: rotate(6deg) translateY(3vmin);
+            transform: rotate(6deg) translateY(3vmin);
   }
 }
 h1 div div:nth-of-type(9) {
@@ -385,27 +385,27 @@ h1 div div:nth-of-type(9) {
   padding: 0 2vmin;
   -webkit-animation: floating9 5s linear infinite alternate;
           animation: floating9 5s linear infinite alternate;
-  -webkit-animation-delay: -4.1s;
-          animation-delay: -4.1s;
+  -webkit-animation-delay: -3.2s;
+          animation-delay: -3.2s;
 }
 @-webkit-keyframes floating9 {
   0% {
-    -webkit-transform: rotate(17deg) translateY(-3vmin);
-            transform: rotate(17deg) translateY(-3vmin);
+    -webkit-transform: rotate(-1deg) translateY(-3vmin);
+            transform: rotate(-1deg) translateY(-3vmin);
   }
   100% {
-    -webkit-transform: rotate(26deg) translateY(3vmin);
-            transform: rotate(26deg) translateY(3vmin);
+    -webkit-transform: rotate(17deg) translateY(3vmin);
+            transform: rotate(17deg) translateY(3vmin);
   }
 }
 @keyframes floating9 {
   0% {
-    -webkit-transform: rotate(17deg) translateY(-3vmin);
-            transform: rotate(17deg) translateY(-3vmin);
+    -webkit-transform: rotate(-1deg) translateY(-3vmin);
+            transform: rotate(-1deg) translateY(-3vmin);
   }
   100% {
-    -webkit-transform: rotate(26deg) translateY(3vmin);
-            transform: rotate(26deg) translateY(3vmin);
+    -webkit-transform: rotate(17deg) translateY(3vmin);
+            transform: rotate(17deg) translateY(3vmin);
   }
 }
 h1 div div:nth-of-type(10) {
@@ -417,27 +417,27 @@ h1 div div:nth-of-type(10) {
   padding: 0 2vmin;
   -webkit-animation: floating10 5s linear infinite alternate;
           animation: floating10 5s linear infinite alternate;
-  -webkit-animation-delay: -4s;
-          animation-delay: -4s;
+  -webkit-animation-delay: -3.75s;
+          animation-delay: -3.75s;
 }
 @-webkit-keyframes floating10 {
   0% {
-    -webkit-transform: rotate(20deg) translateY(-3vmin);
-            transform: rotate(20deg) translateY(-3vmin);
+    -webkit-transform: rotate(0deg) translateY(-3vmin);
+            transform: rotate(0deg) translateY(-3vmin);
   }
   100% {
-    -webkit-transform: rotate(0deg) translateY(3vmin);
-            transform: rotate(0deg) translateY(3vmin);
+    -webkit-transform: rotate(40deg) translateY(3vmin);
+            transform: rotate(40deg) translateY(3vmin);
   }
 }
 @keyframes floating10 {
   0% {
-    -webkit-transform: rotate(20deg) translateY(-3vmin);
-            transform: rotate(20deg) translateY(-3vmin);
+    -webkit-transform: rotate(0deg) translateY(-3vmin);
+            transform: rotate(0deg) translateY(-3vmin);
   }
   100% {
-    -webkit-transform: rotate(0deg) translateY(3vmin);
-            transform: rotate(0deg) translateY(3vmin);
+    -webkit-transform: rotate(40deg) translateY(3vmin);
+            transform: rotate(40deg) translateY(3vmin);
   }
 }
 @-webkit-keyframes shadow {

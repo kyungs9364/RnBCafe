@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<link rel="stylesheet" href="/rnbcafe/resources/css/cardui.css">
 <script type="text/javascript">
 $(document).ready(function() {
 	$("#boardmenu a.category_name").click(function(){
@@ -19,8 +20,8 @@ function getMyinfo() {
 			if (data.success == true) {
 				$('#userName').append(data.object.name+" 님 정보");
 				$('#userRole').append("등급 : "+roleName(data.object.role));
-				$('#boardCnt').append(data.object.boardCnt);
-				$('#memoCnt').append(data.object.memoCnt);
+				$('#boardCnt').append(data.object.boardCnt+"<span>글 수 </span>");
+				$('#memoCnt').append(data.object.memoCnt+"<span>댓글 수 </span>");
 	      	}
 		}
 	});
@@ -41,9 +42,6 @@ function roleName(role) {
 }
 </script>
 <style type="text/css">
-body {
-   margin: 10px auto;
-}
 
 .category_name {
    padding: 5px 10px;
@@ -82,14 +80,36 @@ body {
 
 <div class="panel panel-info">
 	<input type="hidden" id="userId" value="${user.id }">
-	<div class="panel-heading"><span class="glyphicon glyphicon-user" aria-hidden="true">&nbsp;</span><span id="userName"></span></div>
-	<div class="panel-body">
-    <span class="glyphicon glyphicon-star" aria-hidden="true"></span> <span id="userRole"></span><br>
-    <span class="glyphicon glyphicon-star" aria-hidden="true"></span> 작성 글 수 : <span id="boardCnt"></span><br>
-    <span class="glyphicon glyphicon-star" aria-hidden="true"></span> 작성 댓글 수 : <span id="memoCnt"></span><br>
-    <span class="glyphicon glyphicon-star" aria-hidden="true"></span> 가입일 : ${fn:substring(user.regdate,0,10) }<br>
-    <p class="navbar-text navbar-center"><a href="${root }/member/update?id=${user.id}" class="navbar-link">정보 수정</a></p>
-  	</div>
+	<div class="box">
+		<header>
+			<div class="bio">
+				<img src="http://www.croop.cl/UI/twitter/images/up.jpg" alt="background" class="bg">
+				<div class="desc">
+					<h3 id="userName"></h3>
+					<p id="userRole"></p>
+				</div>
+			</div>
+			<div class="avatarcontainer">
+				<img src="${root }/resources/img/RNB_logo.jpg"
+					alt="avatar" class="avatar">
+				<div class="hover">
+					<div class="icon-twitter"></div>
+				</div>
+			</div>
+		</header>
+		<div class="content">
+			<div class="data">
+				<div class="row">
+					<li id="boardCnt"></li>
+					<li id="memoCnt"></li>
+					<li>${fn:replace(fn:substring(user.regdate,2,10),'-','.')}<span>가입일</span></li>
+				</div>
+			</div>
+			<div class="follow" onclick="location.href='${root }/member/update?id=${user.id}'">
+				<div class="icon-twitter"></div>정보 수정
+			</div>
+		</div>
+	</div>
 </div>
 
 <div class="list-group" id="boardmenu">

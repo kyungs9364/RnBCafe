@@ -48,10 +48,9 @@
 	<div class="container">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">RnB Cafe</a>
+				<a class="navbar-brand" href="${root}">RnB Cafe</a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="${root}">★</a></li>
 				<sec:authorize access="hasRole('ROLE_ADMIN')">
 					<li><a href="${root}/memberadmin/list">회원관리</a></li>
 					<li><a href="${root}/admin/categoryadmin">카테고리관리</a></li>
