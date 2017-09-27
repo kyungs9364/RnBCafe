@@ -61,8 +61,10 @@ $(document).ready(function() {
             <div class="col-sm-4">
                <select class="form-control" id="btype" name="btype">
 <c:forEach var="btlist" items="${btlist}">
+<c:if test="${btlist.btype<2}">
                   <option value="${btlist.btype}"/>
                   ${btlist.name}
+</c:if>
 </c:forEach>
 
                </select> 
