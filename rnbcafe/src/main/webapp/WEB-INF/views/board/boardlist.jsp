@@ -59,7 +59,13 @@
 						<c:if test="${dto.notice==0}">
 							<tr>
 								<td>${dto.bseq}</td>
-								<td><a href="${root}/board/boardview?bseq=${dto.bseq}">${dto.title}</a></td>
+								<td>
+									<a href="${root}/board/boardview?bseq=${dto.bseq}">${dto.title}</a>
+									<c:if test="${!empty dto.img}">
+										&nbsp;<img src="${root}/resources/image_icon.png" alt="image_icon" style="width: 20px; height: 20px;">
+									</c:if>
+								
+								</td>
 								<td>${dto.name}</td>
 								<td><fmt:formatDate value="${dto.regdate}"
 										pattern="yyyy.MM.dd" /></td>
