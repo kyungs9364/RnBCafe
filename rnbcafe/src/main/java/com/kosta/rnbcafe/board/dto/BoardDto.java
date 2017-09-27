@@ -18,5 +18,6 @@ public class BoardDto {
 	private int notice;
 	private String name;
 	private String blname;
+	private int mcnt;
 
 }

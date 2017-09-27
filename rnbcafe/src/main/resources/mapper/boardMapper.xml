@@ -4,7 +4,7 @@
 
 	<select id="boardList" resultType="boardDto" parameterType="java.util.Map">
 		SELECT *
-		FROM (SELECT ROWNUM RNUM, S.*
+		FROM (SELECT ROWNUM RNUM, S.*, (SELECT COUNT(*) FROM MEMO WHERE BSEQ = S.BSEQ) AS MCNT
       		  FROM (SELECT B.BSEQ, B.BCODE, B.ID, B.TITLE, B.CONTENT
             		, B.IMG, B.HIT, B.REGDATE, B.NOTICE, M.NAME
             		FROM BOARD B JOIN MEMBER M
