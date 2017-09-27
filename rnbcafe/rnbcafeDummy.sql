@@ -30,3 +30,6 @@ values (board_list_seq.nextval, 2, 0, '가입 / 등업 인사', 0, 1);
 
 insert into board_list(bcode, ccode, btype, name, role, state)
 values (board_list_seq.nextval, 2, 0, '한줄 / 안부 인사', 0, 1);
+
+insert into member values('rnb','$2a$10$PlLqZ5o2S2x4hpCXaMQHc.rDZIlJZL7NgEiFZ9sg9JUGSetYfStN6',
+   'rnb',0,'19910101','01012344575',4,sysdate,1);
