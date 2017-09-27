@@ -12,7 +12,7 @@
 	</div>
 
 	<div class="col-sm-9 main">
-		<img src="${root}/resources/rnblogo.PNG">
+		<img src="${root}/resources/img/rnblogo.PNG">
 	</div>
 </div>
 
