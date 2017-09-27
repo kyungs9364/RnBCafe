@@ -53,6 +53,9 @@
 								</div>
 								<div style="font-weight: bold; text-align: center;">
 									<a href="${root}/board/boardview?bseq=${dto.bseq}">${dto.title}</a>
+									<c:if test="${dto.mcnt ne 0}">
+										&nbsp;<span style="color: red">[${dto.mcnt}]</span>
+									</c:if>
 								</div>
 								<br> <br>
 							</div>
