@@ -47,7 +47,7 @@
 	
 	<update id="updateBoard" parameterType="boardDto">
 		UPDATE BOARD
-		SET TITLE = #{title}, CONTENT = #{content}, REGDATE = SYSDATE
+		SET TITLE = #{title}, CONTENT = #{content}, IMG = #{img}
 		WHERE BSEQ = #{bseq}
 	</update>
 	

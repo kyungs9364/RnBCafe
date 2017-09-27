@@ -65,7 +65,7 @@
 										&nbsp;<span style="color: red">[${dto.mcnt}]</span>
 									</c:if>
 									<c:if test="${!empty dto.img}">
-										&nbsp;<img src="${root}/resources/image_icon.png" alt="image_icon" style="width: 20px; height: 20px;">
+										&nbsp;<img src="${root}/resources/img/image_icon.png" alt="image_icon" style="width: 20px; height: 20px;">
 									</c:if>
 								
 								</td>
@@ -111,7 +111,6 @@
 				<c:if test="${not nextbreak}">
 					<c:if test="${cnt gt startNum+9}">
 						<a href="${root}/board/startpageset">...</a>
-						<!-- 한번만 찍고 나가게 해야됨 -->
 						<c:set var="nextbreak" value="true" />
 						<c:set var="doneLoop" value="true"/>
 					</c:if>
