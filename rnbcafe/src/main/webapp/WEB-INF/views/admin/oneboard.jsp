@@ -107,7 +107,7 @@ function appendOneList(data) {
       output += '             <td width="20%">'+ dateToStr(data[i].regdate) + '</td>';
       output += '             <td width="50%"></td>';
       output += '            <td class="pull-right">';
-      if('${user.id}' == data[i].id) {
+      if('${user.id}' == data[i].id || '${user.role}' == 4) {
 	      output += '                 <a href="#" class="oneModifyViewBtn" data-bseq="'+ data[i].bseq +'">수정</a>&nbsp;&nbsp;';
 	      output += '                 <a href="#" class="oneDeleteBtn" data-bseq="'+ data[i].bseq +'">삭제</a>';
       }

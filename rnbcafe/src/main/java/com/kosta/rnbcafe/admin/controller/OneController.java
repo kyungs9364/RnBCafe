@@ -39,21 +39,8 @@ public class OneController {
 	@RequestMapping("makeList")
 	@ResponseBody
 	private Result makeList(int bcode) {
-//		List<BoardDto> list = ;
 		result.setItems(oneBoardService.listOne(bcode));
 		result.setSuccess(true);
-//		JSONObject json = new JSONObject();
-//		JSONArray jarr = new JSONArray();
-//		for(BoardDto boardDto : list) {
-//		JSONObject jobj = new JSONObject();
-//		jobj.put("bseq", boardDto.getBseq());
-//		jobj.put("bcode", boardDto.getBcode());
-//		jobj.put("id", boardDto.getId());
-//		jobj.put("title", boardDto.getTitle());
-//		jobj.put("regdate", boardDto.getRegdate());
-//		jarr.add(jobj);
-//		}
-//		json.put("memolist", jarr);
 		return result;
 	}
 
@@ -65,12 +52,9 @@ public class OneController {
 			l.info("######################### write Board dto ==== "+ boardDto);
 			oneBoardService.writeOne(boardDto);
 			result.setSuccess(true);
-//			makeList(boardDto.getBcode());
 		} catch (Exception e) {
 			result.setSuccess(false);
 		}
-//		JSONObject json = makeList(boardDto.getBcode());
-      
 		return result;
    }
    
@@ -84,20 +68,8 @@ public class OneController {
 		} catch (Exception e) {
 			result.setSuccess(false);
 		}
-      
-//		JSONObject json = makeList(boardDto.getBcode());
-      
 		return result;
 	}
-   
-//	@RequestMapping(value="/list", method=RequestMethod.GET)
-//	public @ResponseBody Result list(@RequestParam("bcode") int bcode) {
-//      
-//		result.setObject(makeList(bcode));
-////		JSONObject json = makeList(bcode);
-//      
-//		return result;
-//	}
    
 	@RequestMapping(value="/delete", method=RequestMethod.GET)
 	public @ResponseBody Result delete(@RequestParam("bcode") int bcode, @RequestParam("bseq") int bseq)  {

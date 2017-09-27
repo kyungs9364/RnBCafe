@@ -47,9 +47,9 @@
 					<c:forEach items="${list}" var="dto">
 						<c:if test="${dto.notice==1}">
 							<tr class="active">
-								<td align="center">${dto.bseq}</td>
-								<td>&nbsp;&nbsp;<a href="${root}/board/boardview?bseq=${dto.bseq}"><font
-										color="black"><b>${dto.title}</b></font></a></td>
+								<td align="center"><span class="glyphicon glyphicon-bullhorn"></span></td>
+								<td>&nbsp;&nbsp;<a href="${root}/board/boardview?bseq=${dto.bseq}">
+								<font color="black"><b>[공지]</b> ${dto.title}</font></a></td>
 								<td align="center">${dto.name}</td>
 								<td align="center"><fmt:formatDate value="${dto.regdate}"
 										pattern="yyyy.MM.dd" /></td>
