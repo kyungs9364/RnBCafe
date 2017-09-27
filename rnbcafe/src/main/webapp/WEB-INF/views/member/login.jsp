@@ -18,178 +18,39 @@
 	<script src="/rnbcafe/resources/js/collapse.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="/rnbcafe/resources/js/bootstrap-datetimepicker.js"></script>
-	 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela+Round">
-<style type="text/css">
-$color: #000;
-$color-bg: #c0c0c0;
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela+Round">
+	<link rel="stylesheet" href="/rnbcafe/resources/css/index_highfive.css">
+	<link rel="stylesheet" href="/rnbcafe/resources/css/loginform.css">
 
-/* ---------- FONTAWESOME ---------- */
-/* ---------- https://fortawesome.github.com/Font-Awesome/ ---------- */
-/* ---------- http://weloveiconfonts.com/ ---------- */
-
-@import url(http://weloveiconfonts.com/api/?family=fontawesome);
-
-/* ---------- ERIC MEYER'S RESET CSS ---------- */
-/* ---------- https://meyerweb.com/eric/tools/css/reset/ ---------- */
-
-@import url(https://meyerweb.com/eric/tools/css/reset/reset.css);
-
-/* ---------- FONTAWESOME ---------- */
-
-[class*="fontawesome-"]:before {
-  font-family: 'FontAwesome', sans-serif;
-}
-
-/* ---------- GENERAL ---------- */
-
-* {
-  box-sizing: border-box;
-
-  &:before,
-  &:after {
-    box-sizing: border-box;
-  }
-  
-}
-
- body {
-	background: #F2F2F2;
-	/* color: $color;
-	font: 100%/1.5em "Varela Round", sans-serif;
-  margin: 0; */
-} 
-
-input {
-  background-image: none;
-  border: none;
-  font: 100%/1.5em "Varela Round", sans-serif;
-  margin: 0;
-  padding: 0;
-  transition: all .3s;
-}
-
-/* .container {
-  left: 50%;
-  position: fixed;
-  top: 50%;
-  transform: translate(-50%, -50%);
-} */
-
-/* ---------- LOGIN ---------- */
-
-#login {
-	width: 400px;
-}
-
-#login h2 {
-	background: #f95252;
-	border-radius: 20px 20px 0 0;
-	color: #fff;
-	font-size: 28px;
-	padding: 20px 26px;
-}
-
-#login h2 span[class*="fontawesome-"] {
-	margin-right: 14px;
-}
-
-#login fieldset {
-	background: #fff;
-	border-radius: 0 0 20px 20px;
-	padding: 20px 26px;
-}
-
-#login fieldset p {
-	color: #777;
-	margin-bottom: 14px;
-}
-
-#login fieldset p:last-child {
-	margin-bottom: 0;
-}
-
-#login fieldset input {
-	border-radius: 3px;
-}
-
-#login fieldset input[type="text"], #login fieldset input[type="password"] {
-	background: #eee;
-	color: #777;
-	padding: 4px 10px;
-	width: 100%;
-}
-
-#login fieldset input[type="submit"] {
-	background: #33cc77;
-	color: #fff;
-	display: block;
-	margin: 0 auto;
-	padding: 4px 0;
-	width: 100%;
-}
-#login fieldset input[type="button"] {
-	background: #33cc77;
-	color: #fff;
-	display: block;
-	margin: 0 auto;
-	padding: 4px 0;
-	width: 100%;
-}
-
-#login fieldset input[type="submit"]:hover {
-	background: #28ad63;
-}
-#login fieldset input[type="button"]:hover {
-	background: #28ad63;
-}
-</style>
 </head>
 <body>
 <div id="page-wrapper">
+	<h1>RNB CAFE</h1>
+	<div class='arm'>
+	  <div class='thumb'></div>
+	</div>
+	<div class='arm'>
+	  <div class='thumb'></div>
+	</div>
     <div class="container" style="margin-top: 100px;">
     	<div class="row">
       		<div class="col-md-4 col-md-offset-4">
-        		<%-- <div class="panel panel-default">
-          			<div class="panel-heading">
-            			<h3 class="panel-title">로그인</h3>
-          			</div>
-           			<form class="form-signin" method="POST" action="login">
-          			<div class="panel-body">
-          				<fieldset>
-            				<div class="form-group">
-              					<input type="text" name="username" class="form-control" placeholder="Username" required="required" autofocus="autofocus" />
-            				</div>
-            				<div class="form-group">
-              					<input type="password" name="password" class="form-control" placeholder="Password" value="" required="required" />
-            				</div>
-          				</fieldset>
-      					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
-          			</div>
-          			<div class="panel-footer">
-						<div align="right">
-							<!-- button -->
-               				<button id="join" class="btn btn-default" type="button">회원가입</button>
-               				<button class="btn btn-success" type="submit">로그인</button>
-						</div>
-					</div>
-           			</form> --%>
-
-						<div id="login">
-							<h2><span class="fontawesome-lock"></span>Sign In</h2>
-							<form action="login" method="POST">
-								<fieldset>
-									<p><label for="username">ID</label></p>
-									<p><input type="text" id="username" name="username" placeholder="ID"></p>
-									<p><label for="password">Password</label></p>
-									<p><input type="password" id="password" name="password" placeholder="password"></p>
-									<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">	
-									<p><input type="button" id="join" value="Sign Up"></p>
-									<p><input type="submit" value="Sign In"></p>
-								</fieldset>
-							</form>
-						</div>
-						<!-- end login -->
-					<!-- </div> -->
+				<div id="login">
+					<h2><span class="fontawesome-lock"></span>Sign In</h2>
+					<form action="login" method="POST">
+						<fieldset>
+							<p><label for="username">ID</label></p>
+							<p><input type="text" id="username" name="username" placeholder="ID"></p>
+							<p><label for="password">Password</label></p>
+							<p><input type="password" id="password" name="password" placeholder="password"></p>
+							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">	
+							<p><input type="button" id="join" value="Sign Up"></p>
+							<p><input type="submit" value="Sign In"></p>
+						</fieldset>
+					</form>
+				</div>
+				<!-- end login -->
+			<!-- </div> -->
       		</div>
     	</div>
   	</div>
@@ -333,6 +194,8 @@ $('#add').click(function(e) {
 		}
 	});
 });
+mySplitText = new SplitText("h1", {type:"words,chars"}), 
+chars = mySplitText.chars; //an array of all the divs that wrap each character
 </script>
 </body>
 </html>
