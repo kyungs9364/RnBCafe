@@ -44,7 +44,7 @@
 </head>
 
 <body>
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-default">
 	<div class="container">
 		<div class="container-fluid">
 			<div class="navbar-header">
