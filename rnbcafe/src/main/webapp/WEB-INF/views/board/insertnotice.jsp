@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>
-<!-- 헤더 -->
-<%@ include file="/WEB-INF/views/common/baseheader.jsp"%>
-<!-- include summernote css/js-->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="root" value="${pageContext.request.contextPath }" />
 <link
 	href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css"
 	rel="stylesheet">
@@ -52,32 +52,22 @@ function backList(){
 	location.href="${root}/board/boardlist";
 }
 </script>
-<div class="container" style="margin-top: 70px">
-	<div class="col-sm-3 sidenav">
-		<!-- 사이드 -->
-		<%@ include file="/WEB-INF/views/common/baseside.jsp"%>
-	</div>
-
-	<div class="col-sm-9 main">
-		<form action="${root}/board/insertnotice" method="post">
-			<input type="hidden" name="id" value="${user.id}">
-			<input type="hidden" name="img" id="img">
-			<div>
-				<input class="form-control" type="text" placeholder="제목을 입력해주세요"
-					name="title"><br>
-			</div>
-			<div>
-				<textarea class="form-control summernote" id="summernote"
-					name="content"></textarea>
-			</div>
-			<div align="center">
-				<input class="btn btn-default btn-sm" type="submit" value="확인" /> <input
-					class="btn btn-default btn-sm" type="button" value="돌아가기"
-					onclick="backList();" />
-			</div>
-		</form>
-	</div>
+<div class="col-sm-9 main">
+	<form action="${root}/board/insertnotice" method="post">
+		<input type="hidden" name="id" value="${user.id}">
+		<input type="hidden" name="img" id="img">
+		<div>
+			<input class="form-control" type="text" placeholder="제목을 입력해주세요"
+				name="title"><br>
+		</div>
+		<div>
+			<textarea class="form-control summernote" id="summernote"
+				name="content"></textarea>
+		</div>
+		<div align="center">
+			<input class="btn btn-default btn-sm" type="submit" value="확인" /> <input
+				class="btn btn-default btn-sm" type="button" value="돌아가기"
+				onclick="backList();" />
+		</div>
+	</form>
 </div>
-
-</body>
-</html>

@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>
-<!-- 헤더 -->
-<%@ include file="/WEB-INF/views/common/baseheader.jsp"%>
-<!-- include summernote css/js-->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="root" value="${pageContext.request.contextPath }" />
 <link
 	href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css"
 	rel="stylesheet">
@@ -52,11 +52,6 @@ function backList(){
 	location.href="${root}/board/boardlist";
 }
 </script>
-<div class="container" style="margin-top: 70px">
-	<div class="col-sm-3 sidenav">
-		<!-- 사이드 -->
-		<%@ include file="/WEB-INF/views/common/baseside.jsp"%>
-	</div>
 
 	<div class="col-sm-9 main">
 		<form action="${root}/board/insertboard" method="post">
@@ -77,7 +72,3 @@ function backList(){
 			</div>
 		</form>
 	</div>
-</div>
-
-</body>
-</html>
