@@ -48,12 +48,21 @@ function sendFile(file, el) {
 	});
 }
 
+function checkData(){
+	if($("input[name=title]").val() == null || $("input[name=title]").val() == "") {
+		alert("제목을 입력해주세요.");
+		$("input[name=title]").focus();
+		
+		return false;
+	}
+}
+
 function backList(){
 	location.href="${root}/board/boardlist";
 }
 </script>
 <div class="col-sm-9 main">
-	<form action="${root}/board/insertnotice" method="post">
+	<form action="${root}/board/insertnotice" method="post" onsubmit="return checkData();">
 		<input type="hidden" name="id" value="${user.id}">
 		<input type="hidden" name="img" id="img">
 		<div>

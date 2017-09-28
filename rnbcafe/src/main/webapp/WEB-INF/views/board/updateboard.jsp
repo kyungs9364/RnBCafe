@@ -53,6 +53,22 @@ function sendFile(file, el) {
 	});
 }
 
+function checkData(){
+	if($("input[name=title]").val() == null || $("input[name=title]").val() == "") {
+		alert("제목을 입력해주세요.");
+		$("input[name=title]").focus();
+		
+	} else {
+		if($("input[name=title]").val() == '${dto.title}' && $("#content").val() == '${dto.content}') {
+			if(confirm("수정된 내용이 없습니다. 수정하시겠습니까 ?")) {
+				document.f.submit();
+			}
+		} else {
+			document.f.submit();
+		}
+	}
+}
+
 function backView(bseq){
 	location.href = "${root}/board/boardview?bseq="+bseq;
 }
@@ -78,7 +94,7 @@ function backView(bseq){
 			</tr>
 			<tr>
 				<td colspan="2" align="right">
-					<button class="btn btn-primary btn-sm" onclick="f.submit();">
+					<button class="btn btn-primary btn-sm" onclick="checkData();">
 						<span class="glyphicon glyphicon-ok"></span> 완료
 					</button>
 					<button class="btn btn-info btn-sm" onclick="formReset();">

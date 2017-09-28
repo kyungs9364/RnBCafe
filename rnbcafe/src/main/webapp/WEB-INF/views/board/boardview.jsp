@@ -74,7 +74,7 @@
 		output += "</td>";
 		output += "<td style='border-top: none; font-size: 8pt; font-weight: bold; text-align: right;'>";
 		if('${user.id}' == dto.id || ${user.role == 4}) {
-			output += "<a href='javascript:deleteMemo("+dto.mseq+");'>삭제</a>";	
+			output += "<a class='delmemo' href='javascript:deleteMemo("+dto.mseq+","+dto.bseq+");'>삭제</a>";	
 		}
 		output += "</td>";
 		output += "</tr>";

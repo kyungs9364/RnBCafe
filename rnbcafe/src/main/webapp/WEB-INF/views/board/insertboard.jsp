@@ -48,13 +48,22 @@ function sendFile(file, el) {
 	});
 }
 
+function checkData(){
+	if($("input[name=title]").val() == null || $("input[name=title]").val() == "") {
+		alert("제목을 입력해주세요.");
+		$("input[name=title]").focus();
+		
+		return false;
+	}
+}
+
 function backList(){
 	location.href="${root}/board/boardlist";
 }
 </script>
 
 	<div class="col-sm-9 main">
-		<form action="${root}/board/insertboard" method="post">
+		<form action="${root}/board/insertboard" method="post" onsubmit="return checkData();">
 			<input type="hidden" name="id" value="${user.id}">
 			<input type="hidden" name="img" id="img">
 			<div>
@@ -66,8 +75,8 @@ function backList(){
 					name="content"></textarea>
 			</div>
 			<div align="center">
-				<input class="btn btn-default btn-sm" type="submit" value="확인" /> <input
-					class="btn btn-default btn-sm" type="button" value="돌아가기"
+				<input class="btn btn-default btn-sm" type="submit" value="확인" />
+				<input class="btn btn-default btn-sm" type="button" value="돌아가기"
 					onclick="backList();" />
 			</div>
 		</form>
