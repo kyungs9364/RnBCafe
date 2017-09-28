@@ -17,8 +17,8 @@ import org.springframework.web.multipart.MultipartFile;
 import com.kosta.rnbcafe.board.BoardSet;
 import com.kosta.rnbcafe.board.dto.BoardDto;
 import com.kosta.rnbcafe.board.dto.MemoDto;
-import com.kosta.rnbcafe.board.service.BoardServiceImpl;
-import com.kosta.rnbcafe.board.service.MemoServiceImpl;
+import com.kosta.rnbcafe.board.service.BoardService;
+import com.kosta.rnbcafe.board.service.MemoService;
 import com.kosta.rnbcafe.util.Result;
 
 @Controller
@@ -27,9 +27,9 @@ public class BoardController {
 	private static final Logger l = LoggerFactory.getLogger(BoardController.class);
 
 	@Autowired
-	private BoardServiceImpl service;
+	private BoardService service;
 	@Autowired
-	private MemoServiceImpl mservice;
+	private MemoService mservice;
 	@Autowired
 	private ServletContext servletContext;
 
