@@ -1,23 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="root" value="${pageContext.request.contextPath }" />
 
 <script>
-
-	$(function(){
-		$(".img").click(function(){
-			location.href="${root}/board/boardview?bseq="+$(this).attr("value");
-		})
+	$(function() {
+		$(".img").click(
+				function() {
+					location.href = "${root}/board/boardview?bseq="
+							+ $(this).attr("value");
+				})
 	});
 </script>
 
 <div class="col-sm-9 main">
-	<b style="font-size: 20px; ">${bname} </b>
-	<br><br><br>
+	<b style="font-size: 20px;">${bname} </b> <br>
+	<br>
+	<br>
 	<div class="row">
 		<c:choose>
 			<c:when test="${!empty list}">
@@ -33,7 +36,7 @@
 									</h5>
 									<h5>
 										<img class="img" value="${dto.bseq}" id="imgboard" alt="photo"
-											src="${dto.img}"/>
+											src="${dto.img}" />
 									</h5>
 									<br>
 									<h5>
@@ -69,17 +72,28 @@
 		<div align="center">
 
 			<c:set var="doneLoop" value="false" />
+			<c:set var="prevbreak" value="false" />
+			<c:set var="nextbreak" value="false" />
 			<c:forEach begin="${startNum}" end="${pageNum}" step="1" var="cnt">
-				<c:if test="${cnt gt startNum+9}">
-					<a href="${root}/board/startpageset">...</a>
-					<c:set var="doneLoop" value="true" />
-				</c:if>
-				<c:if test="${not doneLoop}">
-					<c:if test="${cnt gt 10}">
-						<a href="${root}/board/prevpage">...</a>
+				<c:if test="${not nextbreak}">
+					<c:if test="${cnt gt startNum+9}">
+						<a href="${root}/board/startpageset">...</a>
+						<c:set var="nextbreak" value="true" />
+						<c:set var="doneLoop" value="true" />
 					</c:if>
-					<a href="${root}/board/imgpageset?pageNum=${cnt}">${cnt}</a>&nbsp;
-			</c:if>
+				</c:if>
+
+				<c:if test="${not doneLoop}">
+					<c:if test="${not prevbreak}">
+						<c:if test="${cnt gt 10}">
+							<a href="${root}/board/prevpage">...</a>
+							<c:set var="prevbreak" value="true" />
+						</c:if>
+					</c:if>
+					<c:if test="${cnt ne 0}">
+						<a href="${root}/board/imgpageset?pageNum=${cnt}">${cnt}</a>&nbsp;
+				</c:if>
+				</c:if>
 			</c:forEach>
 		</div>
 	</div>
