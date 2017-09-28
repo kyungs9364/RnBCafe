@@ -12,4 +12,5 @@ public class BoardSet {
 	private String key;
 	private String word;
 	private int startNum;
+	private int role;
 }

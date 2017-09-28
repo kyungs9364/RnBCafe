@@ -4,9 +4,7 @@
 
 <!-- 카테고리 -->
 	<select id="boardList" resultType="boardListDto">
-        select bl.bcode, c.name cname, bl.name bname, bl.btype, bl.ccode,
-        decode(bl.btype, 0, 'board',
-        'oneboard') control
+        select bl.bcode, bl.ccode, bl.btype, c.name cname, bl.name bname, bl.role
         from board_list bl, category c
         where bl.ccode = c.ccode 
         order by ccode, bcode
@@ -31,7 +29,7 @@
     
     <insert id="boardMake" parameterType="boardListDto">
         insert into board_list (bcode, name, ccode, btype, role, state)
-        values (board_list_seq.nextval, #{bname}, #{ccode}, #{btype}, 0, 1)
+        values (board_list_seq.nextval, #{bname}, #{ccode}, #{btype}, #{role}, 1)
     </insert>
     
 <!-- 한줄게시판 -->

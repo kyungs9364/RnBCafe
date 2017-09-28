@@ -4,10 +4,12 @@ import java.io.*;
 import java.util.*;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +21,7 @@ import com.kosta.rnbcafe.board.dto.BoardDto;
 import com.kosta.rnbcafe.board.dto.MemoDto;
 import com.kosta.rnbcafe.board.service.BoardService;
 import com.kosta.rnbcafe.board.service.MemoService;
+import com.kosta.rnbcafe.member.dto.LoginUser;
 import com.kosta.rnbcafe.util.Result;
 
 @Controller
@@ -36,7 +39,8 @@ public class BoardController {
 	BoardSet bset = new BoardSet();
 
 	@RequestMapping(value = "boardset")
-	public String boardSet(int bcode, String bname, String type, int pg) {
+	public String boardSet(int bcode, String bname, String type, int pg, int role) {
+		System.out.println("role >>> " + role);
 		bset.setBcode(bcode);
 		bset.setBname(bname);
 		bset.setPageNum(pg);
@@ -44,6 +48,7 @@ public class BoardController {
 		bset.setKey("");
 		bset.setWord("");
 		bset.setStartNum(pg);
+		bset.setRole(role);
 
 		if ("img".equals(type))
 			return "redirect:/board/imgboardlist";
@@ -52,7 +57,7 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "boardlist")
-	public String boardList(Model model) {
+	public String boardList(Model model, HttpSession session) {
 		Map<String, Integer> map = new HashMap<>();
 		map.put("bcode", bset.getBcode());
 		map.put("pageNum", bset.getPageNum());
@@ -63,8 +68,15 @@ public class BoardController {
 		model.addAttribute("pageCnt", pageCnt);
 		model.addAttribute("bname", bset.getBname());
 		model.addAttribute("startNum", bset.getStartNum());
-
-		return "board/boardlist";
+		
+		LoginUser memberDto = (LoginUser) session.getAttribute("user");
+		if(memberDto.getRole() < bset.getRole()) {
+			model.addAttribute("mrole", memberDto.getRole());
+			model.addAttribute("brole", bset.getRole());
+			return "admin/norole";
+		} else {
+			return "board/boardlist";
+		}
 	}
 
 	@RequestMapping(value = "imgboardlist")

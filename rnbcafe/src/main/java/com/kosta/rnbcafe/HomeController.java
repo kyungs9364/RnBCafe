@@ -37,6 +37,8 @@ public class HomeController {
 		session.setAttribute("user", user);
 		
 		List<BoardListDto> list = categoryService.boardList();
+		l.info("############ list = "+ list.toString());
+		
 		session.setAttribute("boardmenu", list);
 		
 		return mv;

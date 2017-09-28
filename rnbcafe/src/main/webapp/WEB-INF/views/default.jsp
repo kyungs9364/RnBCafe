@@ -156,14 +156,14 @@
 					</c:if>
 					<c:if test="${boardListDto.btype == 0}">
 						<a
-							href="${root}/board/boardset?bcode=${boardListDto.bcode}&bname=${boardListDto.bname}&type=board&pg=1&key=&word=">
+							href="${root}/board/boardset?bcode=${boardListDto.bcode}&bname=${boardListDto.bname}&role=${boardListDto.role}&type=board&pg=1&key=&word=">
 							<span class="glyphicon glyphicon-comment">
 								${boardListDto.bname}</span>
 						</a>
 					</c:if>
 					<c:if test="${boardListDto.btype == 1}">
 						<a
-							href="${root}/oneboard/getoneboard?bcode=${boardListDto.bcode}&bname=${boardListDto.bname}&pg=1&key=&word=">
+							href="${root}/oneboard/getoneboard?bcode=${boardListDto.bcode}&bname=${boardListDto.bname}&role=${boardListDto.role}&pg=1&key=&word=">
 							<span class="glyphicon glyphicon-pencil">
 								${boardListDto.bname}</span>
 						</a>

@@ -64,11 +64,18 @@ $(document).ready(function() {
                   ${btlist.name}
 </c:if>
 </c:forEach>
-
                </select> 
             </div>
          </div><br>
          <div class="row" style="margin:auto;">
+            <div class="col-sm-4">
+               <select class="form-control" id="role" name="role">
+					<option value="1"/>새내기
+					<option value="2"/>일반회원
+					<option value="3"/>우수회원
+					<option value="4"/>관리자
+               </select>
+            </div>
             <div class="col-sm-4">
                <input class="form-control" type="text" name="bname" id="bname" placeholder="게시판 이름">
             </div>
