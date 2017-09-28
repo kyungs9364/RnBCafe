@@ -22,6 +22,7 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService service;
+	Result result = new Result();
 
 	@RequestMapping("join")
 	public String test() {
@@ -35,10 +36,24 @@ public class MemberController {
 		return mv;
 	}
 	
+	@RequestMapping("idCheck")
+	@ResponseBody
+	public Result idCheck(String id) {
+		MemberDto memberDto = service.select(id);
+		if (memberDto != null) {
+			result.setSuccess(false);
+			result.setMsg("사용 불가능");
+		} else {
+			result.setSuccess(true);
+			result.setMsg("사용 가능");
+		}
+		
+		return result;
+	}
+	
 	@RequestMapping("insertMember")
 	@ResponseBody
 	public Result insertMember(@ModelAttribute MemberDto memberDto) {
-		Result result = new Result();
 		l.info("####### insertMember  ==  "+memberDto.toString());
 		BCryptPasswordEncoder bcr = new BCryptPasswordEncoder();
 		memberDto.setPwd(bcr.encode(memberDto.getPwd()));
@@ -57,7 +72,6 @@ public class MemberController {
 		l.info("############# id===" + id);
 		l.info("############# cntB===" + service.selectBoardCnt(id));
 		l.info("############# cntM===" + service.selectMemoCnt(id));
-		Result result = new Result();
 		try {
 			MemberDto memberDto = service.select(id);
 			memberDto.setBoardCnt(service.selectBoardCnt(id));
@@ -75,7 +89,6 @@ public class MemberController {
 	@RequestMapping("updateMember")
 	@ResponseBody
 	public Result updateMember(@ModelAttribute MemberDto memberDto, HttpSession session) {
-		Result result = new Result();
 		l.info("####### updateMember  ==  "+memberDto.toString());
 		MemberDto member = service.select(memberDto.getId());
 		l.info("####### updateMember 객체 BEFORE  ==  "+member.toString());
@@ -104,7 +117,6 @@ public class MemberController {
 	@ResponseBody
 	public Result deleteMember(String id) {
 		l.info("####### deleteMember ID  ==  "+id);
-		Result result = new Result();
 		int cnt = service.deleteMember(id);
 		if (cnt == 1) {
 			result.setSuccess(true);

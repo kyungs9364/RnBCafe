@@ -75,7 +75,8 @@
 								enctype="multipart/form-data">
 								<div class="form-inline">
 									<label for="id" class="col-xs-2 col-form-label">ID</label>
-									<input class="form-control" type="text" id="id" name="id">
+									<input class="form-control" type="text" id="id" name="id"  onkeyup="javascript:{ idcheck(); }">&nbsp;&nbsp;&nbsp;
+									<span id="idCheck"></span>
 								</div><br>
 								<div class="form-inline">
 									<label class="col-xs-2 col-form-label">비밀번호</label>
@@ -198,6 +199,27 @@ $('#add').click(function(e) {
 		}
 	});
 });
+
+function idcheck() {
+	var id = $('#id').val();
+	if (id != "") {
+		$.ajax({
+			url: "/rnbcafe/member/idCheck",
+			type: "POST",
+			data: {'id' : id},
+			success: function(data) {
+				console.log(data);
+				if (data.success == true) {
+					console.log("true");
+					$('#idCheck').text(data.msg);
+	        	} else {
+	        		console.log("false");
+	        		$('#idCheck').text(data.msg);
+	        	}
+			}
+		});
+	}
+}
 
 </script>
 </body>
