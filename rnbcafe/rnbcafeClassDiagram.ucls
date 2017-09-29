@@ -4,37 +4,37 @@
   <class id="1" language="java" name="com.kosta.rnbcafe.admin.controller.AdminController" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/admin/controller/AdminController.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="432" y="298"/>    
+    <position height="-1" width="-1" x="444" y="264"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
   <class id="2" language="java" name="com.kosta.rnbcafe.admin.controller.OneController" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/admin/controller/OneController.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="430" y="550"/>    
+    <position height="-1" width="-1" x="439" y="462"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
   <class id="3" language="java" name="com.kosta.rnbcafe.admin.controller.MemberAdminController" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/admin/controller/MemberAdminController.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="436" y="778"/>    
+    <position height="-1" width="-1" x="408" y="662"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
   <class id="4" language="java" name="com.kosta.rnbcafe.member.controller.MemberController" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/member/controller/MemberController.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="430" y="1019"/>    
+    <position height="-1" width="-1" x="456" y="951"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -44,124 +44,124 @@
   <interface id="5" language="java" name="com.kosta.rnbcafe.admin.service.CategoryService" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/admin/service/CategoryService.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="972" y="209"/>    
+    <position height="-1" width="-1" x="974" y="196"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
   <interface id="6" language="java" name="com.kosta.rnbcafe.admin.service.OneBoardService" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/admin/service/OneBoardService.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="984" y="545"/>    
+    <position height="-1" width="-1" x="948" y="462"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
   <class id="7" language="java" name="com.kosta.rnbcafe.admin.service.CategoryServiceImpl" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/admin/service/CategoryServiceImpl.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1240" y="208"/>    
+    <position height="-1" width="-1" x="1258" y="195"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
   <class id="8" language="java" name="com.kosta.rnbcafe.admin.service.MemberAdminServiceImpl" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/admin/service/MemberAdminServiceImpl.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1255" y="763"/>    
+    <position height="-1" width="-1" x="1267" y="661"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
   <interface id="9" language="java" name="com.kosta.rnbcafe.admin.service.MemberAdminService" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/admin/service/MemberAdminService.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="982" y="773"/>    
+    <position height="-1" width="-1" x="962" y="662"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
   <class id="10" language="java" name="com.kosta.rnbcafe.admin.service.OneBoardServiceImpl" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/admin/service/OneBoardServiceImpl.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1228" y="543"/>    
+    <position height="-1" width="-1" x="1258" y="461"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
   <class id="11" language="java" name="com.kosta.rnbcafe.member.service.MemberServiceImpl" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/member/service/MemberServiceImpl.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1252" y="992"/>    
+    <position height="-1" width="-1" x="1264" y="878"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
   <interface id="12" language="java" name="com.kosta.rnbcafe.member.service.MemberService" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/member/service/MemberService.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="984" y="989"/>    
+    <position height="-1" width="-1" x="954" y="879"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
   <class id="13" language="java" name="com.kosta.rnbcafe.board.service.MemoServiceImpl" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/board/service/MemoServiceImpl.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1233" y="2034"/>    
+    <position height="-1" width="-1" x="1257" y="1904"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
   <interface id="14" language="java" name="com.kosta.rnbcafe.board.service.MemoService" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/board/service/MemoService.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="985" y="2031"/>    
+    <position height="-1" width="-1" x="876" y="1905"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
   <interface id="15" language="java" name="com.kosta.rnbcafe.board.service.BoardService" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/board/service/BoardService.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="921" y="1720"/>    
+    <position height="-1" width="-1" x="943" y="1626"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
   <class id="16" language="java" name="com.kosta.rnbcafe.board.service.BoardServiceImpl" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/board/service/BoardServiceImpl.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1297" y="1714"/>    
+    <position height="-1" width="-1" x="1257" y="1625"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
   <class id="17" language="java" name="com.kosta.rnbcafe.admin.dao.CategoryDao" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/admin/dao/CategoryDao.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1894" y="211"/>    
+    <position height="-1" width="-1" x="1722" y="193"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -170,7 +170,7 @@
   </class>  
   <class id="18" language="java" name="com.kosta.rnbcafe.admin.dao.OneBoardDao" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/admin/dao/OneBoardDao.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1896" y="535"/>    
+    <position height="-1" width="-1" x="1692" y="462"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -179,7 +179,7 @@
   </class>  
   <class id="19" language="java" name="com.kosta.rnbcafe.admin.dao.MemberAdminDao" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/admin/dao/MemberAdminDao.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1900" y="760"/>    
+    <position height="-1" width="-1" x="1707" y="662"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -188,7 +188,7 @@
   </class>  
   <class id="20" language="java" name="com.kosta.rnbcafe.board.dao.MemoDao" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/board/dao/MemoDao.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1911" y="2034"/>    
+    <position height="-1" width="-1" x="1703" y="1904"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -197,7 +197,7 @@
   </class>  
   <class id="21" language="java" name="com.kosta.rnbcafe.board.dao.BoardDao" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/board/dao/BoardDao.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1897" y="1718"/>    
+    <position height="-1" width="-1" x="1770" y="1625"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -206,7 +206,7 @@
   </class>  
   <class id="22" language="java" name="com.kosta.rnbcafe.member.dao.MemberDao" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/member/dao/MemberDao.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1904" y="1025"/>    
+    <position height="-1" width="-1" x="1704" y="987"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -215,70 +215,70 @@
   </class>  
   <class id="23" language="java" name="com.kosta.rnbcafe.admin.dto.BoardListDto" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/admin/dto/BoardListDto.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="262" y="2842"/>    
+    <position height="-1" width="-1" x="158" y="2243"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
   <class id="24" language="java" name="com.kosta.rnbcafe.admin.dto.BoardTypeDto" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/admin/dto/BoardTypeDto.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="477" y="2707"/>    
+    <position height="-1" width="-1" x="367" y="2198"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
   <class id="25" language="java" name="com.kosta.rnbcafe.admin.dto.CategoryDto" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/admin/dto/CategoryDto.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="692" y="2707"/>    
+    <position height="-1" width="-1" x="582" y="2198"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
   <class id="26" language="java" name="com.kosta.rnbcafe.board.dto.BoardDto" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/board/dto/BoardDto.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1123" y="2950"/>    
+    <position height="-1" width="-1" x="1013" y="2279"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
   <class id="27" language="java" name="com.kosta.rnbcafe.board.dto.MemoDto" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/board/dto/MemoDto.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1338" y="2788"/>    
+    <position height="-1" width="-1" x="1228" y="2225"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
   <class id="28" language="java" name="com.kosta.rnbcafe.member.dto.LoginUser" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/member/dto/LoginUser.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1888" y="2941"/>    
+    <position height="-1" width="-1" x="1689" y="2261"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
   <class id="29" language="java" name="com.kosta.rnbcafe.member.dto.MemberDto" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/member/dto/MemberDto.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1574" y="2922"/>    
+    <position height="-1" width="-1" x="1454" y="2270"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
   <enumeration id="30" language="java" name="com.kosta.rnbcafe.member.dto.IsAdmin" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/member/dto/IsAdmin.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2193" y="2627"/>    
+    <position height="-1" width="-1" x="1938" y="2216"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -287,116 +287,116 @@
   </enumeration>  
   <class id="31" language="java" name="com.kosta.rnbcafe.HomeController" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/HomeController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="448" y="115"/>    
+    <position height="-1" width="-1" x="460" y="104"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="true" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="32" language="java" name="com.kosta.rnbcafe.board.BoardSet" project="rnbcafe" 
+    file="/rnbcafe/src/main/java/com/kosta/rnbcafe/board/BoardSet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="799" y="2243"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="32" language="java" name="com.kosta.rnbcafe.cofig.HandlerArguement" project="rnbcafe" 
+  <class id="33" language="java" name="com.kosta.rnbcafe.cofig.HandlerArguement" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/cofig/HandlerArguement.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1928" y="3650"/>    
+    <position height="-1" width="-1" x="1793" y="2605"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="33" language="java" name="com.kosta.rnbcafe.cofig.MemberDetailService" project="rnbcafe" 
+  <class id="34" language="java" name="com.kosta.rnbcafe.cofig.MemberDetailService" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/cofig/MemberDetailService.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1275" y="1221"/>    
+    <position height="-1" width="-1" x="1295" y="1125"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="34" language="java" name="com.kosta.rnbcafe.cofig.WebConfig" project="rnbcafe" 
+  <class id="35" language="java" name="com.kosta.rnbcafe.cofig.WebConfig" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/cofig/WebConfig.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1008" y="3631"/>    
+    <position height="-1" width="-1" x="875" y="2641"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="35" language="java" name="com.kosta.rnbcafe.cofig.SecurityInit" project="rnbcafe" 
+  <class id="36" language="java" name="com.kosta.rnbcafe.cofig.SecurityInit" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/cofig/SecurityInit.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1390" y="1431"/>    
+    <position height="-1" width="-1" x="1414" y="1331"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="36" language="java" name="com.kosta.rnbcafe.cofig.LoginSuccessHandler" project="rnbcafe" 
+  <class id="37" language="java" name="com.kosta.rnbcafe.cofig.LoginSuccessHandler" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/cofig/LoginSuccessHandler.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1018" y="1432"/>    
+    <position height="-1" width="-1" x="1042" y="1322"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="37" language="java" name="com.kosta.rnbcafe.cofig.DbConfig" project="rnbcafe" 
+  <class id="38" language="java" name="com.kosta.rnbcafe.cofig.DbConfig" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/cofig/DbConfig.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="598" y="3648"/>    
+    <position height="-1" width="-1" x="525" y="2626"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="38" language="java" name="com.kosta.rnbcafe.cofig.MyBatisConfig" project="rnbcafe" 
+  <class id="39" language="java" name="com.kosta.rnbcafe.cofig.MyBatisConfig" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/cofig/MyBatisConfig.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="242" y="3652"/>    
+    <position height="-1" width="-1" x="215" y="2614"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="39" language="java" name="com.kosta.rnbcafe.cofig.WebInit" project="rnbcafe" 
+  <class id="40" language="java" name="com.kosta.rnbcafe.cofig.WebInit" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/cofig/WebInit.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1422" y="3636"/>    
+    <position height="-1" width="-1" x="1279" y="2632"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="40" language="java" name="com.kosta.rnbcafe.cofig.SecurityConfig" project="rnbcafe" 
+  <class id="41" language="java" name="com.kosta.rnbcafe.cofig.SecurityConfig" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/cofig/SecurityConfig.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="928" y="1235"/>    
+    <position height="-1" width="-1" x="938" y="1125"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="41" language="java" name="com.kosta.rnbcafe.util.Result" project="rnbcafe" 
+  <class id="42" language="java" name="com.kosta.rnbcafe.util.Result" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/util/Result.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="125" y="1352"/>    
+    <position height="-1" width="-1" x="123" y="726"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="42" language="java" name="com.kosta.rnbcafe.board.controller.BoardController" project="rnbcafe" 
+  <class id="43" language="java" name="com.kosta.rnbcafe.board.controller.BoardController" project="rnbcafe" 
     file="/rnbcafe/src/main/java/com/kosta/rnbcafe/board/controller/BoardController.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="426" y="1876"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="43" language="java" name="com.kosta.rnbcafe.board.BoardSet" project="rnbcafe" 
-    file="/rnbcafe/src/main/java/com/kosta/rnbcafe/board/BoardSet.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="906" y="2841"/>    
+    <position height="-1" width="-1" x="448" y="1684"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -410,10 +410,10 @@
   <association id="45">    
     <end type="SOURCE" refId="1" navigable="false">      
       <attribute id="46" name="categoryService">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="-22" y="-132"/>      
       </attribute>      
       <multiplicity id="47" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="-22" y="-132"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
@@ -434,10 +434,10 @@
   <association id="51">    
     <end type="SOURCE" refId="10" navigable="false">      
       <attribute id="52" name="oneBoardDao">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="-322" y="-152"/>      
       </attribute>      
       <multiplicity id="53" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="-322" y="-152"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="18" navigable="true"/>    
@@ -446,38 +446,38 @@
   <association id="54">    
     <end type="SOURCE" refId="2" navigable="false">      
       <attribute id="55" name="result">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="-2" y="-670"/>      
       </attribute>      
       <multiplicity id="56" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="-2" y="-670"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="41" navigable="true"/>    
+    <end type="TARGET" refId="42" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="57">    
     <end type="SOURCE" refId="3" navigable="false">      
       <attribute id="58" name="memberAdminService">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="-42" y="-126"/>      
       </attribute>      
       <multiplicity id="59" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="-42" y="-126"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <dependency id="60">    
-    <end type="SOURCE" refId="42"/>    
-    <end type="TARGET" refId="41"/>  
+    <end type="SOURCE" refId="43"/>    
+    <end type="TARGET" refId="42"/>  
   </dependency>  
   <association id="61">    
     <end type="SOURCE" refId="4" navigable="false">      
       <attribute id="62" name="service">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="-52" y="-36"/>      
       </attribute>      
       <multiplicity id="63" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="-52" y="-36"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="12" navigable="true"/>    
@@ -490,10 +490,10 @@
   <association id="65">    
     <end type="SOURCE" refId="31" navigable="false">      
       <attribute id="66" name="categoryService">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="-22" y="-132"/>      
       </attribute>      
       <multiplicity id="67" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="-22" y="-132"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
@@ -502,10 +502,10 @@
   <association id="68">    
     <end type="SOURCE" refId="2" navigable="false">      
       <attribute id="69" name="oneBoardService">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="-56" y="-168"/>      
       </attribute>      
       <multiplicity id="70" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="-56" y="-168"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
@@ -515,18 +515,18 @@
     <end type="SOURCE" refId="28"/>    
     <end type="TARGET" refId="29"/>  
   </dependency>  
-  <dependency id="72">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="41"/>  
-  </dependency>  
-  <association id="73">    
-    <end type="SOURCE" refId="42" navigable="false">      
-      <attribute id="74" name="bset"/>      
-      <multiplicity id="75" minimum="0" maximum="1"/>    
+  <association id="72">    
+    <end type="SOURCE" refId="43" navigable="false">      
+      <attribute id="73" name="bset"/>      
+      <multiplicity id="74" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="43" navigable="true"/>    
+    <end type="TARGET" refId="32" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <dependency id="75">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="42"/>  
+  </dependency>  
   <association id="76">    
     <end type="SOURCE" refId="11" navigable="false">      
       <attribute id="77" name="dao">        
@@ -544,7 +544,7 @@
     <end type="TARGET" refId="15"/>  
   </realization>  
   <association id="80">    
-    <end type="SOURCE" refId="40" navigable="false">      
+    <end type="SOURCE" refId="41" navigable="false">      
       <attribute id="81" name="loginSuccessHandler">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
@@ -552,7 +552,7 @@
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="36" navigable="true"/>    
+    <end type="TARGET" refId="37" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <realization id="83">    
@@ -584,7 +584,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <dependency id="90">    
-    <end type="SOURCE" refId="32"/>    
+    <end type="SOURCE" refId="33"/>    
     <end type="TARGET" refId="28"/>  
   </dependency>  
   <realization id="91">    
@@ -592,7 +592,7 @@
     <end type="TARGET" refId="14"/>  
   </realization>  
   <association id="92">    
-    <end type="SOURCE" refId="42" navigable="false">      
+    <end type="SOURCE" refId="43" navigable="false">      
       <attribute id="93" name="service"/>      
       <multiplicity id="94" minimum="0" maximum="1"/>    
     </end>    
@@ -600,7 +600,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="95">    
-    <end type="SOURCE" refId="40" navigable="false">      
+    <end type="SOURCE" refId="41" navigable="false">      
       <attribute id="96" name="userDetailService">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
@@ -608,16 +608,16 @@
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="33" navigable="true"/>    
+    <end type="TARGET" refId="34" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="98">    
     <end type="SOURCE" refId="7" navigable="false">      
       <attribute id="99" name="categoryDao">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="-296" y="-76"/>      
       </attribute>      
       <multiplicity id="100" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="-296" y="-76"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="17" navigable="true"/>    
@@ -628,11 +628,11 @@
     <end type="TARGET" refId="12"/>  
   </realization>  
   <dependency id="102">    
-    <end type="SOURCE" refId="39"/>    
-    <end type="TARGET" refId="34"/>  
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="35"/>  
   </dependency>  
   <association id="103">    
-    <end type="SOURCE" refId="33" navigable="false">      
+    <end type="SOURCE" refId="34" navigable="false">      
       <attribute id="104" name="dao">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
@@ -644,7 +644,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="106">    
-    <end type="SOURCE" refId="42" navigable="false">      
+    <end type="SOURCE" refId="43" navigable="false">      
       <attribute id="107" name="mservice"/>      
       <multiplicity id="108" minimum="0" maximum="1"/>    
     </end>    
