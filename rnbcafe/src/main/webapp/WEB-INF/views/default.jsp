@@ -170,7 +170,7 @@
 					</c:if>
 					<c:if test="${boardListDto.btype == 2}">
 						<a
-							href="${root}/board/boardset?bcode=${boardListDto.bcode}&bname=${boardListDto.bname}&type=img&pg=1&key=&word=">
+							href="${root}/board/boardset?bcode=${boardListDto.bcode}&bname=${boardListDto.bname}&role=${boardListDto.role}&type=img&pg=1&key=&word=">
 							<span class="glyphicon glyphicon-picture">
 								${boardListDto.bname}</span>
 						</a>
